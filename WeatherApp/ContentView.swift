@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    let viewModel: WeatherViewModel
+    
+    init() {
+        let apiService = WeatherAPIService()
+        let dataCache = WeatherDataCache(fileName: "weatherCache.json")
+        self.viewModel = WeatherViewModel(weatherAPIService: apiService, weatherDataCache: dataCache)
+    }
+
     var body: some View {
         VStack {
-        
+            WeatherView(viewModel: viewModel)
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

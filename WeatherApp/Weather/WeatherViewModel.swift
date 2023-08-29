@@ -25,29 +25,35 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
     init(weatherAPIService: WeatherAPIServiceProtocol, weatherDataCache: WeatherDataCache) {
         self.weatherAPIService = weatherAPIService
         self.weatherDataCache = weatherDataCache
+        fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
     }
     
     func fetchWeatherData(latitude: Double, longitude: Double) {
         Task {
             do {
+                // Pobieranie danych z API
                 let response = try await weatherAPIService.downloadWeatherData(latitude: latitude, longitude: longitude)
+                
+                // Aktualizacja danych pogodowych i zapisanie ich do pamięci podręcznej
                 DispatchQueue.main.async {
                     self.weatherData.send(response.list)
                     self.weatherDataCache.saveWeatherData(response.list)
                 }
             } catch {
+                // Obsługa błędów i korzystanie z danych z pamięci podręcznej, jeśli są dostępne
                 if let weatherError = error as? WeatherError {
                     DispatchQueue.main.async {
                         self.error = weatherError
-                        
                         if let cachedData = self.weatherDataCache.fetchWeatherData() {
                             self.weatherData.send(cachedData)
                         }
                     }
                 }
             }
+            
         }
     }
+
 
     struct WeatherError: Error, Identifiable {
         var id: String { localizedDescription }

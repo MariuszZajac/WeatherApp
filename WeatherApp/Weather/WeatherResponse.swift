@@ -7,7 +7,7 @@
 
 import Foundation
 public struct WeatherResponse: Codable, Identifiable {
-    public var id: UUID
+    public var id: Int?
     let cod: String
     let message: Int
     let cnt: Int
@@ -15,7 +15,7 @@ public struct WeatherResponse: Codable, Identifiable {
 }
 
 struct WeatherData: Codable, Identifiable {
-    public var id: UUID
+    public var id: Int?
     let dt: Int
     let main: Main
     let weather: [Weather]

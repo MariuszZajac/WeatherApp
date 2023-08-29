@@ -30,7 +30,7 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
         
         do {
             let (data, response) = try await urlSession.data(from: url)
-            
+            //print("Dane pobrane: \(data), odpowiedź HTTP: \(response)") //diagnostic
             guard isValidHTTPResponse(response) else {
                 throw WeatherError.invalidHTTPResponse
             }
@@ -38,6 +38,7 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
             return try decodeWeatherData(data)
             
         } catch {
+           // print("Błąd: \(error)")
             ErrorLogger.shared.logError(error)
             throw WeatherError.networkError
         }
