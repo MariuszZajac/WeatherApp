@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreLocation
 
-final class CityVievModel : ObservableObject {
+final class CityViewModel : ObservableObject {
     @Published var city: String = "Paris"
  
     

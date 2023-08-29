@@ -1,5 +1,5 @@
 //
-//  APiService.swift
+//  APIService.swift
 //  WeatherApp
 //
 //  Created by Mariusz Zając on 28/08/2023.
@@ -21,8 +21,29 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
         self.urlSession = urlSession
     }
     
+    
     func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherResponse {
         
+        guard let url = constructWeatherURL(latitude: latitude, longitude: longitude) else {
+            throw WeatherError.invalidURL
+        }
+        
+        do {
+            let (data, response) = try await urlSession.data(from: url)
+            
+            guard isValidHTTPResponse(response) else {
+                throw WeatherError.invalidHTTPResponse
+            }
+            
+            return try decodeWeatherData(data)
+            
+        } catch {
+            ErrorLogger.shared.logError(error)
+            throw WeatherError.networkError
+        }
+    }
+    
+    private func constructWeatherURL(latitude: Double, longitude: Double) -> URL? {
         var urlComponents = URLComponents(string: baseUrl)
         urlComponents?.queryItems = [
             URLQueryItem(name: "lat", value: "\(latitude)"),
@@ -31,35 +52,28 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
             URLQueryItem(name: "units", value: units)
         ]
         
-        guard let url = urlComponents?.url else {
-            throw WeatherError.invalidURL
+        return urlComponents?.url
+    }
+    private func isValidHTTPResponse(_ response: URLResponse?) -> Bool {
+        guard let httpResponse = response as? HTTPURLResponse else {
+            return false
         }
-        // Wykonaj zapytanie
+        
+        return httpResponse.statusCode == 200
+    }
+    private func decodeWeatherData(_ data: Data) throws -> WeatherResponse {
         do {
-            let (data, response) = try await urlSession.data(from: url)
-            
-            guard let httpResponse = response as? HTTPURLResponse,
-                  httpResponse.statusCode == 200 else {
-                ErrorLogger.shared.logError(WeatherError.invalidHTTPResponse)
-                throw WeatherError.invalidHTTPResponse
-            }
-            
-            // Przetwórz dane
-            do {
-                let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
-                return weatherResponse
-            } catch {
-                ErrorLogger.shared.logError(error)
-                throw WeatherError.dataDecodingError
-            }
+            let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
+            return weatherResponse
         } catch {
             ErrorLogger.shared.logError(error)
-            throw WeatherError.networkError
+            throw WeatherError.dataDecodingError
         }
-        
-        
     }
+    
 }
+
+
 enum WeatherError: Error, LocalizedError {
     case invalidURL
     case dataDecodingError

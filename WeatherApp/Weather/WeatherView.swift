@@ -4,54 +4,38 @@
 //
 //  Created by Mariusz Zając on 28/08/2023.
 //
-
+import Foundation
 import SwiftUI
+import Combine
 
 struct WeatherView: View {
-    // Dependency Injection
-    @StateObject var weatherViewModel = WeatherViewModel(weatherAPIService: WeatherAPIService())
+    @ObservedObject var viewModel: WeatherViewModel
+    @State private var showDetails = false
     
     var body: some View {
-        List(weatherViewModel.weatherData.value) { weatherData in
-            VStack {
-                HStack {
-                    if let firstWeather = weatherData.weather.first,
-                       let weatherIcon = WeatherIcon(rawValue: firstWeather.icon) {
-                        Text(firstWeather.description)
-                        Image(systemName: weatherIcon.systemImageName)
-                    } else {
-                        Text("N/A")
-                        Image(systemName: "cloud")
-                    }
-                }
+        VStack {
+            // Pasek stanu
+            HStack {
+                Text("Pogoda dla miasta X")
+                    .font(.title)
+                    .padding()
+                Spacer()
                 
-                VStack {
-                    Text("\(String(format: "%.1f", weatherData.main.temp))°C")
-                        .bold()
-                        .font(.title)
-                    
-                    Text("\(String(format: "%.1f", weatherData.main.temp_max))°C / \(String(format: "%.1f", weatherData.main.temp_min))°C")
-                    
-                    Text("\(weatherData.main.pressure) hPa")
-                }
             }
-            .foregroundColor(.white)
-            .padding()
-            .background(Color.blue.opacity(0.4))
-            .cornerRadius(10)
-            .frame(width: 250, height: 250)
-        }
-        .onAppear {
-            weatherViewModel.fetchWeatherData(latitude: 48.856788, longitude: 2.351077) // Paryż
-        }
-        .alert(item: $weatherViewModel.error) { error in
-            Alert(title: Text("Błąd"), message: Text(error.localizedDescription), dismissButton: .default(Text("OK")))
+            .onAppear {
+                viewModel.fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
+            }
         }
     }
+    
 }
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherView()
+        let apiService = WeatherAPIService()
+        let dataCache = WeatherDataCache(fileName: "weatherCache.json")
+        let viewModel = WeatherViewModel(weatherAPIService: apiService, weatherDataCache: dataCache)
+        
+        return WeatherView(viewModel: viewModel)
     }
 }
 
