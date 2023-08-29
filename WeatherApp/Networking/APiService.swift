@@ -13,34 +13,69 @@ protocol WeatherAPIServiceProtocol {
 
 final class WeatherAPIService: WeatherAPIServiceProtocol {
     private let urlSession: URLSession
-    private let baseUrl = "https://api.openweathermap.org/data/2.5/forecast"
-    private let apiKey = "2cf58968364dce8a18154518e855ae80"
-
+    private let baseUrl = APIConfig.baseURL
+    private let apiKey = APIConfig.apiKey
+    private let units = "metric"
+    
     init(urlSession: URLSession = URLSession.shared) {
         self.urlSession = urlSession
     }
-
+    
     func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherResponse {
-        let urlString = "\(baseUrl)?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)"
-        guard let url = URL(string: urlString) else {
+        
+        var urlComponents = URLComponents(string: baseUrl)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "lat", value: "\(latitude)"),
+            URLQueryItem(name: "lon", value: "\(longitude)"),
+            URLQueryItem(name: "appid", value: apiKey),
+            URLQueryItem(name: "units", value: units)
+        ]
+        
+        guard let url = urlComponents?.url else {
             throw WeatherError.invalidURL
         }
         // Wykonaj zapytanie
-        let (data, _) = try await urlSession.data(from: url)
-        
-        // Przetwórz dane
-        guard let weatherResponse = try? JSONDecoder().decode(WeatherResponse.self, from: data) else {
-            throw WeatherError.dataDecodingError
+        do {
+            let (data, response) = try await urlSession.data(from: url)
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  httpResponse.statusCode == 200 else {
+                ErrorLogger.shared.logError(WeatherError.invalidHTTPResponse)
+                throw WeatherError.invalidHTTPResponse
+            }
+            
+            // Przetwórz dane
+            do {
+                let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
+                return weatherResponse
+            } catch {
+                ErrorLogger.shared.logError(error)
+                throw WeatherError.dataDecodingError
+            }
+        } catch {
+            ErrorLogger.shared.logError(error)
+            throw WeatherError.networkError
         }
         
-        return weatherResponse
+        
     }
-
-
 }
-
-enum WeatherError: Error {
+enum WeatherError: Error, LocalizedError {
     case invalidURL
     case dataDecodingError
+    case networkError
+    case invalidHTTPResponse
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return "Nieprawidłowy URL."
+        case .dataDecodingError:
+            return "Błąd dekodowania danych."
+        case .networkError:
+            return "Błąd sieci."
+        case .invalidHTTPResponse:
+            return "Nieprawidłowa odpowiedź HTTP."
+        }
+    }
 }
-

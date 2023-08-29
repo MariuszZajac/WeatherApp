@@ -14,7 +14,8 @@ public struct WeatherResponse: Codable, Identifiable {
     let list: [WeatherData]
 }
 
-struct WeatherData: Codable {
+struct WeatherData: Codable, Identifiable {
+    public var id: UUID
     let dt: Int
     let main: Main
     let weather: [Weather]
