@@ -10,61 +10,61 @@ import Combine
 
 struct WeatherView: View {
     @ObservedObject var viewModel: WeatherViewModel
-    @State private var showDetails = false
     
     var body: some View {
         NavigationView {
-            ZStack (alignment: .leading){
-                VStack{
-                    if let firstWeatherData = viewModel.weatherData.value.first {
-                        weatherInfo(firstWeatherData: firstWeatherData) // przeniesienie logiki do subview
-                    }
-                    Spacer()
-                    VStack{
-                        weatherIcon() // przeniesienie logiki do subview
-                    }
-                }
-            }
-        }
-//        .onAppear {
-//            viewModel.fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
-//        }
-    }
-    
-    private func weatherInfo(firstWeatherData: WeatherData) -> some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("Paris")
-                .bold()
-                .font(.title)
-            Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
-                .fontWeight(.light)
-            Text("\(firstWeatherData.main.temp)°")
-                .font(.largeTitle)
-                .bold()
-            Text("Czas: \(firstWeatherData.dt_txt)")
-            Text("Temperatura: \(firstWeatherData.main.temp)°C")
-            Text("Odczuwalna temperatura: \(firstWeatherData.main.feels_like)°C")
-            Text("Ciśnienie: \(firstWeatherData.main.pressure) hPa")
-            Text("Wilgotność: \(firstWeatherData.main.humidity)%")
-            Text("Wiatr: \(firstWeatherData.wind.speed) m/s")
             
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-    }
-    
-    private func weatherIcon() -> some View {
-        HStack{
-            VStack(spacing: 20) {
-                if let iconCode = viewModel.weatherData.value.first?.weather.first?.icon,
-                   let weatherIcon = WeatherIcon(rawValue: iconCode) {
-                    Image(systemName: weatherIcon.systemImageName)
-                        .font(.system(size: 40))
-                } else {
-                    // Domyślna ikona, gdy nie ma danych
-                    Image(systemName: "questionmark.circle")
-                }
+            VStack(alignment: .leading, spacing: 5) {
+                Text("Paris")
+                    .bold()
+                    .font(.largeTitle)
                 
+                Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
+                    .fontWeight(.bold)
+                
+                List {
+                    let groupedWeatherData = viewModel.weatherDataUI.groupByDay()
+                    
+                    ForEach(groupedWeatherData.keys.sorted(), id: \.self) { dateKey in
+                        Section(header: Text(dateKey)) {
+                            
+                            let filteredDataForNoon = groupedWeatherData[dateKey]?.filter { weatherData in
+                                if let time = weatherData.dt_txt.extractHourAndMinuteFromDateTime() {
+                                    return time == "12:00"
+                                }
+                                return false
+                            } ?? []
+                            
+                            ForEach(filteredDataForNoon, id: \.dt) { weatherData in
+                                VStack{
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        
+                                        Text("\(weatherData.main.temp.roundDouble())°")
+                                            .font(.largeTitle)
+                                            .bold()
+                                        if let time = weatherData.dt_txt.extractHourAndMinuteFromDateTime() {
+                                            Text("\(time)")
+                                        }
+
+                                        Text("Odczuwalna temperatura: \(weatherData.main.feels_like.roundDouble())°C")
+                                        Text("Ciśnienie: \(weatherData.main.pressure) hPa")
+                                        Text("Wilgotność: \(weatherData.main.humidity)%")
+                                        Text("Wiatr: \(weatherData.wind.speed.roundDouble()) m/s")
+                                        
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+                }
             }
+            .background(Color.blue)
+    
+            
         }
     }
 }

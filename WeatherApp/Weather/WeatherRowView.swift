@@ -3,24 +3,28 @@ import Combine
 
 struct WeatherRowView: View {
     @ObservedObject var viewModel: WeatherViewModel
-    
     var body: some View {
         NavigationView {
             List(viewModel.weatherDataUI, id: \.dt) { weatherData in
                 
+                let groupedData = viewModel.weatherDataUI.groupByDay()
+                
                 VStack(alignment: .leading) {
                     Text("Czas: \(weatherData.dt_txt)")
-                    Text("Temperatura: \(String(format: "%.1f", weatherData.main.temp))°C")
-                    Text("Odczuwalna temperatura: \(String(format: "%.1f", weatherData.main.feels_like))°C")
+                    Text("Temperatura: \(weatherData.main.temp.roundDouble())°C")
+                    Text("Odczuwalna temperatura: \(weatherData.main.feels_like.roundDouble())°C")
 
                     Text("Ciśnienie: \(weatherData.main.pressure) hPa")
                     Text("Wilgotność: \(weatherData.main.humidity)%")
-                    Text("Wiatr: \(String(format: "%.1f", weatherData.wind.speed)) m/s")
+                    Text("Wiatr: \(weatherData.wind.speed.roundDouble()) m/s")
                 }
             }
             .navigationBarTitle("Pogoda", displayMode: .inline)
-
+            
         }
+//        .onAppear{
+//            print("Debug:\(viewModel.weatherDataUI)")
+//        }
     }
 }
 struct WeatherRowView_Previews: PreviewProvider {
