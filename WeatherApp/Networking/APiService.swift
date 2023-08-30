@@ -38,7 +38,6 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
             return try decodeWeatherData(data)
             
         } catch {
-           // print("Błąd: \(error)")
             ErrorLogger.shared.logError(error)
             throw WeatherError.networkError
         }

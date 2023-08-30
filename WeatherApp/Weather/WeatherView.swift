@@ -26,10 +26,9 @@ struct WeatherView: View {
                 }
             }
         }
-        .onAppear {
-            viewModel.fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
-            // możesz też dodać obsługę błędów tutaj
-        }
+//        .onAppear {
+//            viewModel.fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
+//        }
     }
     
     private func weatherInfo(firstWeatherData: WeatherData) -> some View {
@@ -42,6 +41,13 @@ struct WeatherView: View {
             Text("\(firstWeatherData.main.temp)°")
                 .font(.largeTitle)
                 .bold()
+            Text("Czas: \(firstWeatherData.dt_txt)")
+            Text("Temperatura: \(firstWeatherData.main.temp)°C")
+            Text("Odczuwalna temperatura: \(firstWeatherData.main.feels_like)°C")
+            Text("Ciśnienie: \(firstWeatherData.main.pressure) hPa")
+            Text("Wilgotność: \(firstWeatherData.main.humidity)%")
+            Text("Wiatr: \(firstWeatherData.wind.speed) m/s")
+            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -57,7 +63,7 @@ struct WeatherView: View {
                     // Domyślna ikona, gdy nie ma danych
                     Image(systemName: "questionmark.circle")
                 }
-        
+                
             }
         }
     }
