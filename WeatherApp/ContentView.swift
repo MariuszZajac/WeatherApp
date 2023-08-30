@@ -18,7 +18,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            WeatherView(viewModel: viewModel)
+            WeatherRowView(viewModel: viewModel)
         }
     }
 }

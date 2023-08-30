@@ -16,6 +16,8 @@ protocol WeatherViewModelProtocol {
 
 final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
     @Published var error: WeatherError?
+    @Published var weatherDataUI: [WeatherData] = []
+    
     var weatherData = CurrentValueSubject<[WeatherData], Error>([])
     private let weatherAPIService: WeatherAPIServiceProtocol
     private let weatherDataCache: WeatherDataCache
@@ -25,12 +27,22 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
     init(weatherAPIService: WeatherAPIServiceProtocol, weatherDataCache: WeatherDataCache) {
         self.weatherAPIService = weatherAPIService
         self.weatherDataCache = weatherDataCache
+    
+        // Załadowanie domyślnych danych pogodowych
         fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
+
+        weatherData
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { _ in },
+                          receiveValue: { [weak self] newData in
+                              self?.weatherDataUI = newData
+                          })
+                    .store(in: &cancellableSet)
     }
     
     func fetchWeatherData(latitude: Double, longitude: Double) {
         Task {
-            do {
+             do {
                 // Pobieranie danych z API
                 let response = try await weatherAPIService.downloadWeatherData(latitude: latitude, longitude: longitude)
                 
@@ -50,7 +62,8 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
                     }
                 }
             }
-            
+        
+
         }
     }
 
