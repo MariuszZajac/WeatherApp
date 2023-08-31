@@ -12,37 +12,32 @@ struct WeatherNoonView: View {
     
     var body: some View {
         
-        HStack{
-            let groupedWeatherData = viewModel.weatherDataUI.groupByDay()
-            
-            ForEach(groupedWeatherData.keys.sorted().prefix(5), id: \.self) { dateKey in
-                let shortDate = getDayAndMonth(from: dateKey)
-                Section(header: Text(shortDate)
-                    .bold()
-                    .font(.headline)) {
-                        
-                        // Filtruj dane, aby pokazać tylko te dla godziny 12:00
-                        let filteredDataForNoon = groupedWeatherData[dateKey]?.filter { weatherData in
-                            if let time = weatherData.dt_txt.extractHourAndMinuteFromDateTime() {
-                                return time == "12:00"
-                            }
-                            return false
-                        } ?? []
-                        
-                        ForEach(filteredDataForNoon, id: \.dt) { weatherData in
-                            
-                            VStack(alignment: .leading, spacing: 15){
-                                HStack{ WeatherRowView2( icon:"wind", fullDate:"Mon", temp: "\(weatherData.main.temp_max)°")
-                                }
-                                
-                            }
-                            .frame(width: 2000, height: 150)
-                        }
-                    }
+        NavigationView {
+            HStack{
+                let groupedWeatherData = viewModel.weatherDataUI.groupByDay()
                 
+                ForEach(groupedWeatherData.keys.sorted().prefix(5), id: \.self) { dateKey in
+                    let shortDate = getDayAndMonth(from: dateKey)
+                    
+                    let filteredDataForNoon = getFilteredDataOrLatest(from: groupedWeatherData, for: dateKey)
+
+                    ForEach(filteredDataForNoon, id: \.dt) { weatherData in
+                        
+                       NavigationLink(destination: WeatherDetailView(weatherData: groupedWeatherData))
+                            HStack(spacing: 5){
+                                
+                                WeatherRowView(data: shortDate, icon: WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay,
+                                               temp: String(format: "%.0f", weatherData.main.temp_max))
+                            }
+                        }
+                        
+                    }
+                    
+                    
+                }
             }
         }
-    
+        
         
     }
     func getDayAndMonth(from fullDate: String) -> String {
@@ -54,7 +49,25 @@ struct WeatherNoonView: View {
             return dateFormatter.string(from: date)
         }
         return "Invalid Date"    }
+    func getFilteredDataOrLatest(from groupedWeatherData: [String: [WeatherData]], for dateKey: String) -> [WeatherData] {
+        var filteredData = groupedWeatherData[dateKey]?.filter { weatherData in
+            if let time = weatherData.dt_txt.extractHourAndMinuteFromDateTime() {
+                return time == "12:00"
+            }
+            return false
+        } ?? []
+        
+        if filteredData.isEmpty, let availableData = groupedWeatherData[dateKey] {
+            let sortedData = availableData.sorted(by: { $0.dt > $1.dt })
+            if let latestData = sortedData.first {
+                filteredData.append(latestData)
+            }
+        }
+        
+        return filteredData
+    }
 
+    
 }
 
 

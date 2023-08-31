@@ -13,23 +13,28 @@ struct WeatherView: View {
     
     var body: some View {
         NavigationView {
-            
-            VStack(alignment: .leading, spacing: 5) {
-                Text("Paris")
-                    .bold()
-                    .font(.largeTitle)
-                
-                Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
-                    .fontWeight(.bold)
-                VStack{
-                    VStack(alignment: .leading, spacing: 5) {
-                        WeatherNoonView(viewModel: viewModel)
-                        
-                    }
+            VStack {
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("Paris")
+                        .bold()
+                        .font(.largeTitle)
+                    
+                    Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
+                        .fontWeight(.bold)
+                 
+                    VStack{
+                        VStack(alignment: .leading, spacing: 10) {
+                            WeatherNoonView(viewModel: viewModel)
+                            
+                        }
+                    }   .padding(10)
+//
                 }
+               
             }
+            
         }
-        .background(Color.blue)
+        
     }
 }
 struct WeatherView_Previews: PreviewProvider {
