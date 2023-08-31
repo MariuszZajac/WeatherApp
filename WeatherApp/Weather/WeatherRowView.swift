@@ -1,37 +1,36 @@
 import SwiftUI
 import Combine
 
-struct WeatherRowView: View {
-    @ObservedObject var viewModel: WeatherViewModel
+import SwiftUI
+
+struct WeatherRow: View {
+    var logo: String
+    var name: String
+    var value: String
+    
     var body: some View {
-        NavigationView {
-            List(viewModel.weatherDataUI, id: \.dt) { weatherData in
-                
-                let groupedData = viewModel.weatherDataUI.groupByDay()
-                
-                VStack(alignment: .leading) {
-                    Text("Czas: \(weatherData.dt_txt)")
-                    Text("Temperatura: \(weatherData.main.temp.roundDouble())°C")
-                    Text("Odczuwalna temperatura: \(weatherData.main.feels_like.roundDouble())°C")
-
-                    Text("Ciśnienie: \(weatherData.main.pressure) hPa")
-                    Text("Wilgotność: \(weatherData.main.humidity)%")
-                    Text("Wiatr: \(weatherData.wind.speed.roundDouble()) m/s")
-                }
-            }
-            .navigationBarTitle("Pogoda", displayMode: .inline)
+        HStack(spacing: 5) {
+            Image(systemName: logo)
+                .font(.title2)
+                .frame(width: 5 , height: 5)
+                .padding()
+                .background(Color.gray)
+                .cornerRadius(50)
             
+            VStack(alignment: .leading, spacing: 3) {
+                Text(name)
+                    .font(.caption)
+                Text(value)
+                    .bold()
+                    .font(.headline)
+                    
+            }
         }
-//        .onAppear{
-//            print("Debug:\(viewModel.weatherDataUI)")
-//        }
-    }
-}
-struct WeatherRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherRowView(viewModel: WeatherViewModel(
-            weatherAPIService: WeatherAPIService(),
-            weatherDataCache:  WeatherDataCache(fileName:"FileName")))
     }
 }
 
+struct WeatherRow_Previews: PreviewProvider {
+    static var previews: some View {
+        WeatherRow(logo: "thermometer", name: "temp", value: "8°")
+    }
+}

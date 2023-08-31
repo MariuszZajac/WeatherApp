@@ -49,7 +49,7 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
                 // Aktualizacja danych pogodowych i zapisanie ich do pamięci podręcznej
                 DispatchQueue.main.async {
                     self.weatherData.send(response.list)
-                    print("Debug: Wysyłam nowe dane do weatherData \(response.list)")
+                  //  print("Debug: Wysyłam nowe dane do weatherData \(response.list)")
                     self.weatherDataCache.saveWeatherData(response.list)
                 }
             } catch {
