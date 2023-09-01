@@ -63,6 +63,8 @@ struct WeatherData: Codable, Identifiable {
     
 }
 
+
+
 enum WeatherIcon: String {
     case clearDay = "01d"
     case clearNight = "01n"
@@ -106,5 +108,3 @@ enum WeatherIcon: String {
         }
     }
 }
-
-//    let url = "api.openweathermap.org/data/2.5/forecast?lat=51.816282&lon=23.011893&appid=2cf58968364dce8a18154518e855ae80"

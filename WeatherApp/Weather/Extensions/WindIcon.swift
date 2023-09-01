@@ -1,0 +1,55 @@
+//
+//  WindIcon.swift
+//  WeatherApp
+//
+//  Created by Mariusz Zając on 01/09/2023.
+//
+
+import Foundation
+
+enum WindIcon {
+    case lightNorth
+    case moderateNorth
+    case strongNorth
+    
+    case lightEast
+    case moderateEast
+    case strongEast
+    
+    case lightSouth
+    case moderateSouth
+    case strongSouth
+    
+    case lightWest
+    case moderateWest
+    case strongWest
+}
+
+
+func getWindIcon(from wind: WeatherData.Wind) -> WindIcon {
+    switch wind.deg {
+    case 0..<45, 315..<360:
+        return getIconForStrength(speed: wind.speed, light: .lightNorth, moderate: .moderateNorth, strong: .strongNorth)
+    case 45..<135:
+        return getIconForStrength(speed: wind.speed, light: .lightEast, moderate: .moderateEast, strong: .strongEast)
+    case 135..<225:
+        return getIconForStrength(speed: wind.speed, light: .lightSouth, moderate: .moderateSouth, strong: .strongSouth)
+    case 225..<315:
+        return getIconForStrength(speed: wind.speed, light: .lightWest, moderate: .moderateWest, strong: .strongWest)
+    default:
+        return .lightNorth
+    }
+}
+
+func getIconForStrength(speed: Double, light: WindIcon, moderate: WindIcon, strong: WindIcon) -> WindIcon {
+    if speed < 10 {
+        return light
+    } else if speed < 20 {
+        return moderate
+    } else {
+        return strong
+    }
+}
+
+
+

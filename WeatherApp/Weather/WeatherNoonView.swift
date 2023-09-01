@@ -20,10 +20,10 @@ struct WeatherNoonView: View {
                     let shortDate = getDayAndMonth(from: dateKey)
                     
                     let filteredDataForNoon = getFilteredDataOrLatest(from: groupedWeatherData, for: dateKey)
-
+                    
                     ForEach(filteredDataForNoon, id: \.dt) { weatherData in
                         
-                       NavigationLink(destination: WeatherDetailView(weatherData: groupedWeatherData))
+                        NavigationLink(destination: WeatherDetailView(weatherData: weatherData)){
                             HStack(spacing: 5){
                                 
                                 WeatherRowView(data: shortDate, icon: WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay,
@@ -32,14 +32,11 @@ struct WeatherNoonView: View {
                         }
                         
                     }
-                    
-                    
                 }
             }
         }
-        
-        
     }
+    
     func getDayAndMonth(from fullDate: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -66,7 +63,7 @@ struct WeatherNoonView: View {
         
         return filteredData
     }
-
+    
     
 }
 
