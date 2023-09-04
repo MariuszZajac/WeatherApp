@@ -17,13 +17,13 @@ struct WeatherNoonView: View {
                 let groupedWeatherData = viewModel.weatherDataUI.groupByDay()
                 
                 ForEach(groupedWeatherData.keys.sorted().prefix(5), id: \.self) { dateKey in
+                   
                     let shortDate = getDayAndMonth(from: dateKey)
-                    
                     let filteredDataForNoon = getFilteredDataOrLatest(from: groupedWeatherData, for: dateKey)
                     
                     ForEach(filteredDataForNoon, id: \.dt) { weatherData in
                         
-                        NavigationLink(destination: WeatherDetailView(weatherData: weatherData)){
+                        NavigationLink(destination: WeatherDetailView(weatherData: groupedWeatherData[dateKey] ?? [])) {
                             HStack(spacing: 5){
                                 
                                 WeatherRowView(data: shortDate, icon: WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay,

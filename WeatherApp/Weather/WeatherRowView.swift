@@ -20,11 +20,9 @@ struct WeatherRowView: View {
         self.day = "N/A"
         self.day = getDayOfWeek(from: data) ?? "N/A"
     }
-        var body: some View {
+    var body: some View {
         VStack(spacing: 5) {
-            
             Text("\(data)")
-                
             Text("\(day)")
                 .font(.caption)
             VStack{
@@ -33,16 +31,11 @@ struct WeatherRowView: View {
                     .frame(width: 5 , height: 5)
                     .padding()
             }.foregroundColor(Color.blue)
-            
-            
             Text("\(temp)°")
                 .bold()
                 .font(.headline)
-            
-            
         }
         .frame(width: 55, height: 100)
-        //.border(Color.black, width: 1)
         .foregroundColor(Color.black)
         
     }
@@ -55,13 +48,12 @@ struct WeatherRowView: View {
         dateFormatter.dateFormat = "EEE"
         return dateFormatter.string(from: date).uppercased()
     }
-
 }
 
 struct WeatherRowView_Previews: PreviewProvider {
-        static var previews: some View {
-            WeatherRowView(data: "2023-08-31", icon: .clearDay, temp: "23")
-        }
-        }
+    static var previews: some View {
+        WeatherRowView(data: "2023-08-31", icon: .clearDay, temp: "23")
+    }
+}
 
 

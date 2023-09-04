@@ -27,29 +27,29 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
     init(weatherAPIService: WeatherAPIServiceProtocol, weatherDataCache: WeatherDataCache) {
         self.weatherAPIService = weatherAPIService
         self.weatherDataCache = weatherDataCache
-    
+        
         // Załadowanie domyślnych danych pogodowych
         fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
-
+        
         weatherData
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in },
-                          receiveValue: { [weak self] newData in
-                              self?.weatherDataUI = newData
-                          })
-                    .store(in: &cancellableSet)
+                  receiveValue: { [weak self] newData in
+                self?.weatherDataUI = newData
+            })
+            .store(in: &cancellableSet)
     }
     
     func fetchWeatherData(latitude: Double, longitude: Double) {
         Task {
-             do {
+            do {
                 // Pobieranie danych z API
                 let response = try await weatherAPIService.downloadWeatherData(latitude: latitude, longitude: longitude)
                 
                 // Aktualizacja danych pogodowych i zapisanie ich do pamięci podręcznej
                 DispatchQueue.main.async {
                     self.weatherData.send(response.list)
-                  //  print("Debug: Wysyłam nowe dane do weatherData \(response.list)")
+                    //  print("Debug: Wysyłam nowe dane do weatherData \(response.list)")
                     self.weatherDataCache.saveWeatherData(response.list)
                 }
             } catch {
@@ -63,12 +63,12 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
                     }
                 }
             }
-        
-
+            
+            
         }
     }
-
-
+    
+    
     struct WeatherError: Error, Identifiable {
         var id: String { localizedDescription }
         var localizedDescription: String

@@ -6,85 +6,50 @@
 //
 
 import SwiftUI
-
 struct WeatherDetailView: View {
-    var weatherData: WeatherData
-    var hour: String
-    var icon: WeatherIcon
-    var temp: String
-    var wind: WeatherData.Wind
-    var visibility: Int
-    var pressure: Int
-    var humidity: Int
+    var weatherData: [WeatherData]
     
     var body: some View {
-        VStack {
-            Text(hour)
-                .font(.title)
-            
-            Image(systemName: icon.systemImageName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 50, height: 50)
-            
-            Text(temp)
-                .font(.largeTitle)
-            
-            HStack {
-                Text("Wiatr:")
-                WindIconView(wind: wind)
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Godzina")
+                Text("Temp")
+                VStack {
+                    Text("Wiatr")
+                    Text(" ")
+                }
+                Text("Widoczność")
+                Text("Ciśnienie")
+                Text("Wilgotność")
             }
+            .bold()
             
-            HStack {
-                Text("Widoczność:")
-                Text("\(visibility)m")
-            }
-            
-            HStack {
-                Text("Ciśnienie:")
-                Text("\(pressure) hPa")
-            }
-            
-            HStack {
-                Text("Wilgotność:")
-                Text("\(humidity)%")
+            GeometryReader { geometry in
+                  ScrollView(.horizontal, showsIndicators: true) {
+                    LazyHStack {
+                     
+                        // Pogoda dla każdej godziny
+                        ForEach(weatherData, id: \.dt) { data in
+                            let viewModel = WeatherHourViewModel(from: data)
+                            
+                            VStack {
+                                Text("\(viewModel.hour)")
+                                Text("\(viewModel.temp.roundDouble())°")
+                                VStack {
+                                    WindIconView(wind: viewModel.wind)
+                                    Text("\(viewModel.wind.speed.roundDouble())m/s")
+                                }
+                                Text("\(viewModel.visibility)m")
+                                Text("\(viewModel.pressure) hPa")
+                                Text("\(viewModel.humidity)%")
+                            }
+                            .frame(width: geometry.size.width * 0.3) // Zajmuje 20% dostępnej szerokości
+                        }
+                    }
+                    .padding(2)
+                }
             }
         }
-        .padding()
     }
 }
-//struct WeatherDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WeatherDetailView(
-//            weatherData: WeatherData(
-//                id: 1,
-//                dt: 1630369593,
-//                main: WeatherData.Main(
-//                    temp: 22.0,
-//                    feels_like: 22.5,
-//                    temp_min: 21.0,
-//                    temp_max: 23.0,
-//                    pressure: 1013,
-//                    sea_level: 1013,
-//                    grnd_level: 1013,
-//                    humidity: 60,
-//                    temp_kf: 1.0
-//                ),
-//                weather: [WeatherData.Weather(id: 800, main: "Clear", description: "clear sky", icon: "01d")],
-//                clouds: WeatherData.Clouds(all: 1),
-//                wind: WeatherData.Wind(speed: 10, deg: 45, gust: 12),
-//                visibility: 10000,
-//                pop: 0.0,
-//                sys: WeatherData.Sys(pod: "d"),
-//                dt_txt: "2023-08-31 12:00:00"
-//            ),
-//            hour: "12:00",
-//            icon: .clearDay,
-//            temp: "22°C",
-//            wind: WeatherData.Wind(speed: 10, deg: 45, gust: 12),
-//            visibility: 1000,
-//            pressure: 1013,
-//            humidity: 60
-//        )
-//    }
-//}
+

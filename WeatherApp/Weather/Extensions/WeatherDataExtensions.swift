@@ -44,4 +44,17 @@ extension String {
     
     
 }
+extension String {
+    func extractHourFromDateTime() -> String?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if let date = dateFormatter.date(from: self) {
+            dateFormatter.dateFormat = "HH"
+            return dateFormatter.string(from: date)
+        }
+        return nil
+    }
+    
+    
+}
 

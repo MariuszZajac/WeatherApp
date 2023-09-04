@@ -10,7 +10,7 @@ import Combine
 
 struct WeatherView: View {
     @ObservedObject var viewModel: WeatherViewModel
-    
+   // @ObservedObject var city: CityViewModel
     var body: some View {
         NavigationView {
             VStack {
@@ -21,20 +21,14 @@ struct WeatherView: View {
                     
                     Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
                         .fontWeight(.bold)
-                 
                     VStack{
                         VStack(alignment: .leading, spacing: 10) {
                             WeatherNoonView(viewModel: viewModel)
-                            
                         }
                     }   .padding(10)
-//
                 }
-               
             }
-            
         }
-        
     }
 }
 struct WeatherView_Previews: PreviewProvider {

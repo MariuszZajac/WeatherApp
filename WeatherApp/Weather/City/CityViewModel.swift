@@ -7,9 +7,11 @@
 
 import SwiftUI
 import CoreLocation
+import Combine
 
-final class CityViewModel : ObservableObject {
-    @Published var city: String = "Paris"
- 
+final class CityViewModel: ObservableObject {
+    @Published var city: [City] = []
     
-}
+    
+    }
+
