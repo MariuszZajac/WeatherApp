@@ -43,7 +43,7 @@ struct WeatherDetailView: View {
                                 Text("\(viewModel.pressure) hPa")
                                 Text("\(viewModel.humidity)%")
                             }
-                            .frame(width: geometry.size.width * 0.3) // Zajmuje 20% dostępnej szerokości
+                            .frame(width: geometry.size.width * 0.3) 
                         }
                     }
                     .padding(2)

@@ -45,7 +45,9 @@ struct WeatherNoonView: View {
             dateFormatter.dateFormat = "MMM dd"
             return dateFormatter.string(from: date)
         }
-        return "Invalid Date"    }
+        return "Invalid Date"
+        
+    }
     func getFilteredDataOrLatest(from groupedWeatherData: [String: [WeatherData]], for dateKey: String) -> [WeatherData] {
         var filteredData = groupedWeatherData[dateKey]?.filter { weatherData in
             if let time = weatherData.dt_txt.extractHourAndMinuteFromDateTime() {
@@ -63,13 +65,7 @@ struct WeatherNoonView: View {
         
         return filteredData
     }
-    
-    
 }
-
-
-
-
 struct WeatherNoonView_Previews: PreviewProvider {
     static var previews: some View {
         let apiService = WeatherAPIService()
