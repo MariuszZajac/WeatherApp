@@ -47,17 +47,22 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
                 }
             } catch {
                 /// Obsługa błędów i korzystanie z danych z pamięci podręcznej, jeśli są dostępne
-                if let weatherError = error as? WeatherError {
-                    DispatchQueue.main.async {
-                        self.error = weatherError
-                        if let cachedData = self.weatherDataCache.fetchWeatherData() {
-                            self.weatherData.send(cachedData)
-                        }
-                    }
-                }
+               handleError(error)
             }
         }
     }
+    private func handleError(_ error: Error) {
+           DispatchQueue.main.async {
+               if let weatherError = error as? WeatherError {
+                   self.error = weatherError
+                   if let cachedData = self.weatherDataCache.fetchWeatherData() {
+                       self.weatherData.send(cachedData)
+                   }
+               } else {
+                   // Tu obsługa innych typów błędów
+               }
+           }
+       }
     struct WeatherError: Error, Identifiable {
         var id: String { localizedDescription }
         var localizedDescription: String
