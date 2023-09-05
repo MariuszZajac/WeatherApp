@@ -14,7 +14,6 @@ struct APIConfig {
     static var apiKey: String {
         return value(for: "APIKey")
     }
-    
     private static func value(for key: String) -> String {
         guard let path = Bundle.main.path(forResource: "APIConfig", ofType: "plist"),
               let xml = FileManager.default.contents(atPath: path),
@@ -25,4 +24,3 @@ struct APIConfig {
         return value
     }
 }
-

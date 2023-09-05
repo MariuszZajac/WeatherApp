@@ -12,7 +12,6 @@ struct WindIconView: View {
 
     var body: some View {
         let icon = getWindIcon(from: wind)
-        
         switch icon {
         case .lightNorth, .moderateNorth, .strongNorth:
             Image(systemName: "arrow.up")

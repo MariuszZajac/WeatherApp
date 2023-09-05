@@ -26,13 +26,12 @@ extension Array where Element == WeatherData {
 }
 
 extension Double {
-    func roundDouble()-> String {
+    func roundDouble() -> String {
         return String(format: "%.1f", self)
     }
-    
 }
 extension String {
-    func extractHourAndMinuteFromDateTime() -> String?{
+    func extractHourAndMinuteFromDateTime() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         if let date = dateFormatter.date(from: self) {
@@ -41,11 +40,9 @@ extension String {
         }
         return nil
     }
-    
-    
 }
 extension String {
-    func extractHourFromDateTime() -> String?{
+    func extractHourFromDateTime() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         if let date = dateFormatter.date(from: self) {
@@ -54,7 +51,4 @@ extension String {
         }
         return nil
     }
-    
-    
 }
-

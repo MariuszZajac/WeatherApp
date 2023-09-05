@@ -11,7 +11,6 @@ struct WeatherRowView2: View {
     var day: String
     var icon: String
     var temp: String
-    
     init(icon: String, fullDate: String, temp: String) {
         self.icon = icon
         self.temp = temp
@@ -21,27 +20,20 @@ struct WeatherRowView2: View {
 
     var body: some View {
         VStack(spacing: 5) {
-            
             Text("\(Date().formatted(.dateTime.month().day()))")
                 .fontWeight(.bold)
             Text("\(day)")
                 .font(.caption)
             Image(systemName: icon)
                 .font(.title2)
-                .frame(width: 5 , height: 5)
+                .frame(width: 5, height: 5)
                 .padding()
-            
-            
             Text("\(temp)°")
                 .bold()
                 .font(.headline)
-            
-            
         }
         .frame(width: 40, height: 100)
-        //.border(Color.black, width: 1)
         .foregroundColor(Color.black)
-        
     }
     func getDayOfWeek(from fullDate: String) -> String? {
         let dateFormatter = DateFormatter()
@@ -60,4 +52,3 @@ struct WeatherRoWView2_Previews: PreviewProvider {
         WeatherRowView2(icon: "cloud.sun.fill", fullDate: "2021-01-10", temp: "23")
     }
 }
-

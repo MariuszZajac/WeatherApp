@@ -12,8 +12,7 @@ struct WeatherRowView: View {
     var day: String
     var icon: WeatherIcon
     var temp: String
-    
-    init(data:String, icon: WeatherIcon, temp: String) {
+    init(data: String, icon: WeatherIcon, temp: String) {
         self.data = data
         self.icon = icon
         self.temp = temp
@@ -25,10 +24,10 @@ struct WeatherRowView: View {
             Text("\(data)")
             Text("\(day)")
                 .font(.caption)
-            VStack{
+            VStack {
                 Image(systemName: icon.systemImageName)
                     .font(.title2)
-                    .frame(width: 5 , height: 5)
+                    .frame(width: 5, height: 5)
                     .padding()
             }.foregroundColor(Color.blue)
             Text("\(temp)°")
@@ -37,7 +36,6 @@ struct WeatherRowView: View {
         }
         .frame(width: 55, height: 100)
         .foregroundColor(Color.black)
-        
     }
     func getDayOfWeek(from data: String) -> String? {
         let dateFormatter = DateFormatter()
@@ -55,5 +53,3 @@ struct WeatherRowView_Previews: PreviewProvider {
         WeatherRowView(data: "2023-08-31", icon: .clearDay, temp: "23")
     }
 }
-
-

@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-
 protocol WeatherViewModelProtocol {
     var weatherData: CurrentValueSubject<[WeatherData], Error> { get }
     func fetchWeatherData(latitude: Double, longitude: Double)
@@ -17,20 +16,16 @@ protocol WeatherViewModelProtocol {
 final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
     @Published var error: WeatherError?
     @Published var weatherDataUI: [WeatherData] = []
-    
     var weatherData = CurrentValueSubject<[WeatherData], Error>([])
     private let weatherAPIService: WeatherAPIServiceProtocol
     private let weatherDataCache: WeatherDataCache
     private var cancellableSet: Set<AnyCancellable> = []
-    
-    // Inicjalizacja z Dependency Injection
+    /// Inicjalizacja z Dependency Injection
     init(weatherAPIService: WeatherAPIServiceProtocol, weatherDataCache: WeatherDataCache) {
         self.weatherAPIService = weatherAPIService
         self.weatherDataCache = weatherDataCache
-        
-        // Załadowanie domyślnych danych pogodowych
+        /// Załadowanie domyślnych danych pogodowych
         fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
-        
         weatherData
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in },
@@ -39,21 +34,19 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
             })
             .store(in: &cancellableSet)
     }
-    
     func fetchWeatherData(latitude: Double, longitude: Double) {
         Task {
             do {
-                // Pobieranie danych z API
+                /// Pobieranie danych z API
                 let response = try await weatherAPIService.downloadWeatherData(latitude: latitude, longitude: longitude)
-                
-                // Aktualizacja danych pogodowych i zapisanie ich do pamięci podręcznej
+                /// Aktualizacja danych pogodowych i zapisanie ich do pamięci podręcznej
                 DispatchQueue.main.async {
                     self.weatherData.send(response.list)
                     //  print("Debug: Wysyłam nowe dane do weatherData \(response.list)")
                     self.weatherDataCache.saveWeatherData(response.list)
                 }
             } catch {
-                // Obsługa błędów i korzystanie z danych z pamięci podręcznej, jeśli są dostępne
+                /// Obsługa błędów i korzystanie z danych z pamięci podręcznej, jeśli są dostępne
                 if let weatherError = error as? WeatherError {
                     DispatchQueue.main.async {
                         self.error = weatherError
@@ -63,16 +56,10 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
                     }
                 }
             }
-            
-            
         }
     }
-    
-    
     struct WeatherError: Error, Identifiable {
         var id: String { localizedDescription }
         var localizedDescription: String
     }
-    
 }
-

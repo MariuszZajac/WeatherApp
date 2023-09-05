@@ -18,10 +18,9 @@ struct WeatherView: View {
                     Text("Paris")
                         .bold()
                         .font(.largeTitle)
-                    
                     Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
                         .fontWeight(.bold)
-                    VStack{
+                    VStack {
                         VStack(alignment: .leading, spacing: 10) {
                             WeatherNoonView(viewModel: viewModel)
                         }
@@ -36,9 +35,6 @@ struct WeatherView_Previews: PreviewProvider {
         let apiService = WeatherAPIService()
         let dataCache = WeatherDataCache(fileName: "weatherCache.json")
         let viewModel = WeatherViewModel(weatherAPIService: apiService, weatherDataCache: dataCache)
-        
         return WeatherView(viewModel: viewModel)
     }
 }
-
-

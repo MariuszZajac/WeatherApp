@@ -13,7 +13,7 @@ public struct WeatherResponse: Codable, Identifiable {
     let cnt: Int
     let list: [WeatherData]
 }
-
+// swiftlint:disable identifier_name
 struct WeatherData: Codable, Identifiable {
     public var id: Int?
     let dt: Int
@@ -25,7 +25,6 @@ struct WeatherData: Codable, Identifiable {
     let pop: Double
     let sys: Sys
     let dt_txt: String
-    
     struct Main: Codable {
         let temp: Double
         let feels_like: Double
@@ -36,35 +35,26 @@ struct WeatherData: Codable, Identifiable {
         let grnd_level: Int
         let humidity: Int
         let temp_kf: Double
+        // swiftlint:enable identifier_name
     }
-    
     struct Weather: Codable {
         let id: Int
         let main: String
         let description: String
         let icon: String
     }
-    
-    
     struct Clouds: Codable {
         let all: Int
     }
-    
     struct Wind: Codable {
         let speed: Double
         let deg: Int
         let gust: Double
     }
-    
     struct Sys: Codable {
         let pod: String
     }
-    
-    
 }
-
-
-
 enum WeatherIcon: String {
     case clearDay = "01d"
     case clearNight = "01n"
@@ -84,7 +74,6 @@ enum WeatherIcon: String {
     case snowNight = "13n"
     case mistDay = "50d"
     case mistNight = "50n"
-    
     var systemImageName: String {
         switch self {
         case .clearDay:

@@ -8,7 +8,6 @@
 import SwiftUI
 struct WeatherDetailView: View {
     var weatherData: [WeatherData]
-    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -23,15 +22,12 @@ struct WeatherDetailView: View {
                 Text("Wilgotność")
             }
             .bold()
-            
             GeometryReader { geometry in
                   ScrollView(.horizontal, showsIndicators: true) {
                     LazyHStack {
-                     
-                        // Pogoda dla każdej godziny
+                        /// Pogoda dla każdej godziny
                         ForEach(weatherData, id: \.dt) { data in
                             let viewModel = WeatherHourViewModel(from: data)
-                            
                             VStack {
                                 Text("\(viewModel.hour)")
                                 Text("\(viewModel.temp.roundDouble())°")
@@ -43,7 +39,7 @@ struct WeatherDetailView: View {
                                 Text("\(viewModel.pressure) hPa")
                                 Text("\(viewModel.humidity)%")
                             }
-                            .frame(width: geometry.size.width * 0.3) 
+                            .frame(width: geometry.size.width * 0.3)
                         }
                     }
                     .padding(2)
@@ -52,4 +48,3 @@ struct WeatherDetailView: View {
         }
     }
 }
-

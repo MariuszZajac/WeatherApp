@@ -11,20 +11,16 @@ enum WindIcon {
     case lightNorth
     case moderateNorth
     case strongNorth
-    
     case lightEast
     case moderateEast
     case strongEast
-    
     case lightSouth
     case moderateSouth
     case strongSouth
-    
     case lightWest
     case moderateWest
     case strongWest
 }
-
 
 func getWindIcon(from wind: WeatherData.Wind) -> WindIcon {
     switch wind.deg {
@@ -50,6 +46,3 @@ func getIconForStrength(speed: Double, light: WindIcon, moderate: WindIcon, stro
         return strong
     }
 }
-
-
-

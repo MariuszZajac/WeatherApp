@@ -15,7 +15,6 @@ struct WeatherHourViewModel {
     var visibility: Int
     var pressure: Int
     var humidity: Int
-    
     init(from weatherData: WeatherData) {
         self.hour = weatherData.dt_txt.extractOnlyHourFromDateTime() ?? "N/A"
         self.icon = WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay
@@ -25,11 +24,9 @@ struct WeatherHourViewModel {
         self.pressure = weatherData.main.pressure
         self.humidity = weatherData.main.humidity
     }
- 
-    
 }
 extension String {
-    func extractOnlyHourFromDateTime() -> String?{
+    func extractOnlyHourFromDateTime() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         if let date = dateFormatter.date(from: self) {
@@ -38,7 +35,4 @@ extension String {
         }
         return nil
     }
-    
-    
 }
-
