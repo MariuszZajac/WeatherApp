@@ -40,15 +40,17 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
                 /// Pobieranie danych z API
                 let response = try await weatherAPIService.downloadWeatherData(latitude: latitude, longitude: longitude)
                 /// Aktualizacja danych pogodowych i zapisanie ich do pamięci podręcznej
-                DispatchQueue.main.async {
-                    self.weatherData.send(response.list)
-                    //  print("Debug: Wysyłam nowe dane do weatherData \(response.list)")
-                    self.weatherDataCache.saveWeatherData(response.list)
-                }
+                updateWeatherData(response.list)
             } catch {
                 /// Obsługa błędów i korzystanie z danych z pamięci podręcznej, jeśli są dostępne
                handleError(error)
             }
+        }
+    }
+    private func updateWeatherData(_ data: [WeatherData]) {
+        DispatchQueue.main.async {
+            self.weatherData.send(data)
+            self.weatherDataCache.saveWeatherData(data)
         }
     }
     private func handleError(_ error: Error) {
@@ -58,8 +60,6 @@ final class WeatherViewModel: WeatherViewModelProtocol, ObservableObject {
                    if let cachedData = self.weatherDataCache.fetchWeatherData() {
                        self.weatherData.send(cachedData)
                    }
-               } else {
-                   // Tu obsługa innych typów błędów
                }
            }
        }

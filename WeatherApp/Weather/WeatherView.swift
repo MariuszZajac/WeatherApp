@@ -10,23 +10,19 @@ import Combine
 
 struct WeatherView: View {
     @ObservedObject var viewModel: WeatherViewModel
-   // @ObservedObject var city: CityViewModel
+    // @ObservedObject var city: CityViewModel
     var body: some View {
         NavigationView {
-            VStack {
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Paris")
-                        .bold()
-                        .font(.largeTitle)
-                    Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
-                        .fontWeight(.bold)
-                    VStack {
-                        VStack(alignment: .leading, spacing: 10) {
-                            WeatherNoonView(viewModel: viewModel)
-                        }
-                    }   .padding(10)
-                }
+            MyCustomViews {
+                Text("Paris")
+                    .bold()
+                    .font(.largeTitle)
+                Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
+                    .fontWeight(.bold)
+                WeatherNoonView(viewModel: viewModel)
+                    .frame(height: 250)
             }
+            .padding()
         }
     }
 }

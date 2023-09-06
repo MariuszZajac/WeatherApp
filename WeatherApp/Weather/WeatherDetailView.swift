@@ -8,9 +8,41 @@
 import SwiftUI
 struct WeatherDetailView: View {
     var weatherData: [WeatherData]
+    init(weatherData: [WeatherData]) {
+        self.weatherData = weatherData
+    }
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            weatherParams()
+            GeometryReader { geometry in
+                ScrollView(.horizontal, showsIndicators: true) {
+                    LazyHStack {
+                        /// Pogoda dla każdej godziny
+                        ForEach(weatherData, id: \.dt) { data in
+                            let viewModel = WeatherHourViewModel(from: data)
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("\(viewModel.hour)")
+                                Text("\(viewModel.temp.roundDouble())°")
+                                VStack {
+                                    WindIconView(wind: viewModel.wind)
+                                    Text("\(viewModel.wind.speed.roundDouble())m/s")
+                                }
+                                Text("\(viewModel.visibility)m")
+                                Text("\(viewModel.pressure)hPa")
+                                Text("\(viewModel.humidity)%")
+                            }
+                            .frame(width: geometry.size.width * 0.3)
+                        }
+                    }
+                    .padding(2)
+                }
+            }
+        }
+    }
+}
+extension WeatherDetailView {
+    @ViewBuilder func weatherParams() -> some View {
+        VStack(alignment: .leading, spacing: 10) {
                 Text("Godzina")
                 Text("Temp")
                 VStack {
@@ -22,29 +54,6 @@ struct WeatherDetailView: View {
                 Text("Wilgotność")
             }
             .bold()
-            GeometryReader { geometry in
-                  ScrollView(.horizontal, showsIndicators: true) {
-                    LazyHStack {
-                        /// Pogoda dla każdej godziny
-                        ForEach(weatherData, id: \.dt) { data in
-                            let viewModel = WeatherHourViewModel(from: data)
-                            VStack {
-                                Text("\(viewModel.hour)")
-                                Text("\(viewModel.temp.roundDouble())°")
-                                VStack {
-                                    WindIconView(wind: viewModel.wind)
-                                    Text("\(viewModel.wind.speed.roundDouble())m/s")
-                                }
-                                Text("\(viewModel.visibility)m")
-                                Text("\(viewModel.pressure) hPa")
-                                Text("\(viewModel.humidity)%")
-                            }
-                            .frame(width: geometry.size.width * 0.3)
-                        }
-                    }
-                    .padding(2)
-                }
-            }
-        }
+            .padding()
     }
 }
