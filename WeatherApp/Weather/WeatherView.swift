@@ -9,8 +9,8 @@ import SwiftUI
 import Combine
 
 struct WeatherView: View {
-    @ObservedObject var viewModel: WeatherViewModel
-    // @ObservedObject var city: CityViewModel
+    @StateObject var viewModel: WeatherViewModel
+
     var body: some View {
         NavigationView {
             MyCustomViews {
@@ -22,15 +22,18 @@ struct WeatherView: View {
                 WeatherNoonView(viewModel: viewModel)
                     .frame(height: 250)
             }
+            .task {
+                await viewModel.fetchData()
+            }
             .padding()
         }
     }
 }
-struct WeatherView_Previews: PreviewProvider {
-    static var previews: some View {
-        let apiService = WeatherAPIService()
-        let dataCache = WeatherDataCache(fileName: "weatherCache.json")
-        let viewModel = WeatherViewModel(weatherAPIService: apiService, weatherDataCache: dataCache)
-        return WeatherView(viewModel: viewModel)
-    }
-}
+//struct WeatherView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let apiService = WeatherAPIService()
+//        let dataCache = WeatherDataCache(fileName: "weatherCache.json")
+//        let viewModel = WeatherViewModel(weatherAPIService: apiService, weatherDataCache: dataCache)
+//        return WeatherView(viewModel: viewModel)
+//    }
+//}

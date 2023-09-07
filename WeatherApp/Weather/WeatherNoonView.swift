@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeatherNoonView: View {
     @ObservedObject var viewModel: WeatherViewModel
+
     var body: some View {
         NavigationView {
             HStack {
@@ -16,8 +17,10 @@ struct WeatherNoonView: View {
                 ForEach(groupedWeatherData.keys.sorted().prefix(5), id: \.self) { dateKey in
                     let shortDate = getDayAndMonth(from: dateKey)
                     let filteredDataForNoon = getFilteredDataOrLatest(from: groupedWeatherData, for: dateKey)
+
                     ForEach(filteredDataForNoon, id: \.dt) { weatherData in
                         NavigationLink(destination: WeatherDetailView(weatherData: groupedWeatherData[dateKey] ?? [])) {
+
                             HStack(spacing: 5) {
                                 WeatherRowView(data: shortDate, icon: WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay,
                                                temp: String(format: "%.0f", weatherData.main.temp_max))
@@ -54,11 +57,11 @@ struct WeatherNoonView: View {
         return filteredData
     }
 }
-struct WeatherNoonView_Previews: PreviewProvider {
-    static var previews: some View {
-        let apiService = WeatherAPIService()
-        let dataCache = WeatherDataCache(fileName: "weatherCache.json")
-        let viewModel = WeatherViewModel(weatherAPIService: apiService, weatherDataCache: dataCache)
-        return WeatherNoonView(viewModel: viewModel)
-    }
-}
+//struct WeatherNoonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let apiService = WeatherAPIService()
+//        let dataCache = WeatherDataCache(fileName: "weatherCache.json")
+//        let viewModel = WeatherViewModel(weatherAPIService: apiService, weatherDataCache: dataCache)
+//        return WeatherNoonView(viewModel: viewModel)
+//    }
+//}

@@ -8,18 +8,18 @@
 import SwiftUI
 struct WeatherDetailView: View {
     var weatherData: [WeatherData]
-    init(weatherData: [WeatherData]) {
-        self.weatherData = weatherData
-    }
+
     var body: some View {
         HStack {
             weatherParams()
             GeometryReader { geometry in
                 ScrollView(.horizontal, showsIndicators: true) {
                     LazyHStack {
-                        /// Pogoda dla każdej godziny
+                        // Pogoda dla każdej godziny
                         ForEach(weatherData, id: \.dt) { data in
+
                             let viewModel = WeatherHourViewModel(from: data)
+                            
                             VStack(alignment: .leading, spacing: 10) {
                                 Text("\(viewModel.hour)")
                                 Text("\(viewModel.temp.roundDouble())°")

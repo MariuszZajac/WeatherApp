@@ -16,9 +16,11 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
     private let baseUrl = APIConfig.baseURL
     private let apiKey = APIConfig.apiKey
     private let units = "metric"
+
     init(urlSession: URLSession = URLSession.shared) {
         self.urlSession = urlSession
     }
+
     func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherResponse {
         guard let url = constructWeatherURL(latitude: latitude, longitude: longitude) else {
             throw WeatherError.invalidURL
@@ -44,12 +46,14 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
         ]
         return urlComponents?.url
     }
+
     private func isValidHTTPResponse(_ response: URLResponse?) -> Bool {
         guard let httpResponse = response as? HTTPURLResponse else {
             return false
         }
         return httpResponse.statusCode == 200
     }
+
     private func decodeWeatherData(_ data: Data) throws -> WeatherResponse {
         do {
             let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)

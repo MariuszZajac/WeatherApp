@@ -12,6 +12,7 @@ struct WeatherRowView: View {
     var day: String
     var icon: WeatherIcon
     var temp: String
+
     init(data: String, icon: WeatherIcon, temp: String) {
         self.data = data
         self.icon = icon
@@ -19,6 +20,7 @@ struct WeatherRowView: View {
         self.day = "N/A"
         self.day = getDayOfWeek(from: data) ?? "N/A"
     }
+    
     var body: some View {
         VStack(spacing: 5) {
             Text("\(data)")

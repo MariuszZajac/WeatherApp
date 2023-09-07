@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct WeatherAppApp: App {
+    private let apiService = WeatherAPIService()
+    private let dataCache = WeatherDataCache(fileName: "weatherCache.json")
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WeatherView(viewModel: WeatherViewModel(repository: WeatherRepository(weatherAPIService: apiService, weatherDataCache: dataCache)))
         }
     }
 }

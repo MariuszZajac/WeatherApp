@@ -16,6 +16,7 @@ public struct WeatherResponse: Codable, Identifiable {
 // swiftlint:disable identifier_name
 struct WeatherData: Codable, Identifiable {
     public var id: Int?
+
     let dt: Int
     let main: Main
     let weather: [Weather]
@@ -25,6 +26,7 @@ struct WeatherData: Codable, Identifiable {
     let pop: Double
     let sys: Sys
     let dt_txt: String
+    
     struct Main: Codable {
         let temp: Double
         let feels_like: Double

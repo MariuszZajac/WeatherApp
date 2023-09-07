@@ -15,6 +15,7 @@ struct WeatherHourViewModel {
     var visibility: Int
     var pressure: Int
     var humidity: Int
+
     init(from weatherData: WeatherData) {
         self.hour = weatherData.dt_txt.extractOnlyHourFromDateTime() ?? "N/A"
         self.icon = WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay
