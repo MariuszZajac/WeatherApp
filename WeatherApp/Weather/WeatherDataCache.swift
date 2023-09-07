@@ -23,4 +23,22 @@ class WeatherDataCache {
         }
         return nil
     }
+    func lastModifiedCacheDate() -> Date? {
+        if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: fileURL.path) as NSDictionary {
+            return fileAttributes.fileModificationDate()
+        }
+            return nil
+        }
+    func timeSinceLastCacheModification() -> TimeInterval? {
+        if let lastModifiedDate = lastModifiedCacheDate() {
+            return Date().timeIntervalSince(lastModifiedDate)
+        }
+        return nil
+    }
+    func isCacheFresh() -> Bool {
+        if let timeInterval = timeSinceLastCacheModification() {
+            return timeInterval <= 3600
+        }
+        return false
+    }
 }
