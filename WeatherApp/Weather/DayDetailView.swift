@@ -1,12 +1,12 @@
 //
-//  WeatherDetailView.swift
+//  DayDetailView.swift
 //  WeatherApp
 //
 //  Created by Mariusz Zając on 31/08/2023.
 //
 
 import SwiftUI
-struct WeatherDetailView: View {
+struct DayDetailView: View {
     var weatherData: [WeatherData]
 
     var body: some View {
@@ -40,7 +40,7 @@ struct WeatherDetailView: View {
         }
     }
 }
-extension WeatherDetailView {
+extension DayDetailView {
     @ViewBuilder func weatherParams() -> some View {
         VStack(alignment: .leading, spacing: 10) {
                 Text("Godzina")

@@ -19,7 +19,7 @@ struct WeatherView: View {
                     .font(.largeTitle)
                 Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
                     .fontWeight(.bold)
-                WeatherNoonView(viewModel: viewModel)
+                WeatherWeekView(viewModel: viewModel)
                     .frame(height: 250)
             }
             .task {

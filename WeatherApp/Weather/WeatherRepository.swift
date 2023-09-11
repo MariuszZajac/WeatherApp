@@ -16,7 +16,6 @@ final class WeatherRepository: WeatherRepositoryProtocol {
     private let weatherAPIService: WeatherAPIServiceProtocol
     private let weatherDataCache: WeatherDataCache
     
-    /// Inicjalizacja z Dependency Injection
     
     init(weatherAPIService: WeatherAPIServiceProtocol, weatherDataCache: WeatherDataCache) {
         self.weatherAPIService = weatherAPIService
@@ -24,20 +23,20 @@ final class WeatherRepository: WeatherRepositoryProtocol {
     }
     
     func fetchWeatherData(latitude: Double, longitude: Double) async throws -> [WeatherData] {
-      
+        
         do {
-            if weatherDataCache.isCacheFresh() == true {
+            if weatherDataCache.isCacheFresh() {
                 return weatherDataCache.fetchWeatherData()!
             } else
             {
                 let response = try await weatherAPIService.downloadWeatherData(latitude: latitude, longitude: longitude)
                 weatherDataCache.saveWeatherData(response.list)
                 return response.list
-               
+                
             }
         } catch {
             throw error
-            /// Obsługa błędów i korzystanie z danych z pamięci podręcznej, jeśli są dostępne
+            /// Obsługa błędów
             //TODO: handleError(error)
         }
     }

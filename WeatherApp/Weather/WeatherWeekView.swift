@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WeatherNoonView: View {
+struct WeatherWeekView: View {
     @ObservedObject var viewModel: WeatherViewModel
 
     var body: some View {
@@ -19,10 +19,10 @@ struct WeatherNoonView: View {
                     let filteredDataForNoon = getFilteredDataOrLatest(from: groupedWeatherData, for: dateKey)
 
                     ForEach(filteredDataForNoon, id: \.dt) { weatherData in
-                        NavigationLink(destination: WeatherDetailView(weatherData: groupedWeatherData[dateKey] ?? [])) {
+                        NavigationLink(destination: DayDetailView(weatherData: groupedWeatherData[dateKey] ?? [])) {
 
                             HStack(spacing: 5) {
-                                WeatherRowView(data: shortDate, icon: WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay,
+                                MainDayView(data: shortDate, icon: WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay,
                                                temp: String(format: "%.0f", weatherData.main.temp_max))
                             }
                         }

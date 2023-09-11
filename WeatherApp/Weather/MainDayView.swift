@@ -1,13 +1,14 @@
 //
-//  WeatherRoWView2.swift
+//  MainDayView.swift
 //  WeatherApp
 //
-//  Created by Mariusz Zając on 31/08/2023.
+//  Created by Mariusz Zając on 07/09/2023.
 //
+
 
 import SwiftUI
 
-struct WeatherRowView: View {
+struct MainDayView: View {
     var data: String
     var day: String
     var icon: WeatherIcon
@@ -52,6 +53,6 @@ struct WeatherRowView: View {
 
 struct WeatherRowView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherRowView(data: "2023-08-31", icon: .clearDay, temp: "23")
+        MainDayView(data: "2023-08-31", icon: .clearDay, temp: "23")
     }
 }
