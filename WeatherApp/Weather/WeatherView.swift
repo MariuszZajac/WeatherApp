@@ -10,30 +10,75 @@ import Combine
 
 struct WeatherView: View {
     @StateObject var viewModel: WeatherViewModel
-
+    
     var body: some View {
-        NavigationView {
-            MyCustomViews {
-                Text("Paris")
-                    .bold()
-                    .font(.largeTitle)
-                Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
-                    .fontWeight(.bold)
-                WeatherWeekView(viewModel: viewModel)
-                    .frame(height: 250)
-            }
-            .task {
+        NavigationStack {
+            ZStack {
+                BackgroundView(topColor: .blue, bottomColor: Color("LightBlue"))
+                VStack{
+                    CityTextView(cityName: "Paris, France")
+                    
+                    MainWeatherStatusview(icon: WeatherIcon(rawValue: viewModel.weatherDataUI.first?.weather.first?.icon ?? "") ?? .clearDay,
+                                          temperature: viewModel.weatherDataUI.first?.main.temp ?? 0)
+                    
+                    WeatherWeekView(viewModel: viewModel)
+                        .frame(height: 250)
+                    Spacer()
+                    
+                }
+            }.task {
                 await viewModel.fetchData()
             }
-            .padding()
         }
+        
+    }
+    
+}
+
+struct BackgroundView: View {
+    
+    var topColor: Color
+    var bottomColor: Color
+    
+    var body: some View {
+        LinearGradient(gradient: Gradient(colors: [topColor, bottomColor]),
+                       startPoint: .topLeading,
+                       endPoint: .bottomTrailing)
+        .edgesIgnoringSafeArea(.all)
     }
 }
-//struct WeatherView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let apiService = WeatherAPIService()
-//        let dataCache = WeatherDataCache(fileName: "weatherCache.json")
-//        let viewModel = WeatherViewModel(weatherAPIService: apiService, weatherDataCache: dataCache)
-//        return WeatherView(viewModel: viewModel)
-//    }
-//}
+struct CityTextView: View {
+    var cityName: String
+    var body: some View{
+        Text(cityName)
+            .font(.system(size: 32, weight: .medium, design: .default))
+            .foregroundColor(.white)
+            .padding()
+        Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
+            .fontWeight(.bold)
+            .foregroundColor(.white)
+        
+    }
+}
+struct MainWeatherStatusview: View {
+    var icon: WeatherIcon
+    var temperature: Double
+   
+    
+    var body: some View{
+        VStack(spacing: 8 ){
+            Image(systemName: icon.systemImageName)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 180, height: 180)
+            
+            Text("\(String(format: "%.0f", temperature))°")
+                .font(.system(size: 70))
+                .bold()
+                .foregroundColor(.white)
+           
+        }
+        .padding(.bottom,40)
+    }
+}

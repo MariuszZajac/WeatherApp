@@ -15,30 +15,46 @@ public struct WeatherResponse: Codable, Identifiable {
 }
 // swiftlint:disable identifier_name
 struct WeatherData: Codable, Identifiable {
-    public var id: Int?
+        public var id: Int?
+        let dt: Int
+        let main: Main
+        let weather: [Weather]
+        let clouds: Clouds
+        let wind: Wind
+        let visibility: Int
+        let pop: Double
+        let sys: Sys
+        let dtTxt: String
 
-    let dt: Int
-    let main: Main
-    let weather: [Weather]
-    let clouds: Clouds
-    let wind: Wind
-    let visibility: Int
-    let pop: Double
-    let sys: Sys
-    let dt_txt: String
-    
-    struct Main: Codable {
-        let temp: Double
-        let feels_like: Double
-        let temp_min: Double
-        let temp_max: Double
-        let pressure: Int
-        let sea_level: Int
-        let grnd_level: Int
-        let humidity: Int
-        let temp_kf: Double
-        // swiftlint:enable identifier_name
-    }
+        enum CodingKeys: String, CodingKey {
+            case id, dt, main, weather, clouds, wind, visibility, pop, sys
+            case dtTxt = "dt_txt"
+        }
+
+        struct Main: Codable {
+            let temp: Double
+            let feelsLike: Double
+            let tempMin: Double
+            let tempMax: Double
+            let pressure: Int
+            let seaLevel: Int
+            let groundLevel: Int
+            let humidity: Int
+            let tempKf: Double
+
+            enum CodingKeys: String, CodingKey {
+                case temp
+                case feelsLike = "feels_like"
+                case tempMin = "temp_min"
+                case tempMax = "temp_max"
+                case pressure
+                case seaLevel = "sea_level"
+                case groundLevel = "grnd_level"
+                case humidity
+                case tempKf = "temp_kf"
+            }
+        }
+
     struct Weather: Codable {
         let id: Int
         let main: String

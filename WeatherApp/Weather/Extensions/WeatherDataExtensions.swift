@@ -11,7 +11,7 @@ extension Array where Element == WeatherData {
         var groupedByDay: [String: [WeatherData]] = [:]
 
         for data in self {
-            let components = data.dt_txt.split(separator: " ")
+            let components = data.dtTxt.split(separator: " ")
             let day = String(components.first ?? "")
 
             if var existingData = groupedByDay[day] {

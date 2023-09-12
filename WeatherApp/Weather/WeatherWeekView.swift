@@ -11,7 +11,7 @@ struct WeatherWeekView: View {
     @ObservedObject var viewModel: WeatherViewModel
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             HStack {
                 let groupedWeatherData = viewModel.weatherDataUI.groupByDay()
                 ForEach(groupedWeatherData.keys.sorted().prefix(5), id: \.self) { dateKey in
@@ -23,7 +23,7 @@ struct WeatherWeekView: View {
 
                             HStack(spacing: 5) {
                                 MainDayView(data: shortDate, icon: WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay,
-                                               temp: String(format: "%.0f", weatherData.main.temp_max))
+                                               temp: String(format: "%.0f", weatherData.main.tempMax))
                             }
                         }
                     }
@@ -43,7 +43,7 @@ struct WeatherWeekView: View {
     }
     func getFilteredDataOrLatest(from groupedWeatherData: [String: [WeatherData]], for dateKey: String) -> [WeatherData] {
         var filteredData = groupedWeatherData[dateKey]?.filter { weatherData in
-            if let time = weatherData.dt_txt.extractHourAndMinuteFromDateTime() {
+            if let time = weatherData.dtTxt.extractHourAndMinuteFromDateTime() {
                 return time == "12:00"
             }
             return false
