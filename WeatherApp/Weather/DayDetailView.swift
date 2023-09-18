@@ -7,53 +7,66 @@
 
 import SwiftUI
 struct DayDetailView: View {
-    var weatherData: [WeatherData]
+  var weatherData: [WeatherData] = []
+  var icon: WeatherIcon
 
     var body: some View {
-        HStack {
-            weatherParams()
-            GeometryReader { geometry in
-                ScrollView(.horizontal, showsIndicators: true) {
-                    LazyHStack {
-                        // Pogoda dla każdej godziny
-                        ForEach(weatherData, id: \.dt) { data in
 
-                            let viewModel = WeatherHourViewModel(from: data)
-                            
-                            VStack(alignment: .leading, spacing: 10) {
-                                Text("\(viewModel.hour)")
-                                Text("\(viewModel.temp.roundDouble())°")
-                                VStack {
-                                    WindIconView(wind: viewModel.wind)
-                                    Text("\(viewModel.wind.speed.roundDouble())m/s")
-                                }
-                                Text("\(viewModel.visibility)m")
-                                Text("\(viewModel.pressure)hPa")
-                                Text("\(viewModel.humidity)%")
-                            }
-                            .frame(width: geometry.size.width * 0.3)
-                        }
+        ZStack {
+            BackgroundView(topColor: .blue, bottomColor: Color("LightBlue"))
+            VStack {
+
+                Spacer()
+                Text("\(String(format: "%.0f", weatherData.first?.main.tempMax ?? 0))")
+                    .font(.title)
+                    
+                    .foregroundColor(.red)
+                Text("\(String(format: "%.0f", weatherData.first?.main.tempMin ?? 0))")
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .padding()
+                Image(systemName: icon.systemImageName)
+                    .renderingMode(.original)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80, height: 80)
+
+                HStack(spacing: 5) {
+                    Image(systemName: "wind")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 60, height: 60)
+
+                    VStack {
+                        WindIconView(wind: weatherData.first!.wind)
+
+                        Text("\(String(format: "%.1f", (weatherData.first?.wind.speed)!)) m/s")
+                            .font(.title2)
+                            .foregroundColor(.green)
+                            .padding()
                     }
-                    .padding(2)
+
+                }
+                Spacer()
+                Button {
+
+                } label: {
+                    Text("Hourly Forecast")
+
+                        .frame(width: 180, height: 40)
+                        .background(Color(.label))
+                        .foregroundColor(.red)
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .cornerRadius(10)
                 }
             }
+            TemperatureChart(temperatureChart: [TemperatureData]())
+        }
         }
     }
-}
-extension DayDetailView {
-    @ViewBuilder func weatherParams() -> some View {
-        VStack(alignment: .leading, spacing: 10) {
-                Text("Godzina")
-                Text("Temp")
-                VStack {
-                    Text("Wiatr")
-                    Text(" ")
-                }
-                Text("Widoczność")
-                Text("Ciśnienie")
-                Text("Wilgotność")
-            }
-            .bold()
-            .padding()
+
+struct DayDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        DayDetailView(weatherData: [], icon: .clearDay)
     }
 }

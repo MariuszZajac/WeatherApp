@@ -5,14 +5,13 @@
 //  Created by Mariusz Zając on 07/09/2023.
 //
 
-
 import SwiftUI
 struct MainDayView: View {
     var data: String
     var day: String
     var icon: WeatherIcon
     var temp: String
-    
+
     init(data: String, icon: WeatherIcon, temp: String) {
         self.data = data
         self.icon = icon
@@ -20,7 +19,7 @@ struct MainDayView: View {
         self.day = "N/A"
         self.day = getDayOfWeek(from: data) ?? "N/A"
     }
-    
+
     var body: some View {
         VStack(spacing: 5) {
             Text("\(data)")
@@ -37,7 +36,7 @@ struct MainDayView: View {
                 .bold()
                 .foregroundColor(.white)
         }
-        
+
 }
 func getDayOfWeek(from data: String) -> String? {
     let dateFormatter = DateFormatter()

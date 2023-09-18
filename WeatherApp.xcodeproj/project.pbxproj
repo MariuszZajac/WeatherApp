@@ -22,6 +22,7 @@
 		876ADD3A2AA1F00C00048ECC /* SingleHourWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876ADD392AA1F00C00048ECC /* SingleHourWeatherView.swift */; };
 		876ADD3D2AA61FC300048ECC /* CityCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876ADD3C2AA61FC300048ECC /* CityCreator.swift */; };
 		876ADD402AA841ED00048ECC /* MyCustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876ADD3F2AA841ED00048ECC /* MyCustomViews.swift */; };
+		878AB1FE2AB2D86C001694A9 /* TemperatureChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878AB1FD2AB2D86C001694A9 /* TemperatureChart.swift */; };
 		87A0705B2A9F4242007491BB /* WeatherDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0705A2A9F4242007491BB /* WeatherDataExtensions.swift */; };
 		87A0705E2A9F7A69007491BB /* WeatherWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0705D2A9F7A69007491BB /* WeatherWeekView.swift */; };
 		87A070602AA09813007491BB /* DayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0705F2AA09813007491BB /* DayDetailView.swift */; };
@@ -48,6 +49,7 @@
 		876ADD392AA1F00C00048ECC /* SingleHourWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleHourWeatherView.swift; sourceTree = "<group>"; };
 		876ADD3C2AA61FC300048ECC /* CityCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCreator.swift; sourceTree = "<group>"; };
 		876ADD3F2AA841ED00048ECC /* MyCustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViews.swift; sourceTree = "<group>"; };
+		878AB1FD2AB2D86C001694A9 /* TemperatureChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureChart.swift; sourceTree = "<group>"; };
 		87A0705A2A9F4242007491BB /* WeatherDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataExtensions.swift; sourceTree = "<group>"; };
 		87A0705D2A9F7A69007491BB /* WeatherWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherWeekView.swift; sourceTree = "<group>"; };
 		87A0705F2AA09813007491BB /* DayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				87A0705D2A9F7A69007491BB /* WeatherWeekView.swift */,
 				8704C3E42AAA0365003CB153 /* MainDayView.swift */,
 				87A0705F2AA09813007491BB /* DayDetailView.swift */,
+				878AB1FD2AB2D86C001694A9 /* TemperatureChart.swift */,
 				8739A55C2A9DDD8D00777967 /* WeatherDataCache.swift */,
 				73907B1D2AA9C80200BE0005 /* WeatherRepository.swift */,
 				870F5DCB2A9C879100C2988C /* WeatherViewModel.swift */,
@@ -192,7 +195,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					87FFAF512A9C7ED6002A25DA = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -251,6 +254,7 @@
 				87A070642AA1B166007491BB /* WindIcon.swift in Sources */,
 				870F5DCE2A9C87C000C2988C /* APIService.swift in Sources */,
 				8739A5532A9CF32500777967 /* CityViewModel.swift in Sources */,
+				878AB1FE2AB2D86C001694A9 /* TemperatureChart.swift in Sources */,
 				8704C3E52AAA0365003CB153 /* MainDayView.swift in Sources */,
 				87FFAF562A9C7ED6002A25DA /* WeatherAppApp.swift in Sources */,
 				876ADD3D2AA61FC300048ECC /* CityCreator.swift in Sources */,
@@ -297,6 +301,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -311,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -357,6 +362,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -365,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

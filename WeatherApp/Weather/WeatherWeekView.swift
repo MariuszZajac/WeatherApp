@@ -19,7 +19,7 @@ struct WeatherWeekView: View {
                     let filteredDataForNoon = getFilteredDataOrLatest(from: groupedWeatherData, for: dateKey)
 
                     ForEach(filteredDataForNoon, id: \.dt) { weatherData in
-                        NavigationLink(destination: DayDetailView(weatherData: groupedWeatherData[dateKey] ?? [])) {
+                        NavigationLink(destination: DayDetailView(weatherData: groupedWeatherData[dateKey] ?? [], icon: WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay)) {
 
                             HStack(spacing: 5) {
                                 MainDayView(data: shortDate, icon: WeatherIcon(rawValue: weatherData.weather.first?.icon ?? "") ?? .clearDay,
@@ -57,11 +57,11 @@ struct WeatherWeekView: View {
         return filteredData
     }
 }
-//struct WeatherNoonView_Previews: PreviewProvider {
+// struct WeatherNoonView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        let apiService = WeatherAPIService()
 //        let dataCache = WeatherDataCache(fileName: "weatherCache.json")
 //        let viewModel = WeatherViewModel(weatherAPIService: apiService, weatherDataCache: dataCache)
 //        return WeatherNoonView(viewModel: viewModel)
 //    }
-//}
+// }
