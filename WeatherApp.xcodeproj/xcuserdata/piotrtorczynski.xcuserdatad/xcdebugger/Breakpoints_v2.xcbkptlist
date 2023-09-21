@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3F3BD33F-6838-4922-8CAA-92A6BC0EEA8D"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7077242A-7809-4CC8-BD5E-0A5ADEF2AA02"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/Data/Services/WeatherRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "fetchWeatherData(latitude:longitude:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52825A33-6D9E-4A44-A59A-3F199AF34EFE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/Data/Services/WeatherRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "fetchWeatherData(latitude:longitude:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94E0AA22-E9B2-4125-AEF0-8AC83E3FE7CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/Data/Services/WeatherRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "fetchWeatherData(latitude:longitude:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D46C1C92-DB65-42D3-AC7D-E0B04D82B2A6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/Networking/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "downloadWeatherData(latitude:longitude:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D46C1C92-DB65-42D3-AC7D-E0B04D82B2A6 - ec5a852a1b2b5f24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for WeatherApp.WeatherAPIService.downloadWeatherData(latitude: Swift.Double, longitude: Swift.Double) async throws -&gt; WeatherApp.WeatherResponseDTO"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/Networking/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  uuid = "D46C1C92-DB65-42D3-AC7D-E0B04D82B2A6 - a260f4a8b0741326"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for WeatherApp.WeatherAPIService.downloadWeatherData(latitude: Swift.Double, longitude: Swift.Double) async throws -&gt; WeatherApp.WeatherResponseDTO"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/Networking/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "900">
+               </Location>
+               <Location
+                  uuid = "D46C1C92-DB65-42D3-AC7D-E0B04D82B2A6 - 876bfc6863e17527"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for WeatherApp.WeatherAPIService.downloadWeatherData(latitude: Swift.Double, longitude: Swift.Double) async throws -&gt; WeatherApp.WeatherResponseDTO"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/Networking/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "D46C1C92-DB65-42D3-AC7D-E0B04D82B2A6 - a260f4a8b0741307"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for WeatherApp.WeatherAPIService.downloadWeatherData(latitude: Swift.Double, longitude: Swift.Double) async throws -&gt; WeatherApp.WeatherResponseDTO"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/Networking/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "960">
+               </Location>
+               <Location
+                  uuid = "D46C1C92-DB65-42D3-AC7D-E0B04D82B2A6 - 876bfc6863e17506"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for WeatherApp.WeatherAPIService.downloadWeatherData(latitude: Swift.Double, longitude: Swift.Double) async throws -&gt; WeatherApp.WeatherResponseDTO"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/Networking/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "396">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADAC53F5-5285-477B-A97B-A31B5E0F971D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/Networking/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "decodeWeatherData(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ADAC53F5-5285-477B-A97B-A31B5E0F971D - c90fb45506441a7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherApp.WeatherAPIService.decodeWeatherData(Foundation.Data) throws -&gt; WeatherApp.WeatherResponseDTO"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/Networking/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "704">
+               </Location>
+               <Location
+                  uuid = "ADAC53F5-5285-477B-A97B-A31B5E0F971D - c90fb45506441a7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherApp.WeatherAPIService.decodeWeatherData(Foundation.Data) throws -&gt; WeatherApp.WeatherResponseDTO"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/Networking/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "772">
+               </Location>
+               <Location
+                  uuid = "ADAC53F5-5285-477B-A97B-A31B5E0F971D - c90fb45506441a7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherApp.WeatherAPIService.decodeWeatherData(Foundation.Data) throws -&gt; WeatherApp.WeatherResponseDTO"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/Networking/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "956">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED113D22-3EAA-4A2F-9FC4-D5C56CF954B3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/Data/Services/WeatherRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "prepareData(dto:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "943BDB20-6CB6-4D02-BAFF-CC75BBF8C584"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/UI/Screens/MainDayView/MainDayViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "weatherIcon"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "943BDB20-6CB6-4D02-BAFF-CC75BBF8C584 - 968e02e6542bc1db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherApp.MainDayViewModel.weatherIcon.getter : WeatherApp.WeatherIcon"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/UI/Screens/MainDayView/MainDayViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "844">
+               </Location>
+               <Location
+                  uuid = "943BDB20-6CB6-4D02-BAFF-CC75BBF8C584 - 968e02e6542bc1db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherApp.MainDayViewModel.weatherIcon.getter : WeatherApp.WeatherIcon"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotrtorczynski/Developer/Personal/WeatherApp/WeatherApp/UI/Screens/MainDayView/MainDayViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "516">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

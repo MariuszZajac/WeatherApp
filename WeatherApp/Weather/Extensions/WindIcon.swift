@@ -22,7 +22,7 @@ enum WindIcon {
     case strongWest
 }
 
-func getWindIcon(from wind: WeatherData.Wind) -> WindIcon {
+func getWindIcon(from wind: Wind) -> WindIcon {
     switch wind.deg {
     case 0..<45, 315..<360:
         return getIconForStrength(speed: wind.speed, light: .lightNorth, moderate: .moderateNorth, strong: .strongNorth)

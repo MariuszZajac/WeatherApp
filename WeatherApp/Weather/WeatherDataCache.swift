@@ -8,21 +8,30 @@
 import Foundation
 class WeatherDataCache {
     private let fileURL: URL
+
     init(fileName: String) {
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         self.fileURL = documents.appendingPathComponent(fileName)
     }
-    func saveWeatherData(_ data: [WeatherData]) {
-        if let encodedData = try? JSONEncoder().encode(data) {
+
+    func saveWeatherData(_ data: [WeatherDataDTO]) {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+
+        if let encodedData = try? encoder.encode(data) {
             try? encodedData.write(to: fileURL)
         }
     }
-    func fetchWeatherData() -> [WeatherData]? {
+
+    func fetchWeatherData() -> [WeatherDataDTO]? {
         if let data = try? Data(contentsOf: fileURL) {
-            return try? JSONDecoder().decode([WeatherData].self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try? decoder.decode([WeatherDataDTO].self, from: data)
         }
         return nil
     }
+
     func lastModifiedCacheDate() -> Date? {
         if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: fileURL.path) as NSDictionary {
             return fileAttributes.fileModificationDate()
@@ -37,7 +46,7 @@ class WeatherDataCache {
     }
     func isCacheFresh() -> Bool {
         if let timeInterval = timeSinceLastCacheModification() {
-            return timeInterval <= 3600 // cehe fresh time 1 hour. 
+            return timeInterval <= 10 // cehe fresh time 1 hour. 
         }
         return false
     }

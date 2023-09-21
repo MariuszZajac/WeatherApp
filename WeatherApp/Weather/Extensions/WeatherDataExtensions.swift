@@ -6,24 +6,24 @@
 //
 import Foundation
 
-extension Array where Element == WeatherData {
-    func groupByDay() -> [String: [WeatherData]] {
-        var groupedByDay: [String: [WeatherData]] = [:]
-
-        for data in self {
-            let components = data.dtTxt.split(separator: " ")
-            let day = String(components.first ?? "")
-
-            if var existingData = groupedByDay[day] {
-                existingData.append(data)
-                groupedByDay[day] = existingData
-            } else {
-                groupedByDay[day] = [data]
-            }
-        }
-        return groupedByDay
-    }
-}
+//extension Array where Element == WeatherData {
+//    func groupByDay() -> [String: [WeatherData]] {
+//        var groupedByDay: [String: [WeatherData]] = [:]
+//
+//        for data in self {
+//            let components = data.dtTxt.split(separator: " ")
+//            let day = String(components.first ?? "")
+//
+//            if var existingData = groupedByDay[day] {
+//                existingData.append(data)
+//                groupedByDay[day] = existingData
+//            } else {
+//                groupedByDay[day] = [data]
+//            }
+//        }
+//        return groupedByDay
+//    }
+//}
 
 extension Double {
     func roundDouble() -> String {

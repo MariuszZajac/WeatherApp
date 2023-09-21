@@ -8,7 +8,7 @@
 import Foundation
 
 protocol WeatherAPIServiceProtocol {
-    func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherResponse
+    func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherResponseDTO
 }
 
 final class WeatherAPIService: WeatherAPIServiceProtocol {
@@ -21,7 +21,7 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
         self.urlSession = urlSession
     }
 
-    func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherResponse {
+    func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherResponseDTO {
         guard let url = constructWeatherURL(latitude: latitude, longitude: longitude) else {
             throw WeatherError.invalidURL
         }
@@ -32,6 +32,7 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
             }
             return try decodeWeatherData(data)
         } catch {
+            print(error)
             ErrorLogger.shared.logError(error)
             throw WeatherError.networkError
         }
@@ -54,11 +55,14 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
         return httpResponse.statusCode == 200
     }
 
-    private func decodeWeatherData(_ data: Data) throws -> WeatherResponse {
+    private func decodeWeatherData(_ data: Data) throws -> WeatherResponseDTO {
         do {
-            let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let weatherResponse = try decoder.decode(WeatherResponseDTO.self, from: data)
             return weatherResponse
         } catch {
+            print(error)
             ErrorLogger.shared.logError(error)
             throw WeatherError.dataDecodingError
         }

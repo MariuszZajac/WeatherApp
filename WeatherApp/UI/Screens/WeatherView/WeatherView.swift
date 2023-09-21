@@ -10,6 +10,7 @@ import Combine
 
 struct WeatherView: View {
     @StateObject var viewModel: WeatherViewModel
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -17,27 +18,23 @@ struct WeatherView: View {
                 VStack {
                     CityTextView(cityName: "Paris, France")
 
-                    MainWeatherStatusview(icon: WeatherIcon(rawValue: viewModel.weatherDataUI.first?.weather.first?.icon ?? "") ?? .clearDay,
-                                          temperature: viewModel.weatherDataUI.first?.main.temp ?? 0)
+                    MainWeatherStatusview(icon: WeatherIcon(rawValue: viewModel.icon) ?? .clearDay,
+                                          temperature: viewModel.temp)
 
-//                    NavigationLink(value: WeatherData) {
-//                        VStack {
-//                            Text(WeatherData.Wind)
-//                        }
-//                    }
+                    ForEach(viewModel.weatherDataUI, id: \.date) { item in
+                        LazyHStack {
+                            MainDayView(viewModel: MainDayViewModel(weatherItem: item))
+                        }
+                    }
 
-                    WeatherWeekView(viewModel: viewModel)
-                        .frame(height: 250)
+                    .frame(height: 250)
                     Spacer()
-
                 }
             }.task {
                 await viewModel.fetchData()
             }
         }
-
     }
-
 }
 
 struct BackgroundView: View {
@@ -52,8 +49,10 @@ struct BackgroundView: View {
         .edgesIgnoringSafeArea(.all)
     }
 }
+
 struct CityTextView: View {
     var cityName: String
+
     var body: some View {
         Text(cityName)
             .font(.system(size: 32, weight: .medium, design: .default))

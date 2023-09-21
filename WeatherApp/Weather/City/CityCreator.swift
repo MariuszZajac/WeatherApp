@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+
 struct City {
     var city: String
     let coordinate: Coordinate

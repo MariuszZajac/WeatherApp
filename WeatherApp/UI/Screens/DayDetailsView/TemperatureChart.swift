@@ -29,14 +29,17 @@ struct TemperatureChart: View {
 }
 
 class TemperatureData {
-    @ObservedObject var weatherViewModel: WeatherViewModel
-    @Published var temperatureData = []
+    private let weatherViewModel: WeatherViewModel
+
     var date: String//  WeatherData.dtTxt
     var temp: Double// WeatherData.Main.temp
+
+
     init(weatherViewModel: WeatherViewModel, date: String, temp: Double) {
         self.weatherViewModel = weatherViewModel
-        self.date = weatherViewModel.weatherDataUI.first?.dtTxt ?? "\(Date.now)"
-        self.temp = weatherViewModel.weatherDataUI.first?.main.temp ?? 0
+
+        self.date = "0" // weatherViewModel.weatherDataUI.first?.dtTxt ?? "\(Date.now)"
+        self.temp = 0// weatherViewModel.weatherDataUI.first?.main.temp ?? 0
     }
 }
 

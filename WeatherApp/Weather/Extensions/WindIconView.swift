@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WindIconView: View {
-    var wind: WeatherData.Wind = WeatherData.Wind(speed: 0, deg: 0, gust: 0)
+    var wind: Wind = Wind(speed: 0, deg: 0, gust: 0)
 
     var body: some View {
         let icon = getWindIcon(from: wind)
@@ -22,10 +22,5 @@ struct WindIconView: View {
         case .lightWest, .moderateWest, .strongWest:
             Image(systemName: "arrow.left")
         }
-    }
-}
-struct WindIconView_Previews: PreviewProvider {
-    static var previews: some View {
-        WindIconView(wind: WeatherData.Wind(speed: 10, deg: 45, gust: 12))
     }
 }

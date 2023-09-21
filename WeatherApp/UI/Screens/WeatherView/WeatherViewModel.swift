@@ -9,7 +9,17 @@ import Foundation
 
 final class WeatherViewModel: ObservableObject {
     @Published var error: WeatherError?
-    @Published var weatherDataUI: [WeatherData] = []
+
+
+    @Published var weatherDataUI: [DateWeatherItem] = []
+
+    var icon: String {
+        weatherDataUI.first?.items.first?.weather.first?.icon ?? ""
+    }
+
+    var temp: Double {
+        weatherDataUI.first?.items.first?.main.temp ?? 0
+    }
 
     private let repository: WeatherRepositoryProtocol
 
