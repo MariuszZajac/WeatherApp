@@ -29,7 +29,6 @@ final class WeatherRepository: WeatherRepositoryProtocol {
             } else {
                 let response = try await weatherAPIService.downloadWeatherData(latitude: latitude, longitude: longitude)
                 weatherDataCache.saveWeatherData(response.list)
-                print(response)
                 return response.list
 
             }
