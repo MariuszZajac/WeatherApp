@@ -13,30 +13,25 @@ struct MainDayView: View {
     
     var body: some View {
         VStack(spacing: 5) {
-            Text(viewModel.dayString)
-            Text("")
+            Text(viewModel.dayString) //??? 
                 .font(.subheadline)
+                .foregroundColor(.white)
+            Text(viewModel.dayOfWeek ?? "")
+                .font(.subheadline .bold())
                 .foregroundColor(.white)
             Image(systemName: viewModel.weatherIcon.systemImageName)
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
-            Text( "\(30)°")
+            Text(String(format: "%.0f°", viewModel.temperature))
                 .font(.system(size: 30))
                 .bold()
                 .foregroundColor(.primary)
         }
+        .frame(height: 250)
         
     }
-    func getDayOfWeek(from data: String) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd"
-        guard let date = dateFormatter.date(from: data) else {
-            return nil
-        }
-        dateFormatter.dateFormat = "EEE"
-        return dateFormatter.string(from: date).uppercased()
-    }
+    
 }
 

@@ -18,7 +18,15 @@ final class MainDayViewModel: ObservableObject {
     }
 
     var dayString: String {
-        DateFormatter().string(from: weatherItem.date)
+        let formatter = DateFormatter()
+            formatter.dateFormat = "MMM dd"
+            return formatter.string(from: weatherItem.date)
+    }
+    var temperature: Double {
+        weatherItem.items.first?.main.tempMax ?? 0 
+    }
+    var dayOfWeek: String? {
+        getDayOfWeek(from: weatherItem.date)
     }
 
     init(weatherItem: DateWeatherItem) {
@@ -28,4 +36,13 @@ final class MainDayViewModel: ObservableObject {
     private func getMainWeatherItem() -> WeatherItem {
         weatherItem.items[weatherItem.items.count / 2]
     }
+}
+func getDayOfWeek(from date: Date) -> String? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM-dd"
+    guard let date = dateFormatter.date(from: dateFormatter.string(from: date)) else {
+        return nil
+    }
+    dateFormatter.dateFormat = "EEE"
+    return dateFormatter.string(from: date).uppercased()
 }
