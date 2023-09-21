@@ -60,13 +60,14 @@ struct DayDetailView: View {
                         .cornerRadius(10)
                 }
             }
-            TemperatureChart(temperatureChart: [TemperatureData]())
+          //  TemperatureChart(temperatureChart: [TemperatureData]())
         }
         }
     }
 
-struct DayDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DayDetailView(weatherData: [], icon: .clearDay)
-    }
-}
+
+//struct DayDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DayDetailView(weatherData: [], icon: .clearDay)
+//    }
+//}

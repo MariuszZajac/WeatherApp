@@ -44,9 +44,9 @@ class TemperatureData {
 //    static var previews: some View {
 //        let tempDataDict = ["12:23,05,2021": 22.5, "15:23,05,2021": 18.0, "18:23,05,2021": 28.0]
 //        let tempDataArray = tempDataDict.map { key, value in
-//            TemperatureData (date: <#T##String#>, temp: <#T##Double#>date: key, temp: value)
+//            TemperatureData (weatherViewModel: WeatherViewModel(), date: "12:23,05,2021", temp: 22.5)
 //        }
 //        return TemperatureChart(temperatureChart: tempDataArray)
 //    }
 // }
-        
+//        

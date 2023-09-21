@@ -34,7 +34,7 @@ struct MainDayView: View {
             Text( "\(temp)°")
                 .font(.system(size: 30))
                 .bold()
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
         }
 
 }
