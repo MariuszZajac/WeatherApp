@@ -6,12 +6,14 @@
 //
 
 import Foundation
-
+//MARK: Weekly Weather forecast model
 final class WeatherWeekViewModel: ObservableObject {
 
-    @Published var weatherItems: [DateWeatherItem] = []
-
-    init(weatherItems: [DateWeatherItem]) {
-        self.weatherItems = weatherItems
+    @Published var weekWeatherItem: WeatherData.Daily
+  
+    init(weekWeatherItem: WeatherData.Daily) {
+        self.weekWeatherItem = weekWeatherItem
     }
+    
+     
 }

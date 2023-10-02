@@ -14,7 +14,7 @@ class WeatherDataCache {
         self.fileURL = documents.appendingPathComponent(fileName)
     }
 
-    func saveWeatherData(_ data: [WeatherDataDTO]) {
+    func saveWeatherData(_ data: [WeatherData]) {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
 
@@ -23,11 +23,11 @@ class WeatherDataCache {
         }
     }
 
-    func fetchWeatherData() -> [WeatherDataDTO]? {
+    func fetchWeatherData() -> [WeatherData]? {
         if let data = try? Data(contentsOf: fileURL) {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try? decoder.decode([WeatherDataDTO].self, from: data)
+            return try? decoder.decode([WeatherData].self, from: data)
         }
         return nil
     }
@@ -46,7 +46,7 @@ class WeatherDataCache {
     }
     func isCacheFresh() -> Bool {
         if let timeInterval = timeSinceLastCacheModification() {
-            return timeInterval <= 10 // cehe fresh time 1 hour. 
+            return timeInterval <= 3600 // cehe fresh time 1 hour.
         }
         return false
     }

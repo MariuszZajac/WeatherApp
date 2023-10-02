@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		73865E682ABC4651009A44F0 /* WeatherCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73865E672ABC4651009A44F0 /* WeatherCollection.swift */; };
 		73865E722ABC4F17009A44F0 /* WeatherWeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73865E712ABC4F17009A44F0 /* WeatherWeekViewModel.swift */; };
 		73865E742ABC509C009A44F0 /* MainDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73865E732ABC509C009A44F0 /* MainDayViewModel.swift */; };
 		73865E762ABC52EA009A44F0 /* DayDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73865E752ABC52EA009A44F0 /* DayDetailViewModel.swift */; };
@@ -38,7 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		73865E672ABC4651009A44F0 /* WeatherCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollection.swift; sourceTree = "<group>"; };
 		73865E712ABC4F17009A44F0 /* WeatherWeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherWeekViewModel.swift; sourceTree = "<group>"; };
 		73865E732ABC509C009A44F0 /* MainDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDayViewModel.swift; sourceTree = "<group>"; };
 		73865E752ABC52EA009A44F0 /* DayDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailViewModel.swift; sourceTree = "<group>"; };
@@ -88,19 +86,10 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		73865E652ABC462A009A44F0 /* DTO */ = {
-			isa = PBXGroup;
-			children = (
-				870F5DCF2A9C87DE00C2988C /* WeatherResponse.swift */,
-			);
-			path = DTO;
-			sourceTree = "<group>";
-		};
 		73865E662ABC4638009A44F0 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				73865E652ABC462A009A44F0 /* DTO */,
-				73865E672ABC4651009A44F0 /* WeatherCollection.swift */,
+				870F5DCF2A9C87DE00C2988C /* WeatherResponse.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -357,7 +346,6 @@
 				87A070642AA1B166007491BB /* WindIcon.swift in Sources */,
 				870F5DCE2A9C87C000C2988C /* APIService.swift in Sources */,
 				8739A5532A9CF32500777967 /* CityViewModel.swift in Sources */,
-				73865E682ABC4651009A44F0 /* WeatherCollection.swift in Sources */,
 				878AB1FE2AB2D86C001694A9 /* TemperatureChart.swift in Sources */,
 				8704C3E52AAA0365003CB153 /* MainDayView.swift in Sources */,
 				87FFAF562A9C7ED6002A25DA /* WeatherAppApp.swift in Sources */,

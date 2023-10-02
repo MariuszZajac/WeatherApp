@@ -17,7 +17,7 @@ struct DayDetailView: View {
             VStack {
 
                 Spacer()
-                Text("\(String(format: "%.0f", viewModel.tempMax))")
+                Text("\(String(format: "%.0f", viewModel.temp))")
                     .font(.title)
                     
                     .foregroundColor(.red)
@@ -37,14 +37,14 @@ struct DayDetailView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 60, height: 60)
 
-//                    VStack {
-//                        WindIconView(wind: weatherData.wind)
+                    VStack {
+                        WindIconView(wind: viewModel.wind)
 
-//                        Text("\(String(format: "%.1f", (weatherData.wind.speed)!)) m/s")
-//                            .font(.title2)
-//                            .foregroundColor(.green)
-//                            .padding()
-//                    }
+                        Text("\(String(format: "%.1f", (viewModel.wind.windSpeed))) m/s")
+                            .font(.title2)
+                            .foregroundColor(.green)
+                            .padding()
+                    }
 
                 }
                 Spacer()

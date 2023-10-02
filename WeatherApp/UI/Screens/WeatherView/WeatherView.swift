@@ -18,14 +18,22 @@ struct WeatherView: View {
                 VStack {
                     CityTextView(cityName: "Paris, France")
                     
-                    MainWeatherStatusview(icon: WeatherIcon(rawValue: viewModel.icon) ?? .clearDay,
+                    MainWeatherStatusview(icon: WeatherIcon(rawValue: viewModel.icon) ?? .lightRainNight,
                                           temperature: viewModel.temp)
                     HStack {
-                    ForEach(viewModel.weatherDataUI, id: \.date) { item in
                         
-                            MainDayView(viewModel: MainDayViewModel(weatherItem: item))
-                        }
-
+                        // week forecast
+//                    ForEach(viewModel.weatherDataUI, id: \.date) { item in
+//                        
+//                            MainDayView(viewModel: MainDayViewModel(weatherItem: item))
+//                        }
+//
+//                        // hour forecast
+//                        ForEach(viewModel.weatherDataUI, id: \.date) { item in
+//                            
+//                            WeatherWeekView(viewModel: WeatherWeekViewModel(weatherItems: [item]))
+//                            }
+                        
                      //  .frame(height: 250)
 
                     }

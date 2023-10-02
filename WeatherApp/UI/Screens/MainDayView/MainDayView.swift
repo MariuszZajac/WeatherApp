@@ -13,7 +13,7 @@ struct MainDayView: View {
     
     var body: some View {
         VStack(spacing: 5) {
-            Text(viewModel.dayString) //??? 
+            Text(viewModel.dayString) 
                 .font(.subheadline)
                 .foregroundColor(.white)
             Text(viewModel.dayOfWeek ?? "")

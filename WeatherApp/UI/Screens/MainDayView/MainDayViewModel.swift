@@ -6,36 +6,25 @@
 //
 
 import Foundation
-
+//MARK: Current Weather forecast model
 final class MainDayViewModel: ObservableObject {
-    private let weatherItem: DateWeatherItem
+    
+    private let currentWeatherItem: WeatherData.Current
 
-    var weatherIcon: WeatherIcon {
-        guard let description = getMainWeatherItem().weather.first?.icon else {
-            return WeatherIcon.brokenClouds
-        }
-        return WeatherIcon(rawValue: description) ?? .brokenClouds
-    }
+    var weatherIcon: WeatherIcon
 
-    var dayString: String {
-        let formatter = DateFormatter()
-            formatter.dateFormat = "MMM dd"
-            return formatter.string(from: weatherItem.date)
-    }
-    var temperature: Double {
-        weatherItem.items.first?.main.tempMax ?? 0 
-    }
-    var dayOfWeek: String? {
-        getDayOfWeek(from: weatherItem.date)
-    }
+    var dayString: String
+    var temperature: Double
+    var dayOfWeek: String?
 
-    init(weatherItem: DateWeatherItem) {
-        self.weatherItem = weatherItem
+    init(weatherItem: WeatherData.Current, weatherIcon: WeatherIcon, dayString: String, temperature: Double, dayOfWeek: String? = nil) {
+        self.currentWeatherItem = weatherItem
+        self.weatherIcon = weatherIcon
+        self.dayString = dayString
+        self.temperature = temperature
+        self.dayOfWeek = dayOfWeek
     }
-
-    private func getMainWeatherItem() -> WeatherItem {
-        weatherItem.items[weatherItem.items.count / 2]
-    }
+    
 }
 func getDayOfWeek(from date: Date) -> String? {
     let dateFormatter = DateFormatter()

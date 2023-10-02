@@ -6,22 +6,21 @@
 //
 
 import Foundation
-
+//MARK: Hourly Weather forecast model
 final class DayDetailViewModel: ObservableObject {
 
-    private let weatherItem: DateWeatherItem
-
-    var tempMax: Double {
-        var maxTemp = 0.0
-
-        weatherItem.items.forEach {
-            maxTemp = max(maxTemp, $0.main.tempMax)
-        }
-
-        return maxTemp
+    private let detailWeatherItem: WeatherData.Hourly
+    
+    var temp: String {
+        detailWeatherItem.temp.roundDouble()
+    }
+    var wind: Wind {
+        detailWeatherItem.wind
     }
 
-    init(weatherItem: DateWeatherItem) {
-        self.weatherItem = weatherItem
+    init(detailWeatherItem: WeatherData.Hourly) {
+        self.detailWeatherItem = detailWeatherItem
     }
+
 }
+

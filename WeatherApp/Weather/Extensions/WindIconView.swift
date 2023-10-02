@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct WindIconView: View {
-    var wind: Wind = Wind(speed: 0, deg: 0, gust: 0)
-
+    var wind: Wind
     var body: some View {
         let icon = getWindIcon(from: wind)
         switch icon {

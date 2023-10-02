@@ -8,12 +8,13 @@
 import Foundation
 struct APIConfig {
     static var baseURL: String {
-        return value(for: "BaseURL")
+        return value(for: "BaseURLNew")
     }
 
     static var apiKey: String {
         return value(for: "APIKey")
     }
+    
     private static func value(for key: String) -> String {
         guard let path = Bundle.main.path(forResource: "APIConfig", ofType: "plist"),
               let xml = FileManager.default.contents(atPath: path),

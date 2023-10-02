@@ -23,15 +23,15 @@ enum WindIcon {
 }
 
 func getWindIcon(from wind: Wind) -> WindIcon {
-    switch wind.deg {
+    switch wind.windDeg {
     case 0..<45, 315..<360:
-        return getIconForStrength(speed: wind.speed, light: .lightNorth, moderate: .moderateNorth, strong: .strongNorth)
+        return getIconForStrength(speed: wind.windSpeed, light: .lightNorth, moderate: .moderateNorth, strong: .strongNorth)
     case 45..<135:
-        return getIconForStrength(speed: wind.speed, light: .lightEast, moderate: .moderateEast, strong: .strongEast)
+        return getIconForStrength(speed:  wind.windSpeed, light: .lightEast, moderate: .moderateEast, strong: .strongEast)
     case 135..<225:
-        return getIconForStrength(speed: wind.speed, light: .lightSouth, moderate: .moderateSouth, strong: .strongSouth)
+        return getIconForStrength(speed:  wind.windSpeed, light: .lightSouth, moderate: .moderateSouth, strong: .strongSouth)
     case 225..<315:
-        return getIconForStrength(speed: wind.speed, light: .lightWest, moderate: .moderateWest, strong: .strongWest)
+        return getIconForStrength(speed:  wind.windSpeed, light: .lightWest, moderate: .moderateWest, strong: .strongWest)
     default:
         return .lightNorth
     }

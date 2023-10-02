@@ -11,14 +11,14 @@ final class WeatherViewModel: ObservableObject {
     @Published var error: WeatherError?
 
 
-    @Published var weatherDataUI: [DateWeatherItem] = []
+    @Published var weatherDataUI: [WeatherData] = []
 
     var icon: String {
-        weatherDataUI.first?.items.first?.weather.first?.icon ?? ""
+        weatherDataUI.first?.current.weather.first?.icon.systemImageName ?? "cloud.snow.fill"
     }
-
+        
     var temp: Double {
-        weatherDataUI.first?.items.first?.main.temp ?? 0
+        weatherDataUI.first?.current.temp ?? 0
     }
 
     private let repository: WeatherRepositoryProtocol

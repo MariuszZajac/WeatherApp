@@ -14,8 +14,8 @@
             filePath = "WeatherApp/Networking/APIService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "WeatherAPIService"
             landmarkType = "3">
             <Locations>
@@ -99,35 +99,35 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "37750CBD-B85F-471E-B95D-1F9B0A17911B"
-            shouldBeEnabled = "No"
+            uuid = "DAB6F2A1-8534-4EA7-A0A0-54BA28D6119D"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherApp/Networking/APIService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "constructWeatherURL(latitude:longitude:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "37750CBD-B85F-471E-B95D-1F9B0A17911B - d58f282274517378"
+                  uuid = "DAB6F2A1-8534-4EA7-A0A0-54BA28D6119D - 67be4ca6efbf0613"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "WeatherApp.WeatherAPIService.constructWeatherURL(latitude: Swift.Double, longitude: Swift.Double) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  symbolName = "WeatherApp.WeatherAPIService.isValidHTTPResponse(Swift.Optional&lt;__C.NSURLResponse&gt;) -&gt; Swift.Bool"
                   moduleName = "WeatherApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/Networking/APIService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "220">
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
-                  uuid = "37750CBD-B85F-471E-B95D-1F9B0A17911B - d58f282274517378"
+                  uuid = "DAB6F2A1-8534-4EA7-A0A0-54BA28D6119D - d58f2822745170e4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -137,11 +137,27 @@
                   urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/Networking/APIService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "236">
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2020">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99977850-23A1-4631-AC35-24D262807038"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/Networking/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "WeatherError"
+            landmarkType = "13">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

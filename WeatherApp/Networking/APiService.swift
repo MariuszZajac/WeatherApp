@@ -8,7 +8,7 @@
 import Foundation
 
 protocol WeatherAPIServiceProtocol {
-    func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherResponseDTO
+    func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherData
 }
 
 final class WeatherAPIService: WeatherAPIServiceProtocol {
@@ -16,12 +16,15 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
     private let baseUrl = APIConfig.baseURL
     private let apiKey = APIConfig.apiKey
     private let units = "metric"
+    private let exclude = "minutely,alerts"
+    private let language = "en"
+
 
     init(urlSession: URLSession = URLSession.shared) {
         self.urlSession = urlSession
     }
 
-    func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherResponseDTO {
+    func downloadWeatherData(latitude: Double, longitude: Double) async throws -> WeatherData {
         guard let url = constructWeatherURL(latitude: latitude, longitude: longitude) else {
             throw WeatherError.invalidURL
         }
@@ -42,8 +45,10 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
         urlComponents?.queryItems = [
             URLQueryItem(name: "lat", value: "\(latitude)"),
             URLQueryItem(name: "lon", value: "\(longitude)"),
+            URLQueryItem(name: "exclude", value: exclude),
             URLQueryItem(name: "appid", value: apiKey),
-            URLQueryItem(name: "units", value: units)
+            URLQueryItem(name: "units", value: units),
+            URLQueryItem(name: "lang", value: language)
         ]
         return urlComponents?.url
     }
@@ -55,12 +60,12 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
         return httpResponse.statusCode == 200
     }
 
-    private func decodeWeatherData(_ data: Data) throws -> WeatherResponseDTO {
+    private func decodeWeatherData(_ data: Data) throws -> WeatherData {
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let weatherResponse = try decoder.decode(WeatherResponseDTO.self, from: data)
-            return weatherResponse
+            let WeatherData = try decoder.decode(WeatherData.self, from: data)
+            return WeatherData
         } catch {
             print(error)
             ErrorLogger.shared.logError(error)
