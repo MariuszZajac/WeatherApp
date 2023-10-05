@@ -6,32 +6,54 @@
 //
 
 import Foundation
+import Observation
+
 //MARK: Current Weather forecast model
-final class MainDayViewModel: ObservableObject {
+@Observable final class MainDayViewModel {
     
-    private let currentWeatherItem: WeatherData.Current
+    
+    private let currentWeather: CurrentWeather
 
-    var weatherIcon: WeatherIcon
+    var weatherIcon: WeatherIcon {
+        WeatherIcon(rawValue: (currentWeather.weather.first?.icon.systemImageName)!) ?? .snowNight
+    }
 
-    var dayString: String
-    var temperature: Double
-    var dayOfWeek: String?
-
-    init(weatherItem: WeatherData.Current, weatherIcon: WeatherIcon, dayString: String, temperature: Double, dayOfWeek: String? = nil) {
-        self.currentWeatherItem = weatherItem
-        self.weatherIcon = weatherIcon
-        self.dayString = dayString
-        self.temperature = temperature
-        self.dayOfWeek = dayOfWeek
+    var dt: String {
+        getDayOfWeek(from: currentWeather.dt) ?? "SET"
+    }
+//    var sunrise: Int {
+//        currentWeather.sunrise!
+//    }
+//    var sunset: Int {
+//        currentWeather.sunset!
+//    }
+    
+  
+    var pressure: Int {
+        currentWeather.pressure }
+    var humidity: Int {
+        currentWeather.humidity }
+   
+    var uvi: Double {
+        currentWeather.uvi }
+    var clouds: Int {
+        currentWeather.clouds}
+    var visibility: Int{
+        currentWeather.visibility }
+//    var wind: Wind {
+//        currentWeather.wind!}
+    
+    init(currentWeather: CurrentWeather) {
+        self.currentWeather = currentWeather
     }
     
 }
-func getDayOfWeek(from date: Date) -> String? {
+func getDayOfWeek(from date: TimeInterval) -> String? {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "MM-dd"
-    guard let date = dateFormatter.date(from: dateFormatter.string(from: date)) else {
-        return nil
-    }
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let formattedDate = dateFormatter.string(from: Date(timeIntervalSince1970: date))
+    
     dateFormatter.dateFormat = "EEE"
-    return dateFormatter.string(from: date).uppercased()
+    return dateFormatter.string(from: dateFormatter.date(from: formattedDate)!).uppercased()
 }
+

@@ -9,6 +9,6 @@
 	<key>Units</key>
 	<string>metric</string>
 	<key>BaseURLNew</key>
-	<string> http://api.openweathermap.org/data/3.0/onecall</string>
+	<string>http://api.openweathermap.org/data/3.0/onecall</string>
 </dict>
 </plist>

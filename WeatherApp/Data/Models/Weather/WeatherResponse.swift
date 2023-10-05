@@ -7,144 +7,128 @@
 
 import Foundation
 
-struct WeatherData: Codable, Identifiable {
-    var id: UUID
+
+struct WeatherData: Codable , Identifiable {
+    var id: UUID?
     let lat: Double
     let lon: Double
-    let timezone: TimeZone
-    let timezoneOffset: Int
-    let current: Current
-    let hourly: [Hourly]
-    let daily: [Daily]
+    let timezone: String
+    let timezoneOffset: Int?
+    let current: CurrentWeather
+    let hourly: [HourlyWeather]
+    let daily: [DailyWeather]
     
-    struct Hourly: Codable {
-        let dt: TimeInterval
-        let temp: Double
-        let feelsLike: Double
-        let pressure: Int
-        let humidity: Int
-        let dewPoint: Double
-        let uvi: Double
-        let clouds: Int
-        let visibility: Int
-        let wind: Wind
-        let weather: [WeatherInfo]
-        let pop: Double
-        let rain: Rain?
-    }
-    
-    struct Daily: Codable{
-        let dt: TimeInterval
-        let sunrise: Int
-        let sunset: Int
-        let moonrise: Int
-        let moonset: Int
-        let moonPhase: Double
-        let summary: String
-        let temp: Temperature
-        let feelsLike: Temperature
-        let pressure: Int
-        let humidity: Int
-        let dewPoint: Double
-        let wind: Wind
-        let weather: [WeatherInfo]
-        let clouds: Int
-        let pop: Double
-        let rain: Double
-        let uvi: Double
-    }
-    
-    struct Current: Codable, Identifiable {
-        public var id: Int?
-        let dt: TimeInterval
-        let sunrise: Int
-        let sunset: Int
-        let temp: Double
-        let feelsLike: Double
-        let pressure: Int
-        let humidity: Int
-        let dewPoint: Double
-        let uvi: Double
-        let clouds: Int
-        let visibility: Int
-        let windSpeed: Double
-        let windDeg: Int
-        let weather: [WeatherInfo]
-    }
-    
-    struct WeatherInfo: Codable, Identifiable {
+    enum CodingKeys: String, CodingKey {
         
-        let id: Int
-        let main: String
-        let description: String
-        let icon: WeatherIcon
-        
+        case lat, lon, timezone
+        case timezoneOffset = "timezone_offset"
+        case current, hourly, daily
     }
     
-    struct Rain: Codable {
-        let oneHour: Double
-    }
+}
+struct CurrentWeather: Codable, Identifiable {
+    var id: UUID?
+    let dt: TimeInterval
+    let sunrise: TimeInterval
+    let sunset: TimeInterval
+    let temp: Double
+    let feelsLike: Double?
+    let pressure: Int
+    let humidity: Int
+    let dewPoint: Double
+    let uvi: Double
+    let clouds: Int
+    let visibility: Int
+    let windSpeed: Double
+    let windDeg: Int
+    let weather: [WeatherInfo]
     
-   
-    
-    struct Temperature: Codable {
-        let day: Double
-        let min: Double
-        let max: Double
-        let night: Double
-        let evening: Double
-        let morning: Double
-    }
     
 }
 
 
-//public struct WeatherResponseDTO: Codable, Identifiable {
-//    public var id: Int?
-//    let cod: String
-//    let message: Int
-//    let cnt: Int
-//    let list: [WeatherDataDTO]
-//}
-//
-//// swiftlint:disable identifier_name
-//struct WeatherDataDTO: Codable, Identifiable {
-//    public var id: Int?
-//    let dt: TimeInterval
-//    let main: Main
-//    let weather: [Weather]
-//    let clouds: Clouds
-//    let wind: Wind
-//    let visibility: Int
-//}
-//
-//struct Main: Codable {
-//    let temp: Double
-//    let feelsLike: Double
-//    let tempMin: Double
-//    let tempMax: Double
-//    let pressure: Int
-//    let seaLevel: Int
-//    let groundLevel: Int?
-//    let humidity: Int
-//    let tempKf: Double
-//}
-//
-//struct Weather: Codable {
-//    let id: Int
-//    let main: String
-//    let description: String
-//    let icon: String
-//}
-//struct Clouds: Codable {
-//    let all: Int
-//}
+struct HourlyWeather: Codable, Identifiable {
+    var id: UUID?
+    let dt: TimeInterval
+    let temp: Double
+    let feelsLike: Double?
+    let pressure: Int
+    let humidity: Int
+    let dewPoint: Double
+    let uvi: Double
+    let clouds: Int
+    let visibility: Int
+    let windSpeed: Double
+    let windDeg: Int
+    let windGust: Double
+    let weather: [WeatherInfo]
+    let pop: Int
+    
+    
+}
+
+struct DailyWeather: Codable, Identifiable {
+    var id: UUID?
+    let dt: TimeInterval
+    let sunrise: TimeInterval
+    let sunset: TimeInterval
+    let moonrise: TimeInterval
+    let moonset: TimeInterval
+    let moonPhase: Double
+    let summary: String
+    let temp: Temperature
+    let feelsLike: Temperature
+    let pressure: Int
+    let humidity: Int
+    let dewPoint: Double
+    let windSpeed: Double
+    let windDeg: Int
+    let windGust: Double
+    let weather: [WeatherInfo]
+    let clouds: Int
+    let pop: Int
+    let uvi: Double
+    
+    struct Temperature: Codable, Identifiable {
+        var id: Int?
+        let day: Double
+        let min: Double?
+        let max: Double?
+        let night: Double
+        let eve: Double
+        let morn: Double
+    }
+   
+}
+
+struct WeatherInfo: Codable {
+    let id: Int
+    let main: String
+    let description: String
+    let icon: WeatherIcon
+    
+}
+
+struct Rain: Codable {
+    let oneHour: Double
+}
+
+struct Temperature: Codable, Identifiable {
+    var id: Int
+    let day: Double
+    let min: Double
+    let max: Double
+    let night: Double
+    let eve: Double
+    let morn: Double
+}
+
+
 struct Wind: Codable {
     let windSpeed: Double
     let windDeg: Int
     let windGust: Double
 }
-
 enum WeatherIcon: String, Codable {
     case clearDay = "01d"
     case clearNight = "01n"
@@ -188,5 +172,3 @@ enum WeatherIcon: String, Codable {
         }
     }
 }
-
-

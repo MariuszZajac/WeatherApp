@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct WeatherView: View {
-    @StateObject var viewModel: WeatherViewModel
+    @State var vm: WeatherViewModel
     
     var body: some View {
         NavigationStack {
@@ -18,11 +18,11 @@ struct WeatherView: View {
                 VStack {
                     CityTextView(cityName: "Paris, France")
                     
-                    MainWeatherStatusview(icon: WeatherIcon(rawValue: viewModel.icon) ?? .lightRainNight,
-                                          temperature: viewModel.temp)
+                    MainWeatherStatusview(icon: vm.icon ?? .snowNight, temperature: vm.temp )
                     HStack {
-                        
-                        // week forecast
+//                        ForEach(WeatherData.DailyWeather, id: \.dt) { item  in
+//                        WeatherWeekView(viewModel: WeatherWeekViewModel(weekWeatherItem: item))}
+//                        // week forecast
 //                    ForEach(viewModel.weatherDataUI, id: \.date) { item in
 //                        
 //                            MainDayView(viewModel: MainDayViewModel(weatherItem: item))
@@ -40,39 +40,13 @@ struct WeatherView: View {
                     
                 }
             }.task {
-                await viewModel.fetchData()
+                await vm.fetchData()
+            
             }
         }
     }
 }
 
-struct BackgroundView: View {
-    
-    var topColor: Color
-    var bottomColor: Color
-    
-    var body: some View {
-        LinearGradient(gradient: Gradient(colors: [topColor, bottomColor]),
-                       startPoint: .topLeading,
-                       endPoint: .bottomTrailing)
-        .edgesIgnoringSafeArea(.all)
-    }
-}
-
-struct CityTextView: View {
-    var cityName: String
-    
-    var body: some View {
-        Text(cityName)
-            .font(.system(size: 32, weight: .medium, design: .default))
-            .foregroundColor(.white)
-            .padding()
-        Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-        
-    }
-}
 struct MainWeatherStatusview: View {
     var icon: WeatherIcon
     var temperature: Double

@@ -17,7 +17,7 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
     private let apiKey = APIConfig.apiKey
     private let units = "metric"
     private let exclude = "minutely,alerts"
-    private let language = "en"
+  
 
 
     init(urlSession: URLSession = URLSession.shared) {
@@ -47,8 +47,8 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
             URLQueryItem(name: "lon", value: "\(longitude)"),
             URLQueryItem(name: "exclude", value: exclude),
             URLQueryItem(name: "appid", value: apiKey),
-            URLQueryItem(name: "units", value: units),
-            URLQueryItem(name: "lang", value: language)
+            URLQueryItem(name: "units", value: units)
+           
         ]
         return urlComponents?.url
     }
@@ -64,8 +64,8 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let WeatherData = try decoder.decode(WeatherData.self, from: data)
-            return WeatherData
+            let weatherData = try decoder.decode(WeatherData.self, from: data)
+            return weatherData
         } catch {
             print(error)
             ErrorLogger.shared.logError(error)

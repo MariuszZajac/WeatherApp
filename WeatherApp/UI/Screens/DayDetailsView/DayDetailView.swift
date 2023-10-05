@@ -37,14 +37,14 @@ struct DayDetailView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 60, height: 60)
 
-                    VStack {
-                        WindIconView(wind: viewModel.wind)
-
-                        Text("\(String(format: "%.1f", (viewModel.wind.windSpeed))) m/s")
-                            .font(.title2)
-                            .foregroundColor(.green)
-                            .padding()
-                    }
+//                    VStack {
+//                     //   WindIconView(wind: viewModel.wind)
+//
+//                        Text("\(String(format: "%.1f", (viewModel.wind.windSpeed))) m/s")
+//                            .font(.title2)
+//                            .foregroundColor(.green)
+//                            .padding()
+//                    }
 
                 }
                 Spacer()

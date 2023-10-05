@@ -9,14 +9,14 @@ import SwiftUI
 
 struct MainDayView: View {
     
-    @StateObject var viewModel: MainDayViewModel
+    @State var viewModel: MainDayViewModel
     
     var body: some View {
         VStack(spacing: 5) {
-            Text(viewModel.dayString) 
+            Text(viewModel.dt) 
                 .font(.subheadline)
                 .foregroundColor(.white)
-            Text(viewModel.dayOfWeek ?? "")
+            Text(viewModel.dt)
                 .font(.subheadline .bold())
                 .foregroundColor(.white)
             Image(systemName: viewModel.weatherIcon.systemImageName)
@@ -24,14 +24,13 @@ struct MainDayView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
-            Text(String(format: "%.0f°", viewModel.temperature))
-                .font(.system(size: 30))
-                .bold()
-                .foregroundColor(.primary)
+//            Text(String(format: "%.0f°", $viewModel.temp))
+//                .font(.system(size: 30))
+//                .bold()
+//                .foregroundColor(.primary)
         }
         .frame(height: 250)
         
     }
     
 }
-

@@ -9,17 +9,17 @@ import Foundation
 //MARK: Hourly Weather forecast model
 final class DayDetailViewModel: ObservableObject {
 
-    private let detailWeatherItem: WeatherData.Hourly
+    private let detailWeather: HourlyWeather
     
     var temp: String {
-        detailWeatherItem.temp.roundDouble()
+        detailWeather.temp.roundDouble()
     }
-    var wind: Wind {
-        detailWeatherItem.wind
-    }
+//    var wind: Wind {
+//        detailWeather.wind
+//    }
 
-    init(detailWeatherItem: WeatherData.Hourly) {
-        self.detailWeatherItem = detailWeatherItem
+    init(detailWeather: HourlyWeather) {
+        self.detailWeather = detailWeather
     }
 
 }
