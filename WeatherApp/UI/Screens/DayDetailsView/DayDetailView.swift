@@ -21,15 +21,15 @@ struct DayDetailView: View {
                     .font(.title)
                     
                     .foregroundColor(.red)
-//                Text("\(String(format: "%.0f", weatherData.main.tempMin ?? 0))")
-//                    .font(.title2)
-//                    .foregroundColor(.white)
-//                    .padding()
-//                Image(systemName: icon.systemImageName)
-//                    .renderingMode(.original)
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 80, height: 80)
+                Text(viewModel.temp)
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .padding()
+                Image(systemName: viewModel.weatherIcon.systemImageName)
+                    .renderingMode(.original)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80, height: 80)
 
                 HStack(spacing: 5) {
                     Image(systemName: "wind")
@@ -37,14 +37,14 @@ struct DayDetailView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 60, height: 60)
 
-//                    VStack {
-//                     //   WindIconView(wind: viewModel.wind)
-//
-//                        Text("\(String(format: "%.1f", (viewModel.wind.windSpeed))) m/s")
-//                            .font(.title2)
-//                            .foregroundColor(.green)
-//                            .padding()
-//                    }
+                    VStack {
+                        WindIconView(wind: viewModel.wind)
+
+                        Text("\(String(format: "%.1f", (viewModel.wind.windSpeed))) m/s")
+                            .font(.title2)
+                            .foregroundColor(.green)
+                            .padding()
+                    }
 
                 }
                 Spacer()

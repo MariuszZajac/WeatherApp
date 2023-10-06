@@ -42,7 +42,9 @@ struct CurrentWeather: Codable, Identifiable {
 
 
 struct HourlyWeather: Codable, Identifiable {
-    var id: UUID?
+    var id: UUID {
+           return UUID(uuidString: String(dt)) ?? UUID()
+       }
     let dt: TimeInterval
     let temp: Double
     let feelsLike: Double?
@@ -56,7 +58,7 @@ struct HourlyWeather: Codable, Identifiable {
     let windDeg: Int
     let windGust: Double
     let weather: [WeatherInfo]
-    let pop: Int
+    let pop: Double
     
     
 }
@@ -82,7 +84,7 @@ struct DailyWeather: Codable, Identifiable {
     let windGust: Double
     let weather: [WeatherInfo]
     let clouds: Int
-    let pop: Int
+    let pop: Double
     let uvi: Double
     
     
@@ -98,14 +100,14 @@ struct WeatherInfo: Codable {
 }
 
 struct Rain: Codable {
-    let oneHour: Double
+    let rain: [String: Double]
 }
 
 struct Temperature: Codable, Identifiable {
     var id: Int?
     let day: Double
-    let min: Double?
-    let max: Double?
+    var min: Double?
+    var max: Double?
     let night: Double
     let eve: Double
     let morn: Double

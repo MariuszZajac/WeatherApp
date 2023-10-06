@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct WeatherWeekView: View {
-    var viewModel: WeatherWeekViewModel
+struct OneDayShortView: View {
+    var viewModel: OneDayShortViewModel
     
     var body: some View {
         VStack(spacing: 5) {
@@ -27,7 +27,7 @@ struct WeatherWeekView: View {
                 Text(String(format: "%.0f°", viewModel.tempMax))
                 Text(String(format: "%.0f°", viewModel.tempMin))
             }
-            .font(.title)
+            .font(.title2)
             .foregroundColor(.secondary)
         }
         .frame(height: 250)
