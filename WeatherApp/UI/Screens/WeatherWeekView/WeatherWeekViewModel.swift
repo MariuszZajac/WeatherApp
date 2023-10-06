@@ -9,12 +9,14 @@ import Foundation
 //MARK: Weekly Weather forecast model
 final class WeatherWeekViewModel: ObservableObject {
 
-    @Published var weekWeather: DailyWeather
-    var day: String {
-        weekWeather.dt.formatted()
-    }
+    var weekWeather: DailyWeather
+    
+  
     var dayOfWeek: String {
         getDayOfWeek(from: weekWeather.dt) ?? "NUL"
+    }
+    var shortDayOfWeek: String {
+        getShortNamedDay(from: weekWeather.dt) ?? "NUL"
     }
     var tempMax: Double  {
         weekWeather.temp.max ?? 0 }
@@ -22,11 +24,11 @@ final class WeatherWeekViewModel: ObservableObject {
         weekWeather.temp.min ?? 0}
     
     var weatherIcon: WeatherIcon {
-        WeatherIcon(rawValue: (weekWeather.weather.first?.icon.systemImageName)!) ?? .snowNight
+        weekWeather.weather.first?.icon ?? .snowNight
     }
     
-    init(weekWeatherItem: DailyWeather) {
-        self.weekWeather = weekWeatherItem
+    init(weekWeather: DailyWeather) {
+        self.weekWeather = weekWeather
     }
     
      

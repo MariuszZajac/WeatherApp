@@ -10,15 +10,16 @@ import SwiftData
 
 @Observable final class WeatherViewModel {
     var error: WeatherError?
-    var weatherDataUI: [WeatherData] = []
+    var forecast: [WeatherData] = []
+    
     
     private let repository: WeatherRepositoryProtocol
     
     var icon: WeatherIcon {
-        weatherDataUI.first?.current.weather.first?.icon ?? .snowNight
+        forecast.first?.current.weather.first?.icon ?? .snowNight
     }
     var temp: Double {
-        (weatherDataUI.first?.current.temp ?? 0)
+        (forecast.first?.current.temp ?? 0)
     }
     
     /// Inicjalizacja z Dependency Injection
@@ -31,7 +32,7 @@ import SwiftData
     func fetchData() async {
         do {
             let data = try await repository.fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
-            weatherDataUI = data
+            forecast = data
             
         } catch {
             if let weatherError = error as? WeatherError {

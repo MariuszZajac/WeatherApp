@@ -18,13 +18,7 @@ struct WeatherData: Codable , Identifiable {
     let hourly: [HourlyWeather]
     let daily: [DailyWeather]
     
-    enum CodingKeys: String, CodingKey {
-        
-        case lat, lon, timezone
-        case timezoneOffset = "timezone_offset"
-        case current, hourly, daily
-    }
-    
+   
 }
 struct CurrentWeather: Codable, Identifiable {
     var id: UUID?
@@ -68,7 +62,9 @@ struct HourlyWeather: Codable, Identifiable {
 }
 
 struct DailyWeather: Codable, Identifiable {
-    var id: UUID?
+    var id: UUID {
+           return UUID(uuidString: String(dt)) ?? UUID()
+       }
     let dt: TimeInterval
     let sunrise: TimeInterval
     let sunset: TimeInterval
@@ -89,15 +85,7 @@ struct DailyWeather: Codable, Identifiable {
     let pop: Int
     let uvi: Double
     
-    struct Temperature: Codable, Identifiable {
-        var id: Int?
-        let day: Double
-        let min: Double?
-        let max: Double?
-        let night: Double
-        let eve: Double
-        let morn: Double
-    }
+    
    
 }
 
@@ -114,10 +102,10 @@ struct Rain: Codable {
 }
 
 struct Temperature: Codable, Identifiable {
-    var id: Int
+    var id: Int?
     let day: Double
-    let min: Double
-    let max: Double
+    let min: Double?
+    let max: Double?
     let night: Double
     let eve: Double
     let morn: Double
@@ -127,7 +115,7 @@ struct Temperature: Codable, Identifiable {
 struct Wind: Codable {
     let windSpeed: Double
     let windDeg: Int
-    let windGust: Double
+    let windGust: Double?
 }
 enum WeatherIcon: String, Codable {
     case clearDay = "01d"

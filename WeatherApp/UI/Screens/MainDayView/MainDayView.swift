@@ -24,10 +24,10 @@ struct MainDayView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
-//            Text(String(format: "%.0f°", $viewModel.temp))
-//                .font(.system(size: 30))
-//                .bold()
-//                .foregroundColor(.primary)
+            Text(String(format: "%.0f°", viewModel.wind.windSpeed))
+                .font(.system(size: 30))
+                .bold()
+                .foregroundColor(.primary)
         }
         .frame(height: 250)
         
