@@ -6,6 +6,12 @@
 //
 
 import Foundation
+enum ForecastPeriod {
+    case current(CurrentWeather)
+    case hourly(HourlyWeather)
+    case daily(DailyWeather)
+    
+}
 
 
 struct WeatherData: Codable , Identifiable {
@@ -162,3 +168,6 @@ enum WeatherIcon: String, Codable {
         }
     }
 }
+
+
+

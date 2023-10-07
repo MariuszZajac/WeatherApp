@@ -25,7 +25,8 @@ struct WeatherView: View {
                             OneDayShortView(viewModel: OneDayShortViewModel(weekWeather: dailyItem))
                         }
                     }
-//                    ScrollView(.horizontal) {
+                    
+//                    ScrollView(.vertical) {
 //                        ForEach(vm.forecast.first?.hourly ?? []) { hourlyItem in
 //                            DayDetailView(viewModel: DayDetailViewModel(detailWeather: hourlyItem))
 //                        }

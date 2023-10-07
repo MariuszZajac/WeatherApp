@@ -9,8 +9,7 @@ import SwiftUI
 import Charts
 
 struct TemperatureChart: View {
-   // var weatherData: [WeatherData] = []
-    // dane wysłąć
+   
     let temperatureChart: [TemperatureData]
 
     var body: some View {
@@ -29,17 +28,17 @@ struct TemperatureChart: View {
 }
 
 class TemperatureData {
-    private let weatherViewModel: WeatherViewModel
+    private let vm: DayDetailViewModel
 
-    var date: String//  WeatherData.dtTxt
-    var temp: Double// WeatherData.Main.temp
+    var date: String
+    var temp: String
 
 
-    init(weatherViewModel: WeatherViewModel, date: String, temp: Double) {
-        self.weatherViewModel = weatherViewModel
+    init(vm: DayDetailViewModel, date: String, temp: Double) {
+        self.vm = vm
 
-        self.date = "0" // weatherViewModel.weatherDataUI.first?.dtTxt ?? "\(Date.now)"
-        self.temp = 0// weatherViewModel.weatherDataUI.first?.main.temp ?? 0
+        self.date = vm.dt
+        self.temp = vm.temp
     }
 }
 
@@ -47,9 +46,9 @@ class TemperatureData {
 //    static var previews: some View {
 //        let tempDataDict = ["12:23,05,2021": 22.5, "15:23,05,2021": 18.0, "18:23,05,2021": 28.0]
 //        let tempDataArray = tempDataDict.map { key, value in
-//            TemperatureData (weatherViewModel: WeatherViewModel(), date: "12:23,05,2021", temp: 22.5)
+//            TemperatureData (vm: WeatherViewModel(repository: WeatherRepositoryProtocol), date: "12:23,05,2021", temp: 22.5)
 //        }
 //        return TemperatureChart(temperatureChart: tempDataArray)
 //    }
 // }
-//        
+        
