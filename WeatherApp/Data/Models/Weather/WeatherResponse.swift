@@ -6,15 +6,10 @@
 //
 
 import Foundation
-enum ForecastPeriod {
-    case current(CurrentWeather)
-    case hourly(HourlyWeather)
-    case daily(DailyWeather)
-    
-}
+import Observation
 
 
-struct WeatherData: Codable , Identifiable {
+@Observable class WeatherData: Codable , Identifiable {
     var id: UUID?
     let lat: Double
     let lon: Double
@@ -24,10 +19,11 @@ struct WeatherData: Codable , Identifiable {
     let hourly: [HourlyWeather]
     let daily: [DailyWeather]
     
-   
+    
 }
-struct CurrentWeather: Codable, Identifiable {
+struct CurrentWeather: Forecast, Codable, Identifiable {
     var id: UUID?
+   
     let dt: TimeInterval
     let sunrise: TimeInterval
     let sunset: TimeInterval
@@ -47,10 +43,11 @@ struct CurrentWeather: Codable, Identifiable {
 }
 
 
-struct HourlyWeather: Codable, Identifiable {
-    var id: UUID {
-           return UUID(uuidString: String(dt)) ?? UUID()
-       }
+struct HourlyWeather: Forecast, Codable, Identifiable {
+  
+    var id: UUID? {
+        return UUID(uuidString: String(dt)) ?? UUID()
+    }
     let dt: TimeInterval
     let temp: Double
     let feelsLike: Double?
@@ -69,7 +66,7 @@ struct HourlyWeather: Codable, Identifiable {
     
 }
 
-struct DailyWeather: Codable, Identifiable {
+struct DailyWeather:Forecast,  Codable, Identifiable {
     var id: UUID {
            return UUID(uuidString: String(dt)) ?? UUID()
        }
@@ -94,7 +91,7 @@ struct DailyWeather: Codable, Identifiable {
     let uvi: Double
     
     
-   
+    
 }
 
 struct WeatherInfo: Codable {

@@ -21,16 +21,25 @@ struct WeatherView: View {
                     MainWeatherStatusview(icon: vm.icon , temperature: vm.temp, description: vm.description, wind: vm.wind )
                     HStack {
                        
-                        ForEach(vm.forecast.first?.daily.prefix(5) ?? []) { dailyItem in
-                            OneDayShortView(viewModel: OneDayShortViewModel(weekWeather: dailyItem))
+                        ForEach(vm.forecast, id: \.id) { dailyItem in
+                               
+                                NavigationLink(destination: DayDetailView(forecast: [dailyItem])) {
+                                  
+                                    OneDayShortView(viewModel: OneDayShortViewModel(forecast: [dailyItem]))
+                                }
+                            }
                         }
-                    }
-                    
-//                    ScrollView(.vertical) {
-//                        ForEach(vm.forecast.first?.hourly ?? []) { hourlyItem in
-//                            DayDetailView(viewModel: DayDetailViewModel(detailWeather: hourlyItem))
-//                        }
-//                    }
+                        
+                        //                        ForEach(vm.forecast.first?.daily.prefix(5) ?? []) { dailyItem in
+                        //                            OneDayShortView(viewModel: OneDayShortViewModel(weekWeather: dailyItem))
+                        //                        }
+                        //                    }
+                        //
+                        //                    ScrollView(.vertical) {
+                        //                        ForEach(vm.forecast.first?.hourly ?? []) { hourlyItem in
+                        //                            DayDetailView(viewModel: DayDetailViewModel(detailWeather: hourlyItem))
+                        //                        }
+                        //                    }
                     
                 }
             }.task {

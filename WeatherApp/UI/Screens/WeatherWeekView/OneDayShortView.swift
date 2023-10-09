@@ -10,6 +10,7 @@ import SwiftUI
 struct OneDayShortView: View {
     var viewModel: OneDayShortViewModel
     
+    
     var body: some View {
         VStack(spacing: 5) {
             VStack {

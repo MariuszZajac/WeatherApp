@@ -28,19 +28,23 @@ struct TemperatureChart: View {
 }
 
 class TemperatureData {
-    private let vm: DayDetailViewModel
+    var forecast: [WeatherData]
 
-    var date: String
-    var temp: String
-
-
-    init(vm: DayDetailViewModel, date: String, temp: Double) {
-        self.vm = vm
-
-        self.date = vm.dt
-        self.temp = vm.temp
+    var date: Date {
+        let timestamp = forecast.first?.hourly.first?.dt
+            let date = Date(timeIntervalSince1970: timestamp ?? 0)
+            return date
     }
-}
+
+        
+    var temp: String
+        
+        init(forecast: [WeatherData], temp: String) {
+            self.forecast = forecast
+            self.temp = temp
+        }
+    }
+
 
 // struct TemperatureGraph_Previews: PreviewProvider {
 //    static var previews: some View {

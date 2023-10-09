@@ -10,10 +10,18 @@ import SwiftData
 
 @Observable final class WeatherViewModel {
     var error: WeatherError?
-    var forecast: [WeatherData] = []
-    
-    
+    var forecast: [WeatherData] = [] ////?????? ? ??
     private let repository: WeatherRepositoryProtocol
+   
+    //private let forecastService: ForecastService
+
+    init( repository: WeatherRepositoryProtocol ){//, forecastService: ForecastService) {
+      //  self.forecastService = forecastService
+        self.repository = repository
+    }
+    
+
+  
     
     var icon: WeatherIcon {
         forecast.first?.current.weather.first?.icon ?? .snowNight
@@ -32,17 +40,12 @@ import SwiftData
     return Wind(windSpeed: speed, windDeg: deg, windGust: gust)
 
 }
-    /// Inicjalizacja z Dependency Injection
-
-    init(repository: WeatherRepositoryProtocol) {
-        self.repository = repository
-    }
-
+    
     @MainActor
     func fetchData() async {
         do {
         
-            let data = try await repository.fetchWeatherData(latitude: 34.10922415570355, longitude: -117.33337910717069)// (latitude: 25.78008308243522,longitude: -80.25658171671407)// (latitude: 51.8300, longitude:  22.9890)
+            let data = try await repository.fetchWeatherData (latitude: 51.509865, longitude: -0.118092)//(latitude: 34.10922415570355, longitude: -117.33337910717069)// (latitude: 25.78008308243522,longitude: -80.25658171671407)// (latitude: 51.8300, longitude:  22.9890)
             //(latitude: 51.509865, longitude: -0.118092) paris
             // (latitude: 25.78008308243522,longitude:   -80.25658171671407)
 

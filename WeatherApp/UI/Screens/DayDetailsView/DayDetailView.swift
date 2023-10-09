@@ -8,49 +8,55 @@
 import SwiftUI
 
 struct DayDetailView: View {
-
-   var viewModel: DayDetailViewModel
-
+    
+    var forecast: [WeatherData]
+    
+//    var dt: TimeInterval
+//    var temp: Double
+//    var feelsLike: Double?
+//    var pressure: Int
+//    var humidity: Int
+//    var dewPoint: Double
+//    var uvi: Double
+//    var clouds: Int
+//    var visibility: Int
+//    var windSpeed: Double
+//    var windDeg: Int
+//    var windGust: Double
+//    var weather: [WeatherInfo]
+//    var pop: Double
+//    
+    
     var body: some View {
         ZStack {
             BackgroundView(topColor: .blue, bottomColor: Color("LightBlue"))
             VStack {
-
-                Spacer()
-                Text("\(String(format: "%.0f", viewModel.temp))")
-                    .font(.title)
-                    
-                    .foregroundColor(.red)
-               
-                Image(systemName: viewModel.weatherIcon.systemImageName)
+                VStack {
+                    Text("\(String(format: "%.0f",forecast.first?.daily.first?.temp.max ?? 0))")
+                    Text("\(String(format: "%.0f",forecast.first?.daily.first?.temp.min ?? 0))")
+                }
+                .font(.title)
+                
+                
+                Image(systemName: forecast.first?.daily.first?.weather.first?.icon.systemImageName ?? "questionmark")
                     .renderingMode(.original)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 80, height: 80)
-
-//                HStack(spacing: 5) {
-//                    Image(systemName: "wind")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .frame(width: 60, height: 60)
-//
-//                    VStack {
-//                        WindIconView(wind: viewModel.wind)
-//
-//                        Text("\(String(format: "%.1f", (viewModel.wind.windSpeed))) m/s")
-//                            .font(.title2)
-//                            .foregroundColor(.green)
-//                            .padding()
-//                    }
-//
-//                }
-               
-               
+                
+                
+                Text("\(String(format: "%.1f", (forecast.first?.daily.first?.windSpeed ?? 0))) m/s")
+                    .font(.title2)
+                    .foregroundColor(.green)
+                    .padding()
+                
+                
+                
             }
             TemperatureChart(temperatureChart: [TemperatureData]())
         }
-        }
     }
+}
 
 
 //struct DayDetailView_Previews: PreviewProvider {

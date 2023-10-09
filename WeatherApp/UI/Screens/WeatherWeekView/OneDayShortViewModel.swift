@@ -7,29 +7,30 @@
 
 import Foundation
 //MARK: Weekly Weather forecast model
-final class OneDayShortViewModel: ObservableObject {
-
-    var weekWeather: DailyWeather
+struct OneDayShortViewModel {
+    var forecast: [WeatherData]
+  //  var forecast: DailyWeather
     
   
     var dayOfWeek: String {
-        getDayOfWeek(from: weekWeather.dt) ?? "NUL"
+        let timestamp = forecast.first?.daily.first?.dt ?? 0
+        return getDayOfWeek(from: timestamp) ?? "NUL"
     }
+
     var shortDayOfWeek: String {
-        getShortNamedDay(from: weekWeather.dt) ?? "NUL"
+        let timestamp = forecast.first?.daily.first?.dt ?? 0
+       return getShortNamedDay(from: timestamp) ?? "NUL"
     }
     var tempMax: Double  {
-        weekWeather.temp.max ?? 0 }
+        forecast.first?.daily.first?.temp.max ?? 0 }
     var tempMin: Double  {
-        weekWeather.temp.min ?? 0}
+        forecast.first?.daily.first?.temp.min ?? 0}
     
     var weatherIcon: WeatherIcon {
-        weekWeather.weather.first?.icon ?? .snowNight
+        forecast.first?.daily.first?.weather.first?.icon ?? .snowNight
     }
     
-    init(weekWeather: DailyWeather) {
-        self.weekWeather = weekWeather
-    } 
+    
 }
 func getDayOfWeek(from date: TimeInterval) -> String? {
     let dateFormatter = DateFormatter()
