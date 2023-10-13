@@ -8,49 +8,40 @@
 import SwiftUI
 
 struct MainWeatherStatusView: View {
-    var icon: WeatherIcon
-    var temperature: Double
-    var description: String
-    var wind: Wind
+    @StateObject var viewModel: WeatherViewModel
+    
     var body: some View {
-        VStack(spacing: 8 ) {
-            Image(systemName: icon.systemImageName)
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 140, height: 140)
-            
+        VStack(spacing: 0 ) {
             HStack {
-                Text("\(String(format: "%.0f", temperature))°")
+                Text("\(String(format: "%.0f", viewModel.temp))°")
                     .font(.system(size: 70))
                     .bold()
                     .foregroundColor(.white)
-                HStack(spacing: 8) {
-                    Image(systemName: "wind")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 40, height: 40)
+                
+                Image(systemName: viewModel.icon.systemImageName)
+                    .renderingMode(.original)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 160, height: 160)
+            }
+            HStack {
+                Image(systemName: "wind")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 32 , height: 32)
+                
+                VStack {
+                    WindIconView(wind: viewModel.wind)
                     
-                    VStack {
-                        WindIconView(wind: wind)
-                        
-                        Text("\(String(format: "%.1f", (wind.windSpeed))) m/s")
-                            .font(.title2)
-                            .foregroundColor(.secondary)
-                            .padding()
-                    }
-                    .padding(8)
+                    Text("\(String(format: "%.1f", (viewModel.wind.windSpeed))) m/s")
+                        .font(.title3)
+                        .foregroundColor(.secondary)
                 }
-            } .padding(0)
-            Text(description)
-                .font(.largeTitle)
+            }
+            Text(viewModel.description)
+                .font(.title)
                 .fontWeight(.regular)
                 .foregroundColor(.secondary)
-            
-            
-            
-            
         }
-        .padding(.bottom, 20)
     }
 }

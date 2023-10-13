@@ -16,10 +16,12 @@ struct CityTextView: View {
             .font(.system(size: 32, weight: .medium, design: .default))
             .foregroundColor(.white)
             .padding()
-        Text("\(Date().formatted(.dateTime.month().day().hour().minute()))")
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-        
+        HStack{
+            Text("\(Date().formatted(.dateTime.month().day()))")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+            ClockView()
+        }
     }
 }
 

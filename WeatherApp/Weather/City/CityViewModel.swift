@@ -11,4 +11,5 @@ import Combine
 
 final class CityViewModel: ObservableObject {
     @Published var city: [City] = []
+    
 }

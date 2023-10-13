@@ -9,50 +9,40 @@ import SwiftUI
 import Charts
 
 struct TemperatureChart: View {
-   
-    let temperatureChart: [TemperatureData]
-
+    let hourlyWeatherData: [HourlyWeather]
+       let temperatureChart: [TemperatureData]
+       
+       init(hourlyWeatherData: [HourlyWeather]) {
+           self.hourlyWeatherData = hourlyWeatherData
+           self.temperatureChart = hourlyWeatherData.map { TemperatureData(forecast: $0, temp: $0.temp) }
+       }
+    
     var body: some View {
-        VStack {
+        HStack {
             Chart {
                 ForEach(temperatureChart, id: \.date) { item in
-
+                    
                     LineMark(x: .value("Hour", item.date),
                              y: .value("Temperatura", item.temp))
                 }
-                .foregroundStyle(.blue)
+                .foregroundStyle(.green)
             }
         }
+        .padding(8)
     }
-
+    
 }
 
 class TemperatureData {
-    var forecast: [WeatherData]
-
-    var date: Date {
-        let timestamp = forecast.first?.hourly.first?.dt
-            let date = Date(timeIntervalSince1970: timestamp ?? 0)
-            return date
+    var forecast: HourlyWeather
+    var temp: Double
+    var date: Date
+    
+    init(forecast: HourlyWeather, temp: Double) {
+        self.forecast = forecast
+        self.temp = forecast.temp
+        self.date = Date(timeIntervalSince1970:forecast.dt)
     }
-
-        
-    var temp: String
-        
-        init(forecast: [WeatherData], temp: String) {
-            self.forecast = forecast
-            self.temp = temp
-        }
-    }
+}
 
 
-// struct TemperatureGraph_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let tempDataDict = ["12:23,05,2021": 22.5, "15:23,05,2021": 18.0, "18:23,05,2021": 28.0]
-//        let tempDataArray = tempDataDict.map { key, value in
-//            TemperatureData (vm: WeatherViewModel(repository: WeatherRepositoryProtocol), date: "12:23,05,2021", temp: 22.5)
-//        }
-//        return TemperatureChart(temperatureChart: tempDataArray)
-//    }
-// }
-        

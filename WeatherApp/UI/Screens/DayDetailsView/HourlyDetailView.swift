@@ -13,6 +13,9 @@ struct HourlyDetailView: View {
     var body: some View {
         
         VStack {
+            Text(wiewModel.hour ?? "")
+                .fontDesign(.monospaced)
+                .font(.subheadline)
             HStack {
                 WindIconView(wind: wiewModel.wind)
                 Text("\(String(format: "%.1f", (wiewModel.wind.windSpeed))) m/s")
@@ -31,17 +34,20 @@ struct HourlyDetailView: View {
             
             VStack{
                 Text("\( wiewModel.temp)°")
+                    .foregroundColor(.secondary)
+
                 
-                Text(wiewModel.hour ?? "")
-                    .bold()
+                
             }
             .font(.title3)
         }
+//        .overlay {
+//            RoundedRectangle(cornerRadius: 10)
+//                .strokeBorder(.white.opacity(0.2))
+//                .blendMode(.overlay)
+//            }
         
     }
 }
 
-//#Preview {
-//    HourlyDetailView(wiewModel: HourlyDetailViewModel(forecastHourly: HourlyWeather()))
-//    
-//}
+

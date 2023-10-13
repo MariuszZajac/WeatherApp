@@ -14,13 +14,13 @@ struct ForecastView: View {
         VStack {
             //switch hourly to daily
             SegmentedControl(selection: $viewModel.selectedForecastType)
-//            Picker(selection: vm.selectedForecastType) {
-//                <#code#>
-//            } label: {
-//                <#code#>
-//            }
-          //  widok picker .pickerStyle(SegmentedControlStyle)
-
+            //            Picker(selection: vm.selectedForecastType) {
+            //                <#code#>
+            //            } label: {
+            //                <#code#>
+            //            }
+            //  widok picker .pickerStyle(SegmentedControlStyle)
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     switch viewModel.selectedForecastType {
@@ -28,19 +28,28 @@ struct ForecastView: View {
                         ForEach(viewModel.hourlyForecast, id: \.id) { hourlyItem in
                             HourlyDetailView(wiewModel: HourlyDetailViewModel(forecastHourly: hourlyItem))
                         }
+                        
+                        
                     case .week:
                         ForEach(viewModel.dayForecast.dropFirst(1), id: \.id) { dailyItem in
                             OneDayShortView(viewModel: OneDayShortViewModel(forecast: dailyItem))
                         }
-                    
+                        
                     }
                 }
                 .padding(10)
+                
+            }
+            if viewModel.selectedForecastType == .hour  {
+                
+                
+                TemperatureChart(hourlyWeatherData: viewModel.hourlyForecast)
+                
             }
             
         }
         .padding()
-    
+        
     }
 }
 

@@ -15,14 +15,15 @@ struct WeatherView: View {
         
         ZStack {
             BackgroundView(topColor: .blue, bottomColor: Color("LightBlue"))
-            VStack {
+            ScrollView(.vertical) {
                 CityTextView(cityName: "Paris, France")
                 
-                MainWeatherStatusView(icon: viewModel.icon , temperature: viewModel.temp, description: viewModel.description, wind: viewModel.wind )
+                MainWeatherStatusView(viewModel: viewModel)
                 
                 ForecastView(viewModel: viewModel)
+                
             }
-            .padding(.top,5)
+            .padding(.top,8)
         }.task {
             await viewModel.fetchData()
             

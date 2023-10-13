@@ -25,7 +25,8 @@ final class HourlyDetailViewModel: ObservableObject {
     }
     
     var hour: String? {
-        return getHourFromDateTime(from: forecastHourly.dt)
+        let dateManager = DateManager()
+        return dateManager.getFormatDateTime(date: forecastHourly.dt, dateFormat: .HHmm)
     }
     
     

@@ -9,26 +9,26 @@ import Foundation
 //MARK: Weekly Weather forecast model
 class OneDayShortViewModel: ObservableObject {
     
-    let forecast: DailyWeather
+    let forecastDaily: DailyWeather
     init(forecast: DailyWeather) {
-        self.forecast = forecast
+        self.forecastDaily = forecast
     }
-    
-  
     var dayOfWeek: String {
-        return getDayOfWeekFromDateTime(from: forecast.dt) ?? "NUL"
+        let dateManager = DateManager()
+        return dateManager.getFormatDateTime(date: forecastDaily.dt, dateFormat: .MMMdd) ?? ""
     }
 
     var shortDayOfWeek: String {
-       return getShortNamedDayFromDateTime(from: forecast.dt) ?? "NUL"
+        let dateManager = DateManager()
+        return dateManager.getFormatDateTime(date: forecastDaily.dt, dateFormat: .EEE) ?? ""
     }
     var tempMax: Double  {
-        forecast.temp.max ?? 0 }
+        forecastDaily.temp.max ?? 0 }
     var tempMin: Double  {
-        forecast.temp.min ?? 0}
+        forecastDaily.temp.min ?? 0}
     
     var weatherIcon: WeatherIcon {
-        forecast.weather.first?.icon ?? .snowNight
+        forecastDaily.weather.first?.icon ?? .snowNight
     }
     
     
