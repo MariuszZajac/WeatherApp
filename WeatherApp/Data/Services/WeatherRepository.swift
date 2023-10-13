@@ -8,7 +8,7 @@
 import Foundation
 
 protocol WeatherRepositoryProtocol {
-    func fetchWeatherData(latitude: Double, longitude: Double) async throws -> [WeatherData]
+    func fetchWeatherData(latitude: Double, longitude: Double) async throws -> WeatherData
 }
 
 final class WeatherRepository: WeatherRepositoryProtocol {
@@ -21,15 +21,15 @@ final class WeatherRepository: WeatherRepositoryProtocol {
         self.weatherDataCache = weatherDataCache
     }
 
-    func fetchWeatherData(latitude: Double, longitude: Double) async throws -> [WeatherData] {
+    func fetchWeatherData(latitude: Double, longitude: Double) async throws -> WeatherData {
         do {
-            if weatherDataCache.isCacheFresh() {
-                return weatherDataCache.fetchWeatherData()!
+            if weatherDataCache.isCacheFresh(), let data = weatherDataCache.fetchWeatherData()  {
+                return data
                
             } else {
                 let response = try await weatherAPIService.downloadWeatherData(latitude: latitude, longitude: longitude)
-                weatherDataCache.saveWeatherData([response])
-                return [response]
+                weatherDataCache.saveWeatherData(response)
+                return response
             }
         } catch {
             throw error

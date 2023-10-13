@@ -6,24 +6,6 @@
 //
 import Foundation
 
-//extension Array where Element == WeatherData {
-//    func groupByDay() -> [String: [WeatherData]] {
-//        var groupedByDay: [String: [WeatherData]] = [:]
-//
-//        for data in self {
-//            let components = data.dtTxt.split(separator: " ")
-//            let day = String(components.first ?? "")
-//
-//            if var existingData = groupedByDay[day] {
-//                existingData.append(data)
-//                groupedByDay[day] = existingData
-//            } else {
-//                groupedByDay[day] = [data]
-//            }
-//        }
-//        return groupedByDay
-//    }
-//}
 
 extension Double {
     func roundDouble() -> String {
@@ -41,14 +23,37 @@ extension String {
         return nil
     }
 }
-extension String {
-    func extractHourFromDateTime() -> String? {
+func getHourFromDateTime(from date: TimeInterval) -> String? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        if let date = dateFormatter.date(from: self) {
-            dateFormatter.dateFormat = "HH"
-            return dateFormatter.string(from: date)
+        dateFormatter.dateFormat = "HH:mm"
+    let formattedDate = dateFormatter.string(from: Date(timeIntervalSince1970: date))
+    
+    if let dateFromFormatted = dateFormatter.date(from: formattedDate) {
+            return dateFormatter.string(from: dateFromFormatted)
+        } else {
+            return nil
         }
-        return nil
     }
+
+func getDayOfWeekFromDateTime(from date: TimeInterval) -> String? {
+   let dateFormatter = DateFormatter()
+   dateFormatter.dateFormat = "MMM dd"
+   let formattedDate = dateFormatter.string(from: Date(timeIntervalSince1970: date))
+   
+   if let dateFromFormatted = dateFormatter.date(from: formattedDate) {
+           return dateFormatter.string(from: dateFromFormatted)
+       } else {
+           return nil
+       }
+}
+func getShortNamedDayFromDateTime(from date: TimeInterval) -> String? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EEE"
+    let formattedDate = dateFormatter.string(from: Date(timeIntervalSince1970: date))
+    
+    if let dateFromFormatted = dateFormatter.date(from: formattedDate) {
+            return dateFormatter.string(from: dateFromFormatted).uppercased()
+        } else {
+            return nil
+        }
 }

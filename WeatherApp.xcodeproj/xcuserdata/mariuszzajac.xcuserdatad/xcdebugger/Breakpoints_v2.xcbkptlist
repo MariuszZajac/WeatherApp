@@ -138,8 +138,8 @@
             filePath = "WeatherApp/UI/Screens/WeatherView/WeatherViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "fetchData()"
             landmarkType = "7">
             <Locations>
@@ -286,6 +286,69 @@
             endingLineNumber = "28"
             landmarkName = "downloadWeatherData(latitude:longitude:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B10992F-58E6-4F1C-85BE-098EFA258F29"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/UI/Screens/WeatherView/WeatherViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "getHourlyForecast(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1B10992F-58E6-4F1C-85BE-098EFA258F29 - f41f95b770b9da55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherApp.WeatherViewModel.getHourlyForecast(for: WeatherApp.DailyWeather) -&gt; Swift.Array&lt;WeatherApp.HourlyWeather&gt;"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/UI/Screens/WeatherView/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "1B10992F-58E6-4F1C-85BE-098EFA258F29 - f41f95b770b9da55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherApp.WeatherViewModel.getHourlyForecast(for: WeatherApp.DailyWeather) -&gt; Swift.Array&lt;WeatherApp.HourlyWeather&gt;"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/UI/Screens/WeatherView/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "1B10992F-58E6-4F1C-85BE-098EFA258F29 - f41f95b770b9da55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherApp.WeatherViewModel.getHourlyForecast(for: WeatherApp.DailyWeather) -&gt; Swift.Array&lt;WeatherApp.HourlyWeather&gt;"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/UI/Screens/WeatherView/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

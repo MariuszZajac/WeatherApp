@@ -12,7 +12,7 @@ struct OneDayShortView: View {
     
     
     var body: some View {
-        VStack(spacing: 5) {
+        VStack {
             VStack {
                 Text(viewModel.dayOfWeek)
                 Text(viewModel.shortDayOfWeek)
@@ -31,9 +31,5 @@ struct OneDayShortView: View {
             .font(.title2)
             .foregroundColor(.secondary)
         }
-        .frame(height: 250)
-        
     }
-    
-    
 }

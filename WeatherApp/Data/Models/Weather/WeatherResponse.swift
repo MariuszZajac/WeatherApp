@@ -9,7 +9,7 @@ import Foundation
 import Observation
 
 
-@Observable class WeatherData: Codable , Identifiable {
+struct WeatherData: Codable , Identifiable {
     var id: UUID?
     let lat: Double
     let lon: Double
@@ -22,7 +22,9 @@ import Observation
     
 }
 struct CurrentWeather: Forecast, Codable, Identifiable {
-    var id: UUID?
+    var id: UUID? {
+        return UUID(uuidString: String(dt)) ?? UUID()
+    }
    
     let dt: TimeInterval
     let sunrise: TimeInterval
@@ -56,7 +58,7 @@ struct HourlyWeather: Forecast, Codable, Identifiable {
     let dewPoint: Double
     let uvi: Double
     let clouds: Int
-    let visibility: Int
+    let visibility: Int?
     let windSpeed: Double
     let windDeg: Int
     let windGust: Double
@@ -89,7 +91,7 @@ struct DailyWeather:Forecast,  Codable, Identifiable {
     let clouds: Int
     let pop: Double
     let uvi: Double
-    
+    let visibility: Int?
     
     
 }

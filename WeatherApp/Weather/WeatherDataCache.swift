@@ -14,7 +14,7 @@ class WeatherDataCache {
         self.fileURL = documents.appendingPathComponent(fileName)
     }
 
-    func saveWeatherData(_ data: [WeatherData]) {
+    func saveWeatherData(_ data: WeatherData) {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
 
@@ -23,11 +23,11 @@ class WeatherDataCache {
         }
     }
 
-    func fetchWeatherData() -> [WeatherData]? {
+    func fetchWeatherData() -> WeatherData? {
         if let data = try? Data(contentsOf: fileURL) {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try? decoder.decode([WeatherData].self, from: data)
+            return try? decoder.decode(WeatherData.self, from: data)
         }
         return nil
     }
