@@ -14,7 +14,7 @@ struct WeatherAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            WeatherView(vm: WeatherViewModel(repository: WeatherRepository(weatherAPIService: apiService, weatherDataCache: dataCache)))
+            WeatherView(viewModel: WeatherViewModel(repository: WeatherRepository(weatherAPIService: apiService, weatherDataCache: dataCache)))
                
         }
     }

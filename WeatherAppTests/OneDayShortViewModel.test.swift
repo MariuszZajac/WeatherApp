@@ -15,6 +15,6 @@ class OneDayShortViewModelTest: XCTestCase {
         let temp = Temperature.make()
         let weather = WeatherInfo.make()
         let sut = OneDayShortViewModel(forecast: DailyWeather.make(temp: temp, feelsLike: temp, weather: weather))
-        XCTAssertEqual(sut.dayOfWeek, "MON")
+        XCTAssertEqual(sut.shortDayOfWeek, "THU")
     }
 }
