@@ -16,13 +16,11 @@ class OneDayShortViewModel: ObservableObject {
     
   
     var dayOfWeek: String {
-        let timestamp = forecast.dt
-        return getDayOfWeekFromDateTime(from: timestamp) ?? "NUL"
+        return getDayOfWeekFromDateTime(from: forecast.dt) ?? "NUL"
     }
 
     var shortDayOfWeek: String {
-        let timestamp = forecast.dt
-       return getShortNamedDayFromDateTime(from: timestamp) ?? "NUL"
+       return getShortNamedDayFromDateTime(from: forecast.dt) ?? "NUL"
     }
     var tempMax: Double  {
         forecast.temp.max ?? 0 }

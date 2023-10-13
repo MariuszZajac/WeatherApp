@@ -32,7 +32,7 @@ struct HourlyDetailView: View {
             VStack{
                 Text("\( wiewModel.temp)°")
                 
-                Text(wiewModel.hour)
+                Text(wiewModel.hour ?? "")
                     .bold()
             }
             .font(.title3)
@@ -41,7 +41,7 @@ struct HourlyDetailView: View {
     }
 }
 
-#Preview {
-    HourlyDetailView(wiewModel: HourlyDetailViewModel(forecastHourly: [HourlyWeather]()))
-    
-}
+//#Preview {
+//    HourlyDetailView(wiewModel: HourlyDetailViewModel(forecastHourly: HourlyWeather()))
+//    
+//}

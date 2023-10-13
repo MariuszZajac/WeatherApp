@@ -9,24 +9,23 @@ import Foundation
 import SwiftUI
 
 final class WeatherViewModel: ObservableObject {
+    enum ForecastType: Int {
+        case hour = 0
+        case week
+    }
     var error: WeatherError?
-    private var forecast: WeatherData?
+   
     @Published var dayForecast: [DailyWeather] = []
     @Published var hourlyForecast: [HourlyWeather] = []
     @Published var currentForecast: CurrentWeather?
-    
+    @Published var selectedForecastType: ForecastType = .hour
     private let repository: WeatherRepositoryProtocol
+    private var forecast: WeatherData?
+  
     
-    //private let forecastService: ForecastService
-    
-    init( repository: WeatherRepositoryProtocol ){//, forecastService: ForecastService) {
-        //  self.forecastService = forecastService
+    init( repository: WeatherRepositoryProtocol ){
         self.repository = repository
     }
-    
-    
-    
-    
     var icon: WeatherIcon {
         currentForecast?.weather.first?.icon ?? .snowNight
     }
@@ -49,11 +48,7 @@ final class WeatherViewModel: ObservableObject {
     func fetchData() async {
         do {
             
-            let data = try await repository.fetchWeatherData (latitude: 51.509865, longitude: -0.118092)//(latitude: 34.10922415570355, longitude: -117.33337910717069)// (latitude: 25.78008308243522,longitude: -80.25658171671407)// (latitude: 51.8300, longitude:  22.9890)
-            //(latitude: 51.509865, longitude: -0.118092) paris
-            // (latitude: 25.78008308243522,longitude:   -80.25658171671407)
-            
-            //forecast = data
+            let data = try await repository.fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
             dayForecast = data.daily
             hourlyForecast = data.hourly
             currentForecast = data.current
@@ -63,22 +58,5 @@ final class WeatherViewModel: ObservableObject {
             }
         }
     }
-  
-    func getHourlyForecast(for item: DailyWeather) -> [HourlyWeather] {
-        
-        let targetDate = Date(timeIntervalSince1970: item.dt)
-        
-        let hourlyWeatherForDate = hourlyForecast.filter { hourly in
-            let hourlyDate = Date(timeIntervalSince1970: hourly.dt)
-            return Calendar.current.isDate(hourlyDate, inSameDayAs: targetDate)
-        }
-        
-        return hourlyWeatherForDate
-    }
-
-
-    
-    
-
-}
+ }
 

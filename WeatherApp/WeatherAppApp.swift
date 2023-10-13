@@ -11,7 +11,6 @@ import SwiftUI
 struct WeatherAppApp: App {
     private let apiService = WeatherAPIService()
     private let dataCache = WeatherDataCache(fileName: "weatherCache.json")
-    private let dailyWeather = [DailyWeather]()
     
     var body: some Scene {
         WindowGroup {

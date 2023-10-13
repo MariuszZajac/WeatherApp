@@ -9,24 +9,30 @@
 import SwiftUI
 
 struct ForecastView: View {
-    @State private var selection = 0
     @StateObject var vm: WeatherViewModel
     var body: some View {
         VStack {
             //switch hourly to daily
-            SegmentedControl(selection: $selection)
-            
+            SegmentedControl(selection: $vm.selectedForecastType)
+//            Picker(selection: vm.selectedForecastType) {
+//                <#code#>
+//            } label: {
+//                <#code#>
+//            }
+          //  widok picker .pickerStyle(SegmentedControlStyle)
+
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    if selection == 0 {
+                    switch vm.selectedForecastType {
+                    case .hour:
                         ForEach(vm.hourlyForecast, id: \.id) { hourlyItem in
-                            HourlyDetailView(wiewModel: HourlyDetailViewModel(forecastHourly: [hourlyItem]))
+                            HourlyDetailView(wiewModel: HourlyDetailViewModel(forecastHourly: hourlyItem))
                         }
-                         
-                    } else {
+                    case .week:
                         ForEach(vm.dayForecast.dropFirst(1), id: \.id) { dailyItem in
                             OneDayShortView(viewModel: OneDayShortViewModel(forecast: dailyItem))
                         }
+                    
                     }
                 }
                 .padding(10)

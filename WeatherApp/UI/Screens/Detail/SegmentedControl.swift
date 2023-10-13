@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct SegmentedControl: View {
-    @Binding var selection: Int
+    @Binding var selection: WeatherViewModel.ForecastType
     var body: some View {
         VStack(spacing: 5) {
             //MARK: Segmented Buttons
             HStack {
                 Button {
                     withAnimation(.easeInOut(duration: 0.5)) {
-                        selection = 0
+                        selection = .hour
                     }
                     
                 } label: {
@@ -24,7 +24,7 @@ struct SegmentedControl: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 Button{
                     withAnimation(.easeInOut(duration: 0.5)) {
-                        selection = 1
+                        selection = .week
                     }
                 } label: {
                     Text("Weekly Forecast")
@@ -47,7 +47,7 @@ struct SegmentedControl: View {
                            .background(Color.white)
                         .blendMode(.overlay)
                     }
-                    .frame(maxWidth: .infinity, alignment: selection == 0 ? .leading : .trailing)
+                    .frame(maxWidth: .infinity, alignment: selection == .hour ? .leading : .trailing)
                     .offset(y:-1)
                 }
         }
@@ -55,7 +55,3 @@ struct SegmentedControl: View {
     }
 }
 
-#Preview {
-    SegmentedControl(selection: .constant(0))
-        .preferredColorScheme(.dark)
-}
