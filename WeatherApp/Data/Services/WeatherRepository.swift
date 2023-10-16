@@ -19,6 +19,7 @@ final class WeatherRepository: WeatherRepositoryProtocol {
     init(weatherAPIService: WeatherAPIServiceProtocol, weatherDataCache: WeatherDataCache) {
         self.weatherAPIService = weatherAPIService
         self.weatherDataCache = weatherDataCache
+        
     }
 
     func fetchWeatherData(latitude: Double, longitude: Double) async throws -> WeatherData {

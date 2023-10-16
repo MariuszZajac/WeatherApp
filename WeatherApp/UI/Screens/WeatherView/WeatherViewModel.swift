@@ -17,7 +17,7 @@ final class WeatherViewModel: ObservableObject {
         case loading, error(Error), loaded
     }
     
-    @Published var state: State = .loading
+    @Published var state: State = .loaded
     @Published var dayForecast: [DailyWeather] = []
     @Published var hourlyForecast: [HourlyWeather] = []
     @Published var currentForecast: CurrentWeather?

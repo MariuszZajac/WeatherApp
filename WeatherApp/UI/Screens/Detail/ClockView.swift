@@ -13,6 +13,7 @@ struct ClockView: View {
     var body: some View {
         Text(" \(formattedTime)")
             .fontWeight(.bold)
+            .fontDesign(.monospaced)
             .foregroundColor(.white)
             .onAppear {
                 startClock()

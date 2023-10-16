@@ -20,8 +20,12 @@ struct APIConfig {
               let xml = FileManager.default.contents(atPath: path),
               let configs = try? PropertyListDecoder().decode([String: String].self, from: xml),
               let value = configs[key] else {
-            fatalError("Missing API configs")
+            return APIConfigError.missingConfig.rawValue
         }
         return value
     }
+    enum APIConfigError: String, Error {
+        case missingConfig = "MissingConfig"
+    }
+
 }

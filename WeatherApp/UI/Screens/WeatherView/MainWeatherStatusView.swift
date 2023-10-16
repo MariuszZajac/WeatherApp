@@ -11,10 +11,10 @@ struct MainWeatherStatusView: View {
     @StateObject var viewModel: WeatherViewModel
     
     var body: some View {
-        VStack(spacing: 0 ) {
+        VStack {
             HStack {
                 Text("\(String(format: "%.0f", viewModel.temp))°")
-                    .font(.system(size: 70))
+                    .font(.system(size: 80))
                     .bold()
                     .foregroundColor(.white)
                 

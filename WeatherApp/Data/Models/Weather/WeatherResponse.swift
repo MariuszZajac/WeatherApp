@@ -30,7 +30,7 @@ struct CurrentWeather: Forecast, Codable, Identifiable {
     let sunrise: TimeInterval
     let sunset: TimeInterval
     let temp: Double
-    let feelsLike: Double?
+    let feelsLike: Double//?
     let pressure: Int
     let humidity: Int
     let dewPoint: Double

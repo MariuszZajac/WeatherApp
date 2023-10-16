@@ -36,6 +36,8 @@
 		87F427972AD9421100427B9B /* DailyWeatherBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F427962AD9421100427B9B /* DailyWeatherBuilder.swift */; };
 		87F427992AD9A01A00427B9B /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F427982AD9A01A00427B9B /* ClockView.swift */; };
 		87F4279B2ADD15D900427B9B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4279A2ADD15D900427B9B /* ErrorView.swift */; };
+		87F4279D2ADD379D00427B9B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4279C2ADD379D00427B9B /* PrimaryButton.swift */; };
+		87F4279F2ADD4BD200427B9B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4279E2ADD4BD200427B9B /* LocationManager.swift */; };
 		87FFAF562A9C7ED6002A25DA /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FFAF552A9C7ED6002A25DA /* WeatherAppApp.swift */; };
 		87FFAF5A2A9C7ED7002A25DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FFAF592A9C7ED7002A25DA /* Assets.xcassets */; };
 		87FFAF5D2A9C7ED7002A25DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FFAF5C2A9C7ED7002A25DA /* Preview Assets.xcassets */; };
@@ -83,6 +85,8 @@
 		87F427962AD9421100427B9B /* DailyWeatherBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherBuilder.swift; sourceTree = "<group>"; };
 		87F427982AD9A01A00427B9B /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		87F4279A2ADD15D900427B9B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		87F4279C2ADD379D00427B9B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		87F4279E2ADD4BD200427B9B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		87FFAF522A9C7ED6002A25DA /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FFAF552A9C7ED6002A25DA /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 		87FFAF592A9C7ED7002A25DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				87A09EB72ACBE8FE005D06FE /* CityTextView.swift */,
 				8739A5522A9CF32500777967 /* CityViewModel.swift */,
 				876ADD3C2AA61FC300048ECC /* CityCreator.swift */,
+				87F4279E2ADD4BD200427B9B /* LocationManager.swift */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				87A09EB52ACBE8C7005D06FE /* BackgroundView.swift */,
+				87F4279C2ADD379D00427B9B /* PrimaryButton.swift */,
 				87F4279A2ADD15D900427B9B /* ErrorView.swift */,
 				87F4277E2AD91DBE00427B9B /* ForecastView.swift */,
 				878AB1FD2AB2D86C001694A9 /* TemperatureChart.swift */,
@@ -429,11 +435,13 @@
 				870F5DCC2A9C879100C2988C /* WeatherViewModel.swift in Sources */,
 				87A09EB62ACBE8C7005D06FE /* BackgroundView.swift in Sources */,
 				8739A55D2A9DDD8D00777967 /* WeatherDataCache.swift in Sources */,
+				87F4279D2ADD379D00427B9B /* PrimaryButton.swift in Sources */,
 				87F4277D2AD15DBA00427B9B /* ForecastService.swift in Sources */,
 				87A070642AA1B166007491BB /* WindIcon.swift in Sources */,
 				870F5DCE2A9C87C000C2988C /* APIService.swift in Sources */,
 				8739A5532A9CF32500777967 /* CityViewModel.swift in Sources */,
 				87F427992AD9A01A00427B9B /* ClockView.swift in Sources */,
+				87F4279F2ADD4BD200427B9B /* LocationManager.swift in Sources */,
 				878AB1FE2AB2D86C001694A9 /* TemperatureChart.swift in Sources */,
 				87FFAF562A9C7ED6002A25DA /* WeatherAppApp.swift in Sources */,
 				876ADD3D2AA61FC300048ECC /* CityCreator.swift in Sources */,
@@ -545,7 +553,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -600,7 +608,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

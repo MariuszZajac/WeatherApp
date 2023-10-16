@@ -21,7 +21,9 @@ struct WeatherView: View {
             case .loading:
                 ProgressView("Loading actual forecast")
             case .error(let error):
-                ErrorView( title: error.localizedDescription)
+                ErrorView(title: error.localizedDescription) {
+                   //add action
+                }
             case .loaded:
                 ScrollView(.vertical) {
                     CityTextView(cityName: "Paris, France")

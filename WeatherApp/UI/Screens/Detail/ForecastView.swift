@@ -21,17 +21,15 @@ struct ForecastView: View {
             .pickerStyle(SegmentedPickerStyle())
             .font(.headline.weight(.semibold))
             .foregroundColor(.secondary)
-            .padding(25)
+            .padding(8)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
+                HStack(spacing: 8) {
                     switch viewModel.selectedForecastType {
                     case .hour:
                         ForEach(viewModel.hourlyForecast.prefix(24), id: \.id) { hourlyItem in
                             HourlyDetailView(wiewModel: HourlyDetailViewModel(forecastHourly: hourlyItem))
                         }
-                        
-                        
                     case .week:
                         ForEach(viewModel.dayForecast.dropFirst(1), id: \.id) { dailyItem in
                             OneDayShortView(viewModel: OneDayShortViewModel(forecast: dailyItem))
@@ -39,14 +37,11 @@ struct ForecastView: View {
                         
                     }
                 }
-                .padding(10)
+                .padding(8)
                 
             }
             if viewModel.selectedForecastType == .hour  {
-                
-                
                 TemperatureChart(hourlyWeatherData: viewModel.hourlyForecast)
-                
             }
             
         }
