@@ -62,9 +62,6 @@ final class WeatherAPIService: WeatherAPIServiceProtocol {
 
     private func decodeWeatherData(_ data: Data) throws -> WeatherData {
         do {
-          //  print(String(data: data, encoding: .utf8))
-
-
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             

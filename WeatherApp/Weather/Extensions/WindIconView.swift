@@ -22,4 +22,5 @@ struct WindIconView: View {
             Image(systemName: "arrow.left")
         }
     }
+    
 }

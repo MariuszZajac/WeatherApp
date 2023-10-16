@@ -10,6 +10,7 @@ import SwiftUI
 struct HourlyDetailView: View {
     
     var wiewModel: HourlyDetailViewModel
+    
     var body: some View {
         
         VStack {
@@ -18,18 +19,18 @@ struct HourlyDetailView: View {
                 .font(.subheadline)
             HStack {
                 WindIconView(wind: wiewModel.wind)
-                Text("\(String(format: "%.1f", (wiewModel.wind.windSpeed))) m/s")
-                    .font(.subheadline)
+                Text("\(String(format: "%.1f", (wiewModel.wind.windSpeed)))m/s")
+                    .font(.footnote)
                     .foregroundColor(.secondary)
             }
-            .frame(width: 60, height: 60)
+            .frame(width: 50, height: 50)
             
             
             Image(systemName: wiewModel.weatherIcon.systemImageName)
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 60, height: 60)
+                .frame(width: 48, height: 48)
             
             
             VStack{

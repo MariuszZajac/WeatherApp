@@ -10,12 +10,12 @@ import Charts
 
 struct TemperatureChart: View {
     let hourlyWeatherData: [HourlyWeather]
-       let temperatureChart: [TemperatureData]
-       
-       init(hourlyWeatherData: [HourlyWeather]) {
-           self.hourlyWeatherData = hourlyWeatherData
-           self.temperatureChart = hourlyWeatherData.map { TemperatureData(forecast: $0, temp: $0.temp) }
-       }
+    let temperatureChart: [TemperatureData]
+    
+    init(hourlyWeatherData: [HourlyWeather]) {
+        self.hourlyWeatherData = hourlyWeatherData
+        self.temperatureChart = hourlyWeatherData.prefix(24).map { TemperatureData(forecast: $0, temp: $0.temp) }
+    }
     
     var body: some View {
         HStack {

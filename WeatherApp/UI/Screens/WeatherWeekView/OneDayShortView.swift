@@ -23,7 +23,7 @@ struct OneDayShortView: View {
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 40, height: 40)
+                .frame(width: 48, height: 48)
             VStack {
                 Text(String(format: "%.0f°", viewModel.tempMax))
                 Text(String(format: "%.0f°", viewModel.tempMin))

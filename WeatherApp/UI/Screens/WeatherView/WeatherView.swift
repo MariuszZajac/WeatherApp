@@ -8,6 +8,7 @@ import Foundation
 import SwiftUI
 import Combine
 
+
 struct WeatherView: View {
     @StateObject var viewModel: WeatherViewModel
     
@@ -15,15 +16,24 @@ struct WeatherView: View {
         
         ZStack {
             BackgroundView(topColor: .blue, bottomColor: Color("LightBlue"))
-            ScrollView(.vertical) {
-                CityTextView(cityName: "Paris, France")
-                
-                MainWeatherStatusView(viewModel: viewModel)
-                
-                ForecastView(viewModel: viewModel)
-                
+        
+            switch viewModel.state {
+            case .loading:
+                ProgressView("Loading actual forecast")
+            case .error(let error):
+                ErrorView( title: error.localizedDescription)
+            case .loaded:
+                ScrollView(.vertical) {
+                    CityTextView(cityName: "Paris, France")
+                    
+                    MainWeatherStatusView(viewModel: viewModel)
+                    
+                    ForecastView(viewModel: viewModel)
+                    
+                }
+                .padding(.top,8)
             }
-            .padding(.top,8)
+            
         }.task {
             await viewModel.fetchData()
             
