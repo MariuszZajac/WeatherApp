@@ -11,7 +11,8 @@ import Combine
 
 struct WeatherView: View {
     @StateObject var viewModel: WeatherViewModel
-    
+    @ObservedObject var cityViewModel: CityViewModel
+
     var body: some View {
         
         ZStack {
@@ -22,11 +23,11 @@ struct WeatherView: View {
                 ProgressView("Loading actual forecast")
             case .error(let error):
                 ErrorView(title: error.localizedDescription) {
-                   //add action
+                   /// ??????????
                 }
             case .loaded:
                 ScrollView(.vertical) {
-                    CityTextView(cityName: "Paris, France")
+                    CityTextView(cityViewModel: cityViewModel)
                     
                     MainWeatherStatusView(viewModel: viewModel)
                     

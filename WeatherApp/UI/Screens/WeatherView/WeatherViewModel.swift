@@ -49,6 +49,7 @@ final class WeatherViewModel: ObservableObject {
         return Wind(windSpeed: speed, windDeg: deg, windGust: gust)
         
     }
+ 
     
     @MainActor
     func fetchData() async {

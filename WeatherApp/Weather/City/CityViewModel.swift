@@ -9,7 +9,23 @@ import SwiftUI
 import CoreLocation
 import Combine
 
-final class CityViewModel: ObservableObject {
-    @Published var city: [City] = []
+class CityViewModel: ObservableObject {
+    @Published var city: City?
+  
+
     
+    func fetchCityAndCountry() {
+        let locationManager = LocationManager()
+        locationManager.getCityAndCountry { result in
+            switch result {
+            case .success(let cityData):
+                
+                self.city = cityData
+            case .failure:
+                break
+                
+            }
+        }
+    }
 }
+
