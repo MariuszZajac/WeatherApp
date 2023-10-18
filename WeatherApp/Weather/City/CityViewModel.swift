@@ -30,13 +30,12 @@ class CityViewModel: ObservableObject {
             case .success(let cityData):
                 DispatchQueue.main.async {
                     self.city = cityData
-                    // Tutaj możesz zaktualizować interfejs użytkownika.
+                 
                 }
             case .failure(let error):
                 print("Błąd podczas pobierania danych lokalizacji: \(error)")
             }
         }
     }
-
 }
 

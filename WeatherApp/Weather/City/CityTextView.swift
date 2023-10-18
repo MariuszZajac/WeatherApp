@@ -10,6 +10,7 @@ import SwiftUI
 struct CityTextView: View {
     
     @ObservedObject var cityViewModel: CityViewModel
+  
     
     var body: some View {
         VStack {

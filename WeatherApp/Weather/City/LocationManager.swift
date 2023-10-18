@@ -23,14 +23,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-      //  locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
     }
 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first?.coordinate
        
-      //  print(location ?? "No locations")
+        print(location ?? "No locations")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

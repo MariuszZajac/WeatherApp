@@ -9,10 +9,10 @@ import Foundation
 import CoreLocation
 
 struct City: Codable {
-    let city: String
-    let country: String
-    let latitude: CLLocationDegrees
-    let longitude: CLLocationDegrees
+    var city: String
+    var country: String
+    var latitude: CLLocationDegrees
+    var longitude: CLLocationDegrees
     
     init(city: String, country: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         self.city = city
