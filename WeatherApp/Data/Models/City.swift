@@ -8,7 +8,8 @@
 import Foundation
 import CoreLocation
 
-struct City: Codable {
+struct City: Codable, Identifiable{
+    var id = UUID()
     var city: String
     var country: String
     var latitude: CLLocationDegrees
