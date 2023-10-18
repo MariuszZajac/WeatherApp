@@ -11,21 +11,32 @@ import Combine
 
 class CityViewModel: ObservableObject {
     @Published var city: City?
-  
-
+    
+    private var locationManager: LocationManager
+    
+    init(locationManager: LocationManager) {
+        self.locationManager = locationManager
+    }
+    var cityName: String {
+        city?.city ?? "N/A"
+    }
+    var countryName: String {
+        city?.country ?? "N/A"
+    }
     
     func fetchCityAndCountry() {
-        let locationManager = LocationManager()
-        locationManager.getCityAndCountry { result in
+        locationManager.reverseGeocodeUserLocation { result in
             switch result {
             case .success(let cityData):
-                
-                self.city = cityData
-            case .failure:
-                break
-                
+                DispatchQueue.main.async {
+                    self.city = cityData
+                    // Tutaj możesz zaktualizować interfejs użytkownika.
+                }
+            case .failure(let error):
+                print("Błąd podczas pobierania danych lokalizacji: \(error)")
             }
         }
     }
+
 }
 

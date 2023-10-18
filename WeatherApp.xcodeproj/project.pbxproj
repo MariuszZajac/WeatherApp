@@ -29,6 +29,7 @@
 		87A070662AA1B256007491BB /* WindIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A070652AA1B256007491BB /* WindIconView.swift */; };
 		87A09EB62ACBE8C7005D06FE /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A09EB52ACBE8C7005D06FE /* BackgroundView.swift */; };
 		87A09EB82ACBE8FE005D06FE /* CityTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A09EB72ACBE8FE005D06FE /* CityTextView.swift */; };
+		87EC39412ADFCAB400BB1238 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC39402ADFCAB400BB1238 /* LocationManager.swift */; };
 		87F4277D2AD15DBA00427B9B /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4277C2AD15DBA00427B9B /* ForecastService.swift */; };
 		87F4277F2AD91DBE00427B9B /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4277E2AD91DBE00427B9B /* ForecastView.swift */; };
 		87F427852AD93B4E00427B9B /* MainWeatherStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F427842AD93B4E00427B9B /* MainWeatherStatusView.swift */; };
@@ -38,7 +39,6 @@
 		87F427992AD9A01A00427B9B /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F427982AD9A01A00427B9B /* ClockView.swift */; };
 		87F4279B2ADD15D900427B9B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4279A2ADD15D900427B9B /* ErrorView.swift */; };
 		87F4279D2ADD379D00427B9B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4279C2ADD379D00427B9B /* PrimaryButton.swift */; };
-		87F427A12ADD6A7D00427B9B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F427A02ADD6A7D00427B9B /* LocationManager.swift */; };
 		87FFAF562A9C7ED6002A25DA /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FFAF552A9C7ED6002A25DA /* WeatherAppApp.swift */; };
 		87FFAF5A2A9C7ED7002A25DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FFAF592A9C7ED7002A25DA /* Assets.xcassets */; };
 		87FFAF5D2A9C7ED7002A25DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FFAF5C2A9C7ED7002A25DA /* Preview Assets.xcassets */; };
@@ -78,6 +78,7 @@
 		87A09EB52ACBE8C7005D06FE /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		87A09EB72ACBE8FE005D06FE /* CityTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTextView.swift; sourceTree = "<group>"; };
 		87A774EF2ACE95BB0084E463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		87EC39402ADFCAB400BB1238 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		87F4277C2AD15DBA00427B9B /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		87F4277E2AD91DBE00427B9B /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		87F427842AD93B4E00427B9B /* MainWeatherStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherStatusView.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		87F427982AD9A01A00427B9B /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		87F4279A2ADD15D900427B9B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		87F4279C2ADD379D00427B9B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		87F427A02ADD6A7D00427B9B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = ../../../../TaxiApp/FelitApp/Managers/LocationManager.swift; sourceTree = "<group>"; };
 		87FFAF522A9C7ED6002A25DA /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FFAF552A9C7ED6002A25DA /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 		87FFAF592A9C7ED7002A25DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 			children = (
 				87A09EB72ACBE8FE005D06FE /* CityTextView.swift */,
 				8739A5522A9CF32500777967 /* CityViewModel.swift */,
-				87F427A02ADD6A7D00427B9B /* LocationManager.swift */,
+				87EC39402ADFCAB400BB1238 /* LocationManager.swift */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -426,8 +426,8 @@
 				73907B1E2AA9C80200BE0005 /* WeatherRepository.swift in Sources */,
 				87A0705B2A9F4242007491BB /* DateManager.swift in Sources */,
 				8739A5592A9DD1FD00777967 /* ErrorLogger.swift in Sources */,
+				87EC39412ADFCAB400BB1238 /* LocationManager.swift in Sources */,
 				87A070662AA1B256007491BB /* WindIconView.swift in Sources */,
-				87F427A12ADD6A7D00427B9B /* LocationManager.swift in Sources */,
 				87F4277F2AD91DBE00427B9B /* ForecastView.swift in Sources */,
 				73865E762ABC52EA009A44F0 /* HourlyDetailViewModel.swift in Sources */,
 				87A09EB82ACBE8FE005D06FE /* CityTextView.swift in Sources */,
@@ -634,8 +634,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Need to be update forecast";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to hnow where are you";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Potrzebujemy dostępu do Twojej lokalizacji, aby dostarczyć lokalne prognozy pogody w czasie rzeczywistym, gdy korzystasz z aplikacji.\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Chcielibyśmy korzystać z Twojej lokalizacji, nawet gdy aplikacja jest w tle, aby dostarczać spersonalizowane rekomendacje na podstawie Twojej lokalizacji.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -666,8 +666,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Need to be update forecast";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to hnow where are you";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Potrzebujemy dostępu do Twojej lokalizacji, aby dostarczyć lokalne prognozy pogody w czasie rzeczywistym, gdy korzystasz z aplikacji.\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Chcielibyśmy korzystać z Twojej lokalizacji, nawet gdy aplikacja jest w tle, aby dostarczać spersonalizowane rekomendacje na podstawie Twojej lokalizacji.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

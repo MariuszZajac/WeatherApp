@@ -10,32 +10,26 @@ import SwiftUI
 struct CityTextView: View {
     
     @ObservedObject var cityViewModel: CityViewModel
-       
-       var body: some View {
-           VStack {
-               if let city = cityViewModel.city {
-                   Text("\(city.city), \(city.country)")
-                   .font(.system(size: 32, weight: .medium, design: .default))
-                   .foregroundColor(.white)
-                   .padding()
-       
-       
-      
-               } else {
-                   ProgressView()
-                  
-               }
-               HStack{
-                   Text("\(Date().formatted(.dateTime.month().day()))")
-                               .fontWeight(.bold)
-                               .foregroundColor(.white)
-                   ClockView()
-               }
-           }
-           .onAppear {
-              
-               cityViewModel.fetchCityAndCountry()
-           }
-       }
-   }
-          
+    
+    var body: some View {
+        VStack {
+            
+            Text("\(cityViewModel.cityName), \(cityViewModel.countryName)")
+                .font(.system(size: 32, weight: .medium, design: .default))
+                .foregroundColor(.white)
+                .padding()
+        }
+        HStack{
+            Text("\(Date().formatted(.dateTime.month().day()))")
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+            ClockView()
+        }
+        
+        .task {
+            cityViewModel.fetchCityAndCountry()
+            
+        }
+    }
+}
+
