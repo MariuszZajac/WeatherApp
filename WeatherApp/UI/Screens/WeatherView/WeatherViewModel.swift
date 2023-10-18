@@ -14,7 +14,7 @@ final class WeatherViewModel: ObservableObject {
         case week
     }
     enum State {
-        case loading, error(Error), loaded
+        case loading, error(String), loaded
     }
     
     @Published var state: State = .loaded
@@ -64,7 +64,7 @@ final class WeatherViewModel: ObservableObject {
         } catch {
             if let weatherError = error as? WeatherError {
                 self.error = weatherError
-                state = .error(error)
+                state = .error(error.localizedDescription)
             }
         }
     }

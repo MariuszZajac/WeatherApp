@@ -23,7 +23,13 @@ class CityViewModel: ObservableObject {
     var countryName: String {
         city?.country ?? "N/A"
     }
-    
+//    var latitude: Double {
+//        city?.latitude ?? 0.0
+//    }
+//    var longitude: Double {
+//        city?.longitude ?? 0.0
+//    }
+//    
     func fetchCityAndCountry() {
         locationManager.reverseGeocodeUserLocation { result in
             switch result {

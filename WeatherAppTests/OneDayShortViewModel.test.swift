@@ -11,10 +11,17 @@ import Foundation
 
 class OneDayShortViewModelTest: XCTestCase {
     
-    func testEmptyState() {
-        let temp = Temperature.make()
-        let weather = WeatherInfo.make()
-        let sut = OneDayShortViewModel(forecast: DailyWeather.make(temp: temp, feelsLike: temp, weather: weather))
+    func testProperties() {
+        //arrange
+        let sut = OneDayShortViewModel(forecast: .make())
+        //assert
         XCTAssertEqual(sut.shortDayOfWeek, "Thu")
+        XCTAssertEqual(sut.dayOfWeek, "Oct 05")
+        XCTAssertEqual(sut.tempMax, 22.0)
+        XCTAssertEqual(sut.tempMin, 12.0)
+        XCTAssertEqual(sut.weatherIcon, .clearDay)
+       
+        
     }
+    
 }

@@ -23,7 +23,7 @@ struct WeatherView: View {
                 ProgressView("Loading actual forecast")
                 
             case .error(let error):
-                ErrorView(title: error.localizedDescription) {
+                ErrorView(title: error) {
                    /// ??????????
                 }
                 

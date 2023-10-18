@@ -173,6 +173,21 @@
                   endingLineNumber = "31"
                   offsetFromSymbolStart = "40">
                </Location>
+               <Location
+                  uuid = "ED5AA22E-0526-4754-9ACD-FAAF7EFA4FD9 - bc78ecfe183df626"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for WeatherApp.WeatherViewModel.fetchData() async -&gt; ()"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/UI/Screens/WeatherView/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "160">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -371,7 +386,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A46065FB-6736-4589-82CD-B7DCD27C3AD4"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherApp/Weather/City/CityViewModel.swift"
@@ -380,6 +395,86 @@
             startingLineNumber = "20"
             endingLineNumber = "20"
             landmarkName = "cityName"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C56B761-0D01-4B93-B7AF-01F6DBB7525F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/UI/Screens/WeatherView/WeatherView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9BB4F42D-E777-45D1-A25E-6FF195A33627"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/UI/Screens/WeatherView/WeatherView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "9BB4F42D-E777-45D1-A25E-6FF195A33627 - 9808ff1cb90ac7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(WeatherApp.BackgroundView, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.ProgressView&lt;SwiftUI.Text, SwiftUI.EmptyView&gt;, WeatherApp.ErrorView&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;)&gt; in WeatherApp.WeatherView.body.getter : some"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/UI/Screens/WeatherView/WeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1940">
+               </Location>
+               <Location
+                  uuid = "9BB4F42D-E777-45D1-A25E-6FF195A33627 - cf8827d595e513c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; SwiftUI.TupleView&lt;(WeatherApp.CityTextView, WeatherApp.MainWeatherStatusView, WeatherApp.ForecastView)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(WeatherApp.BackgroundView, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.ProgressView&lt;SwiftUI.Text, SwiftUI.EmptyView&gt;, WeatherApp.ErrorView&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;)&gt; in WeatherApp.WeatherView.body.getter : some"
+                  moduleName = "WeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/UI/Screens/WeatherView/WeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0FEEB288-7FB4-4DDB-8ACF-0F38BF3BD722"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/UI/Screens/WeatherWeekView/OneDayShortViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "tempMax"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

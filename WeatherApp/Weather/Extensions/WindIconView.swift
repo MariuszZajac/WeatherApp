@@ -10,7 +10,7 @@ import SwiftUI
 struct WindIconView: View {
     var wind: Wind
     var body: some View {
-        let icon = getWindIcon(from: wind)
+        let icon = WindIcon.getWindIcon(from: wind)
         switch icon {
         case .lightNorth, .moderateNorth, .strongNorth:
             Image(systemName: "arrow.up")

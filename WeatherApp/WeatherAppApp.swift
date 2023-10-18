@@ -9,18 +9,15 @@ import SwiftUI
 
 @main
 struct WeatherAppApp: App {
-    @StateObject private var locationManager = LocationManager()
-    
-    private let apiService = WeatherAPIService()
-    private let dataCache = WeatherDataCache(fileName: "weatherCache.json")
+    private let dependencyContainer = DependencyContainer()
 
     
     
     var body: some Scene {
         WindowGroup {
-            WeatherView(viewModel: WeatherViewModel(repository: WeatherRepository(weatherAPIService: apiService, weatherDataCache: dataCache)), cityViewModel: CityViewModel(locationManager: locationManager))
+            WeatherView(viewModel: WeatherViewModel(repository: WeatherRepository(weatherAPIService: dependencyContainer.apiService, weatherDataCache: dependencyContainer.dataCache)), cityViewModel: CityViewModel(locationManager: dependencyContainer.locationManager))
                 .onAppear{
-                    locationManager.requestLocation()
+                    dependencyContainer.locationManager.requestLocation()
                 }
         }
         
