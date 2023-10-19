@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-struct City: Codable, Identifiable{
+class City: Codable, Identifiable, ObservableObject{
     var id = UUID()
     var city: String
     var country: String

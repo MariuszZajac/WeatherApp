@@ -16,7 +16,7 @@ struct CityTextView: View {
         VStack {
             
             Text("\(cityViewModel.cityName), \(cityViewModel.countryName)")
-            Text("\(cityViewModel.latitude), \(cityViewModel.longnitude)")
+            //Text("\(cityViewModel.latitude), \(cityViewModel.longnitude)")
                 .font(.system(size: 32, weight: .medium, design: .default))
                 .foregroundColor(.white)
                 .padding()
@@ -28,7 +28,9 @@ struct CityTextView: View {
             ClockView()
         }
         
-        
+        .task {
+            cityViewModel.fetchCityAndCountry()
+        }
     }
 }
 

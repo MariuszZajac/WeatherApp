@@ -52,11 +52,13 @@ final class WeatherViewModel: ObservableObject {
  
     
     @MainActor
-    func fetchData() async {
+    func fetchData(latitude: Double,longitude: Double ) async {
         state = .loading
         do {
             
-            let data = try await repository.fetchWeatherData(latitude: 51.509865, longitude: -0.118092)
+            let data = try await repository.fetchWeatherData(latitude: latitude, longitude: longitude)
+            print(latitude)
+            print(longitude)
             dayForecast = data.daily
             hourlyForecast = data.hourly
             currentForecast = data.current

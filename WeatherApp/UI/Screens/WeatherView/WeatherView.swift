@@ -11,7 +11,7 @@ import Combine
 
 struct WeatherView: View {
     @StateObject var viewModel: WeatherViewModel
-    @ObservedObject var cityViewModel: CityViewModel
+    @StateObject var cityViewModel: CityViewModel
 
     var body: some View {
         
@@ -40,7 +40,10 @@ struct WeatherView: View {
             }
             
         }.task {
-            await viewModel.fetchData()
+            await Task.sleep(700000000)
+            await viewModel.fetchData(latitude: cityViewModel.latitude, longitude: cityViewModel.longnitude)
+            print(cityViewModel.latitude )
+            print(cityViewModel.longnitude)
             
         }
         

@@ -10,34 +10,37 @@ import CoreLocation
 import Combine
 
 class CityViewModel: ObservableObject {
-    @Published var city: City?
+    @Published var city: City
     
     private var locationManager: LocationManager
     
     init(locationManager: LocationManager) {
         self.locationManager = locationManager
+        self.city =  City(city: "", country: "", latitude: 0.0, longitude: 0.0)
     }
+    
+
     var cityName: String {
-        city?.city ?? "N/A"
+        city.city
     }
     var countryName: String {
-        city?.country ?? "N/A"
+        city.country
     }
     var latitude: Double {
-        city?.latitude ?? 0.0
+        city.latitude
     }
     var longnitude: Double {
-        city?.longitude ?? 0.0
+        city.longitude
     }
     
     func fetchCityAndCountry() {
         locationManager.reverseGeocodeUserLocation { result in
             switch result {
             case .success(let cityData):
-                DispatchQueue.main.async {
+               // DispatchQueue.main.async {
                     self.city = cityData
                  
-                }
+              //  }
             case .failure(let error):
                 print("Błąd podczas pobierania danych lokalizacji: \(error)")
             }
