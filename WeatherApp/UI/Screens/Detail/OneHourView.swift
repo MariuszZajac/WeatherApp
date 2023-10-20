@@ -10,27 +10,55 @@ import SwiftUI
 struct OneHourView: View {
     @Binding var selectedHourlyItem: HourlyWeather?
 
+    
     var body: some View {
         ZStack {
             BackgroundView(topColor: .blue, bottomColor: Color("LightBlue"))
 
             VStack {
-                if let hourlyItem = selectedHourlyItem {
-                    Text("DevPoint \(hourlyItem.dewPoint) °")
-                    Text("Humidity \(hourlyItem.humidity) %")
-                    Text("UV index \(hourlyItem.uvi)")
-                    Text("Temp \(hourlyItem.temp)°")
-                    Text("Pressure \(hourlyItem.pressure) hPa")
-                    if let visibility = hourlyItem.visibility {
-                        Text("Visibility \(visibility) m")
-                    }
-                }
-                else {
-                    Text("brak danych")
-                }
-            }
+                            if let hourlyItem = selectedHourlyItem {
+                                Text("This is temporary view")
+                                    .font(.title2)
+                                    .foregroundStyle(.red)
+                                
+                                if let formattedTime = formatTime(hourlyItem.dt) {
+                                                        Text("Time :\(formattedTime)")
+                                                    }
+                                
+                                Text("Temp: \(hourlyItem.temp)°")
+                                if let feelsLike = hourlyItem.feelsLike {
+                                    Text("Feels Like: \(feelsLike)°")
+                                }
+                                Text("Pressure: \(hourlyItem.pressure) hPa")
+                                Text("Humidity: \(hourlyItem.humidity)%")
+                                Text("Dew Point: \(hourlyItem.dewPoint)°")
+                                Text("UV Index: \(hourlyItem.uvi)")
+                                Text("Clouds: \(hourlyItem.clouds)")
+                                if let visibility = hourlyItem.visibility {
+                                    Text("Visibility: \(visibility) m")
+                                }
+                                Text("Wind Speed: \(hourlyItem.windSpeed) m/s")
+                                Text("Wind Degree: \(hourlyItem.windDeg)°")
+                                Text("Wind Gust: \(hourlyItem.windGust) m/s")
+                                Text("POP: \(hourlyItem.pop)")
+                                
+                                if !hourlyItem.weather.isEmpty {
+                                    Text("Weather Conditions:")
+                                    ForEach(hourlyItem.weather, id: \.id) { weatherInfo in
+                                        Text(weatherInfo.description)
+                                    }
+                                }
+                            }
+                        }
             .padding()
         }
     }
 }
+func formatTime(_ timestamp: TimeInterval) -> String? {
+        let date = Date(timeIntervalSince1970: timestamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter.string(from: date)
+    }
+
 
