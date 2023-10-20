@@ -23,13 +23,14 @@ struct WeatherView: View {
                 ProgressView("Loading actual forecast")
                 
             case .error(let error):
+    
                 ErrorView(title: error) {
-                   /// ??????????
+                    
                 }
-                
             case .loaded:
                 ScrollView(.vertical) {
                     CityTextView(cityViewModel: cityViewModel)
+                      
                     
                     MainWeatherStatusView(viewModel: viewModel)
                     
@@ -39,7 +40,13 @@ struct WeatherView: View {
                 .padding(.top,8)
             }
             
-        }.task {
+        }.refreshable {
+            await viewModel.fetchData(latitude: cityViewModel.latitude, longitude: cityViewModel.longnitude)
+            print(cityViewModel.latitude )
+            print(cityViewModel.longnitude)
+
+        }
+        .task {
             await Task.sleep(700000000)
             await viewModel.fetchData(latitude: cityViewModel.latitude, longitude: cityViewModel.longnitude)
             print(cityViewModel.latitude )

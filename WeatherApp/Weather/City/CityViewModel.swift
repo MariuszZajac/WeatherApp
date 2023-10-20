@@ -37,12 +37,17 @@ class CityViewModel: ObservableObject {
         locationManager.reverseGeocodeUserLocation { result in
             switch result {
             case .success(let cityData):
-               // DispatchQueue.main.async {
+                DispatchQueue.main.async {
                     self.city = cityData
                  
-              //  }
+                }
             case .failure(let error):
-                print("Błąd podczas pobierania danych lokalizacji: \(error)")
+                let locationData = WeatherDataCache(fileName: "location.json")
+                if let location = locationData.fetchLocationData() {
+                       self.city = location
+                } else {
+                    print(error)
+                }
             }
         }
     }

@@ -29,7 +29,9 @@ class OneDayShortViewModel: ObservableObject {
     var weatherIcon: WeatherIcon {
         forecastDaily.weather.first?.icon ?? .snowNight
     }
-    
+    var pop: Double {
+        forecastDaily.pop * 100
+    }
     
     
 }

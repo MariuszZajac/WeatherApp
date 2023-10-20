@@ -24,6 +24,11 @@ struct OneDayShortView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 48, height: 48)
+                
+            if viewModel.pop > 0 {
+                Text(String(format: "%.0f%%", viewModel.pop))
+                    .font(.system(size: 10))
+            }
             VStack {
                 Text(String(format: "%.0f°", viewModel.tempMax))
                 Text(String(format: "%.0f°", viewModel.tempMin))

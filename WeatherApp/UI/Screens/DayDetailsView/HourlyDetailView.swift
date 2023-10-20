@@ -9,32 +9,35 @@ import SwiftUI
 
 struct HourlyDetailView: View {
     
-    var wiewModel: HourlyDetailViewModel
+    var viewModel: HourlyDetailViewModel
     
     var body: some View {
         
         VStack {
-            Text(wiewModel.hour ?? "")
+            Text(viewModel.hour ?? "")
                 .fontDesign(.monospaced)
                 .font(.subheadline)
             HStack {
-                WindIconView(wind: wiewModel.wind)
-                Text("\(String(format: "%.1f", (wiewModel.wind.windSpeed)))m/s")
+                WindIconView(wind: viewModel.wind)
+                Text("\(String(format: "%.1f", (viewModel.wind.windSpeed)))m/s")
                     .font(.footnote)
                     .foregroundColor(.secondary)
             }
             .frame(width: 50, height: 50)
             
             
-            Image(systemName: wiewModel.weatherIcon.systemImageName)
+            Image(systemName: viewModel.weatherIcon.systemImageName)
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 48, height: 48)
-            
+            if viewModel.pop > 0 {
+                Text(String(format: "%.0f%%", viewModel.pop))
+                    .font(.system(size: 10))
+            }
             
             VStack{
-                Text("\( wiewModel.temp)°")
+                Text("\( viewModel.temp)°")
                     .foregroundColor(.secondary)
 
                 

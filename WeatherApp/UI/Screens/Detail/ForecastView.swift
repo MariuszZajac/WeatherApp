@@ -10,8 +10,9 @@ import SwiftUI
 
 struct ForecastView: View {
     @StateObject var viewModel: WeatherViewModel
-    
-    
+    @State private var isOneHourViewPresented = false
+    @State private var selectedHourlyItem: HourlyWeather?
+
     var body: some View {
         VStack {
             Picker("Forecast Type", selection: $viewModel.selectedForecastType)  {
@@ -28,7 +29,19 @@ struct ForecastView: View {
                     switch viewModel.selectedForecastType {
                     case .hour:
                         ForEach(viewModel.hourlyForecast.prefix(24), id: \.id) { hourlyItem in
-                            HourlyDetailView(wiewModel: HourlyDetailViewModel(forecastHourly: hourlyItem))
+                            Button(action: {
+                                selectedHourlyItem = hourlyItem
+                                isOneHourViewPresented = true
+                            }) {
+                                HourlyDetailView(viewModel: HourlyDetailViewModel(forecastHourly: hourlyItem))
+                            }
+                        }
+                        .sheet(isPresented: $isOneHourViewPresented) {
+                            if let selectedHourlyItem = selectedHourlyItem {
+                                VStack {
+                                    OneHourView(hourlyItem: selectedHourlyItem)
+                                }
+                            }
                         }
                     case .week:
                         ForEach(viewModel.dayForecast.dropFirst(1), id: \.id) { dailyItem in

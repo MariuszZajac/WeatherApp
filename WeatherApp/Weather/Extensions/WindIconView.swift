@@ -13,13 +13,13 @@ struct WindIconView: View {
         let icon = WindIcon.getWindIcon(from: wind)
         switch icon {
         case .lightNorth, .moderateNorth, .strongNorth:
-            Image(systemName: "arrow.up")
+            Image(systemName: "arrowshape.up")
         case .lightEast, .moderateEast, .strongEast:
-            Image(systemName: "arrow.right")
+            Image(systemName: "arrowshape.right")
         case .lightSouth, .moderateSouth, .strongSouth:
-            Image(systemName: "arrow.down")
+            Image(systemName: "arrowshape.down")
         case .lightWest, .moderateWest, .strongWest:
-            Image(systemName: "arrow.left")
+            Image(systemName: "arrowshape.left")
         }
     }
     

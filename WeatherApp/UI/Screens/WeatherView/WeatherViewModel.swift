@@ -49,8 +49,9 @@ final class WeatherViewModel: ObservableObject {
         return Wind(windSpeed: speed, windDeg: deg, windGust: gust)
         
     }
- 
     
+  
+
     @MainActor
     func fetchData(latitude: Double,longitude: Double ) async {
         state = .loading
@@ -67,6 +68,7 @@ final class WeatherViewModel: ObservableObject {
             if let weatherError = error as? WeatherError {
                 self.error = weatherError
                 state = .error(error.localizedDescription)
+               
             }
         }
     }

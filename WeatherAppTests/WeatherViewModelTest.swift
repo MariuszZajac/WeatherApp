@@ -28,11 +28,14 @@ class WeatherViewModelTest: XCTestCase {
         mock.weatherData = .make()
         let sut = WeatherViewModel(repository: mock)
         //act
-        await sut.fetchData()
+        await sut.fetchData(latitude: mock.weatherData?.lat ?? 0.1, longitude: mock.weatherData?.lon ?? 0.1)
         //assert
         
         XCTAssertEqual(sut.state , .loaded)
         XCTAssertNotNil(sut.currentForecast)
+        XCTAssertNotNil(sut.$selectedForecastType)
+        //XCTAssertNotNil(sut.error )
+        XCTAssertTrue(sut.temp > 0)
     }
 }
 class MockWeatherRepository: WeatherRepositoryProtocol {

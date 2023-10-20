@@ -29,6 +29,9 @@ final class HourlyDetailViewModel: ObservableObject {
         return dateManager.getFormatDateTime(date: forecastHourly.dt, dateFormat: .HHmm)
     }
     
+    var pop: Double {
+        forecastHourly.pop * 100
+    }
     
     var devpoint: String {
         forecastHourly.dewPoint.roundDouble()

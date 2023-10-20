@@ -10,18 +10,20 @@ import SwiftUI
 struct CityTextView: View {
     
     @ObservedObject var cityViewModel: CityViewModel
-  
+    
     
     var body: some View {
         VStack {
             
             Text("\(cityViewModel.cityName), \(cityViewModel.countryName)")
-            //Text("\(cityViewModel.latitude), \(cityViewModel.longnitude)")
                 .font(.system(size: 32, weight: .medium, design: .default))
                 .foregroundColor(.white)
-                .padding()
+                .fixedSize(horizontal: false, vertical: true)
+                
         }
-        HStack{
+        //.padding(10)
+
+         HStack{
             Text("\(Date().formatted(.dateTime.month().day()))")
                 .fontWeight(.bold)
                 .foregroundColor(.white)
