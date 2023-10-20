@@ -17,6 +17,7 @@ struct HourlyDetailView: View {
             Text(viewModel.hour ?? "")
                 .fontDesign(.monospaced)
                 .font(.subheadline)
+                .foregroundStyle(Color.primary)
             HStack {
                 WindIconView(wind: viewModel.wind)
                 Text("\(String(format: "%.1f", (viewModel.wind.windSpeed)))m/s")
@@ -34,6 +35,9 @@ struct HourlyDetailView: View {
             if viewModel.pop > 0 {
                 Text(String(format: "%.0f%%", viewModel.pop))
                     .font(.system(size: 10))
+                    .foregroundStyle(Color.primary)
+            } else {
+                Color.clear.frame(width: 0, height: 0)
             }
             
             VStack{
@@ -45,11 +49,8 @@ struct HourlyDetailView: View {
             }
             .font(.title3)
         }
-//        .overlay {
-//            RoundedRectangle(cornerRadius: 10)
-//                .strokeBorder(.white.opacity(0.2))
-//                .blendMode(.overlay)
-//            }
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+
         
     }
 }

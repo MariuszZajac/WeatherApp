@@ -8,23 +8,29 @@
 import SwiftUI
 
 struct OneHourView: View {
-    let hourlyItem: HourlyWeather
+    @Binding var selectedHourlyItem: HourlyWeather?
+
     var body: some View {
         ZStack {
             BackgroundView(topColor: .blue, bottomColor: Color("LightBlue"))
-            
+
             VStack {
-              
-                Text("DevPoint \(hourlyItem.dewPoint) °")
-                Text("Humidity \(hourlyItem.humidity) %")
-                Text("UV index \(hourlyItem.uvi)")
-                Text("Temp \(hourlyItem.temp)°")
-                Text("Pressure \(hourlyItem.pressure) hPa")
-                Text("Visability \(hourlyItem.visibility!) m ")
+                if let hourlyItem = selectedHourlyItem {
+                    Text("DevPoint \(hourlyItem.dewPoint) °")
+                    Text("Humidity \(hourlyItem.humidity) %")
+                    Text("UV index \(hourlyItem.uvi)")
+                    Text("Temp \(hourlyItem.temp)°")
+                    Text("Pressure \(hourlyItem.pressure) hPa")
+                    if let visibility = hourlyItem.visibility {
+                        Text("Visibility \(visibility) m")
+                    }
+                }
+                else {
+                    Text("brak danych")
+                }
             }
             .padding()
         }
     }
 }
-
 

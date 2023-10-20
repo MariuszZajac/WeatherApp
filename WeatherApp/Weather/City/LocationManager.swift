@@ -29,7 +29,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first?.coordinate
-        
+      
         print(location ?? "No locations")
     }
     
@@ -51,6 +51,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             } else if let placemark = placemarks?.first, let city = placemark.locality, let country = placemark.country {
                 let cityData = City(city: city, country: country, latitude: userLocation.latitude, longitude: userLocation.longitude)
                 self.city = cityData
+//                let locationData = WeatherDataCache(fileName: "location.json")
+//                 locationData.saveLocationData(cityData)
                 completion(.success(cityData))
             } else {
                 completion(.failure(.locationDataNotAvailable))

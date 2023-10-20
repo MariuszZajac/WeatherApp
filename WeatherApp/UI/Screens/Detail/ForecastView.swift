@@ -12,7 +12,12 @@ struct ForecastView: View {
     @StateObject var viewModel: WeatherViewModel
     @State private var isOneHourViewPresented = false
     @State private var selectedHourlyItem: HourlyWeather?
-
+    
+    init(viewModel: WeatherViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        self._selectedHourlyItem = State(initialValue: viewModel.hourlyForecast.first)
+    }
+    
     var body: some View {
         VStack {
             Picker("Forecast Type", selection: $viewModel.selectedForecastType)  {
@@ -32,17 +37,18 @@ struct ForecastView: View {
                             Button(action: {
                                 selectedHourlyItem = hourlyItem
                                 isOneHourViewPresented = true
+                                
                             }) {
                                 HourlyDetailView(viewModel: HourlyDetailViewModel(forecastHourly: hourlyItem))
                             }
                         }
                         .sheet(isPresented: $isOneHourViewPresented) {
-                            if let selectedHourlyItem = selectedHourlyItem {
-                                VStack {
-                                    OneHourView(hourlyItem: selectedHourlyItem)
-                                }
+                            
+                            VStack {
+                                OneHourView(selectedHourlyItem: $selectedHourlyItem)
                             }
                         }
+                        
                     case .week:
                         ForEach(viewModel.dayForecast.dropFirst(1), id: \.id) { dailyItem in
                             OneDayShortView(viewModel: OneDayShortViewModel(forecast: dailyItem))
