@@ -99,38 +99,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3971F964-5970-4C90-B6DB-4061304FF36A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeatherApp/Data/Services/WeatherRepository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "fetchWeatherData(latitude:longitude:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C94849C5-66C3-49E8-8640-895BFAA8E55F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeatherApp/Data/Services/WeatherRepository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "fetchWeatherData(latitude:longitude:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "ED5AA22E-0526-4754-9ACD-FAAF7EFA4FD9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -138,8 +106,8 @@
             filePath = "WeatherApp/UI/Screens/WeatherView/WeatherViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "fetchData(latitude:longitude:)"
             landmarkType = "7">
             <Locations>
@@ -187,54 +155,6 @@
                   startingLineNumber = "62"
                   endingLineNumber = "62"
                   offsetFromSymbolStart = "160">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "86BC8806-2381-4174-996C-0955D8C74828"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeatherApp/Data/Services/WeatherRepository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "fetchWeatherData(latitude:longitude:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "86BC8806-2381-4174-996C-0955D8C74828 - 5ad193a71592e8ae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "WeatherApp.WeatherRepository.fetchWeatherData(latitude: Swift.Double, longitude: Swift.Double) async throws -&gt; Swift.Array&lt;WeatherApp.WeatherData&gt;"
-                  moduleName = "WeatherApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/Data/Services/WeatherRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  uuid = "86BC8806-2381-4174-996C-0955D8C74828 - e46d70ba75a76b07"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for WeatherApp.WeatherRepository.fetchWeatherData(latitude: Swift.Double, longitude: Swift.Double) async throws -&gt; Swift.Array&lt;WeatherApp.WeatherData&gt;"
-                  moduleName = "WeatherApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherApp/Data/Services/WeatherRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "92">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -610,8 +530,8 @@
             filePath = "WeatherApp/Weather/City/LocationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "reverseGeocodeUserLocation(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -722,8 +642,8 @@
             filePath = "WeatherApp/Weather/City/LocationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "reverseGeocodeUserLocation(completion:)"
             landmarkType = "7">
          </BreakpointContent>

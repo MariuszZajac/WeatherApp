@@ -50,7 +50,9 @@ final class WeatherViewModel: ObservableObject {
         
     }
     
-  
+    func refreshData() {
+       //TODO: figure out how refresh or update data. 
+    }
 
     @MainActor
     func fetchData(latitude: Double,longitude: Double ) async {

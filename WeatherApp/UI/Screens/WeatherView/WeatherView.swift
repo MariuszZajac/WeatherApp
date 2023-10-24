@@ -25,7 +25,7 @@ struct WeatherView: View {
             case .error(let error):
     
                 ErrorView(title: error) {
-                   
+                   // add appropriate func
                 }
             case .loaded:
                 ScrollView(.vertical) {
@@ -40,14 +40,11 @@ struct WeatherView: View {
             }
             
         }.refreshable {
-            await viewModel.fetchData(latitude: cityViewModel.latitude, longitude: cityViewModel.longnitude)
-           //diagnostic
-            print(cityViewModel.latitude )
-            print(cityViewModel.longnitude)
+            viewModel.refreshData()
 
         }
         .task {
-            await Task.sleep(700000000)
+           _ = try? await Task.sleep(nanoseconds: 700000000)
             await viewModel.fetchData(latitude: cityViewModel.latitude, longitude: cityViewModel.longnitude)
           //diagnostic
             print(cityViewModel.latitude )

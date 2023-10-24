@@ -23,7 +23,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        locationManager.stopUpdatingLocation()
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            
+            self.locationManager.stopUpdatingLocation()
+        }
+       
     }
     
     
