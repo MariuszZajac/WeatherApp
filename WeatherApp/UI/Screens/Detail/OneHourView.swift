@@ -54,11 +54,4 @@ struct OneHourView: View {
         }
     }
 }
-func formatTime(_ timestamp: TimeInterval) -> String? {
-        let date = Date(timeIntervalSince1970: timestamp)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: date)
-    }
-
 

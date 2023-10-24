@@ -12,6 +12,8 @@ struct ForecastView: View {
     @StateObject var viewModel: WeatherViewModel
     @State private var isOneHourViewPresented = false
     @State private var selectedHourlyItem: HourlyWeather?
+    @State private var isOneDayVievPresented = false
+    @State private var selectedDayItem: DailyWeather?
     
     init(viewModel: WeatherViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
@@ -51,9 +53,22 @@ struct ForecastView: View {
                         
                     case .week:
                         ForEach(viewModel.dayForecast.dropFirst(1), id: \.id) { dailyItem in
-                            OneDayShortView(viewModel: OneDayShortViewModel(forecast: dailyItem))
+                            
+                            Button(action: {
+                                selectedDayItem = dailyItem
+                                isOneDayVievPresented = true
+                                
+                            }) {
+                                OneDayShortView(viewModel: OneDayShortViewModel(forecast: dailyItem))
+                            }
                         }
-                        
+                        .sheet(isPresented: $isOneDayVievPresented) {
+                            
+                            VStack {
+                                OneDayView(selectedDayItem: $selectedDayItem)
+                            }
+                            
+                        }
                     }
                 }
                 .padding(8)
