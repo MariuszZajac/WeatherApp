@@ -10,6 +10,7 @@ import SwiftUI
 
 struct OneDayView: View {
     @Binding var selectedDayItem: DailyWeather?
+    // this is a temp view just to check display data.
     var body: some View {
         ZStack {
             BackgroundView(topColor: .blue, bottomColor: Color("LightBlue"))
@@ -34,6 +35,7 @@ struct OneDayView: View {
                     Text("Wind Degree: \(dayItem.windDeg)°")
                     Text("Wind Gust: \(dayItem.windGust) m/s")
                     Text("POP: \(dayItem.pop)")
+                   // RainChart(dailyWeatherData: <#T##[DailyWeather]#>)
                 }
                
             }

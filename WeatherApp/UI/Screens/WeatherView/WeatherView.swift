@@ -11,7 +11,7 @@ import Combine
 
 struct WeatherView: View {
     @StateObject var viewModel: WeatherViewModel
-    @StateObject var cityViewModel: CityViewModel
+  
 
     var body: some View {
         
@@ -29,8 +29,9 @@ struct WeatherView: View {
                 }
             case .loaded:
                 ScrollView(.vertical) {
-                    CityTextView(cityViewModel: cityViewModel)
-                 
+                    if let city = viewModel.city {
+                        CityTextView(city: city)
+                    }
                     MainWeatherStatusView(viewModel: viewModel)
                     
                     ForecastView(viewModel: viewModel)
@@ -44,12 +45,10 @@ struct WeatherView: View {
 
         }
         .task {
-           _ = try? await Task.sleep(nanoseconds: 700000000)
-            await viewModel.fetchData(latitude: cityViewModel.latitude, longitude: cityViewModel.longnitude)
+           
+            await viewModel.fetchData()
           //diagnostic
-            print(cityViewModel.latitude )
-            print(cityViewModel.longnitude)
-            
+           
         }
         
     }

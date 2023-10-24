@@ -82,6 +82,7 @@ struct ForecastView: View {
         .padding()
         
     }
+    
 }
 
 

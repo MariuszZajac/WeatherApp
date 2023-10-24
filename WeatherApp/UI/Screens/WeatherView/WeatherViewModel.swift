@@ -22,13 +22,15 @@ final class WeatherViewModel: ObservableObject {
     @Published var hourlyForecast: [HourlyWeather] = []
     @Published var currentForecast: CurrentWeather?
     @Published var selectedForecastType: ForecastType = .hour
+    @Published var city: City?
     
     private let repository: WeatherRepositoryProtocol
     private var forecast: WeatherData?
-  
+    private let geocoder: LocationGeoocoder
     
-    init( repository: WeatherRepositoryProtocol ){
+    init( repository: WeatherRepositoryProtocol, geocoder: LocationGeoocoder ){
         self.repository = repository
+        self.geocoder = geocoder
     }
     var error: WeatherError?
     
@@ -55,13 +57,14 @@ final class WeatherViewModel: ObservableObject {
     }
 
     @MainActor
-    func fetchData(latitude: Double,longitude: Double ) async {
+    func fetchData() async {
         state = .loading
         do {
-            
-            let data = try await repository.fetchWeatherData(latitude: latitude, longitude: longitude)
-            print(latitude)
-            print(longitude)
+            let city = try await geocoder.reverseGeocodeUserLocation()
+            self.city = city
+            let data = try await repository.fetchWeatherData(latitude: city.latitude, longitude: city.longitude)
+            print(city.latitude)
+            print(city.longitude)
             dayForecast = data.daily
             hourlyForecast = data.hourly
             currentForecast = data.current

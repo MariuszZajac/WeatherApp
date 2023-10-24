@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct CityTextView: View {
-    
-    @ObservedObject var cityViewModel: CityViewModel
-    
-    
+    var city: City
+   
     var body: some View {
         VStack {
             
-            Text("\(cityViewModel.cityName), \(cityViewModel.countryName)")
+            Text("\(city.city), \(city.country)")
                 .font(.system(size: 32, weight: .medium, design: .default))
                 .foregroundColor(.white)
                 .fixedSize(horizontal: false, vertical: true)
                 
         }
-        //.padding(10)
-
          HStack{
             Text("\(Date().formatted(.dateTime.month().day()))")
                 .fontWeight(.bold)
@@ -30,9 +26,7 @@ struct CityTextView: View {
             ClockView()
         }
         
-        .task {
-            cityViewModel.fetchCityAndCountry()
-        }
+    
     }
 }
 

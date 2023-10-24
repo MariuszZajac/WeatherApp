@@ -15,10 +15,11 @@ struct WeatherAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            WeatherView(viewModel: WeatherViewModel(repository: WeatherRepository(weatherAPIService: dependencyContainer.apiService, weatherDataCache: dependencyContainer.dataCache)), cityViewModel: CityViewModel(locationManager: dependencyContainer.locationManager))
-                .onAppear{
-                    dependencyContainer.locationManager.requestLocation()
-                }
+            WeatherView(viewModel: WeatherViewModel(repository:
+                                                        WeatherRepository(weatherAPIService: dependencyContainer.apiService,
+                                                                          weatherDataCache: dependencyContainer.dataCache),
+                                                    geocoder: LocationGeoocoder()))
+               
         }
         
     }
