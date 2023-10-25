@@ -40,8 +40,7 @@ struct CurrentWeather: Forecast, Codable, Identifiable {
     let windSpeed: Double
     let windDeg: Int
     let weather: [WeatherInfo]
-    
-    
+    let rain: Rain?
 }
 
 
@@ -105,8 +104,13 @@ struct WeatherInfo: Codable {
 }
 
 struct Rain: Codable {
-    let rain: [String: Double]
+    let oneHour: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case oneHour = "1h"
+    }
 }
+
 
 struct Temperature: Codable, Identifiable {
     var id: Int?

@@ -9,12 +9,13 @@ import SwiftUI
 import Charts
 
 struct RainChart: View {
-    let dailyWeatherData: [DailyWeather]
+    let currentWeatherData: CurrentWeather?
     let rainChart: [RainData]
     
-    init(dailyWeatherData: [DailyWeather]) {
-        self.dailyWeatherData = dailyWeatherData
-        self.rainChart = dailyWeatherData.map { RainData(forecast: $0) }
+    init(currentWeatherData: CurrentWeather) {
+        self.currentWeatherData = currentWeatherData
+        self.rainChart = [RainData(forecast: currentWeatherData)]
+
     }
     
     var body: some View {
@@ -34,13 +35,14 @@ struct RainChart: View {
 }
 
 class RainData {
-    var forecast: DailyWeather
+    var forecast: CurrentWeather
     var rain: Double {
-        forecast.pop
+        forecast.rain?.oneHour ?? 0.0
     }
+    
     var date: Date
     
-    init(forecast: DailyWeather) {
+    init(forecast: CurrentWeather) {
         self.forecast = forecast
         self.date = Date(timeIntervalSince1970:forecast.dt)
     }

@@ -11,8 +11,6 @@ import Combine
 
 struct WeatherView: View {
     @StateObject var viewModel: WeatherViewModel
-  
-
     var body: some View {
         
         ZStack {
@@ -35,20 +33,15 @@ struct WeatherView: View {
                     MainWeatherStatusView(viewModel: viewModel)
                     
                     ForecastView(viewModel: viewModel)
-                    
                 }
                 .padding(.top,8)
             }
             
         }.refreshable {
             viewModel.refreshData()
-
         }
         .task {
-           
             await viewModel.fetchData()
-          //diagnostic
-           
         }
         
     }

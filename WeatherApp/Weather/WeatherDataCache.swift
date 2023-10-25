@@ -68,7 +68,7 @@ class WeatherDataCache {
     }
     func isCacheFresh() -> Bool {
         if let timeInterval = timeSinceLastCacheModification() {
-            return timeInterval <= 3500
+            return timeInterval <= 1
         }
         return false
     }

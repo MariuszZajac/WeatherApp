@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum LocationError: Error {
+    case locationServicesNotEnabled
+    case locationDataNotAvailable
+    case geocodingError(Error)
+}

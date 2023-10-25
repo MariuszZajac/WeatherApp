@@ -25,6 +25,7 @@ struct MainWeatherStatusView: View {
                     .frame(width: 160, height: 160)
             }
             HStack {
+                
                 Image(systemName: "wind")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -38,10 +39,17 @@ struct MainWeatherStatusView: View {
                         .foregroundColor(.secondary)
                 }
             }
-            Text(viewModel.description)
-                .font(.title)
-                .fontWeight(.regular)
-                .foregroundColor(.secondary)
+            HStack {
+                Text("\(viewModel.description)")
+                    .font(.title3)
+                    .fontWeight(.regular)
+                    .foregroundColor(.secondary)
+                if viewModel.rain > 0.0 {
+                    Text("\(String(viewModel.rain)) mm/m² in one hour")
+                        .font(.title3)
+                        .foregroundColor(.secondary)
+                }
+            }
         }
     }
 }

@@ -51,6 +51,9 @@ final class WeatherViewModel: ObservableObject {
         return Wind(windSpeed: speed, windDeg: deg, windGust: gust)
         
     }
+    var rain: Double {
+        currentForecast?.rain?.oneHour ?? 0.0
+    }
     
     func refreshData() {
        //TODO: figure out how refresh or update data. 
@@ -63,8 +66,6 @@ final class WeatherViewModel: ObservableObject {
             let city = try await geocoder.reverseGeocodeUserLocation()
             self.city = city
             let data = try await repository.fetchWeatherData(latitude: city.latitude, longitude: city.longitude)
-            print(city.latitude)
-            print(city.longitude)
             dayForecast = data.daily
             hourlyForecast = data.hourly
             currentForecast = data.current
