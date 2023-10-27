@@ -9,19 +9,19 @@ import SwiftUI
 
 @main
 struct WeatherAppApp: App {
-    private let dependencyContainer = DependencyContainer()
+  private let dependencyContainer = DependencyContainer()
 
-    
-    
-    var body: some Scene {
-        WindowGroup {
-            WeatherView(viewModel: WeatherViewModel(repository:
-                                                        WeatherRepository(weatherAPIService: dependencyContainer.apiService,
-                                                                          weatherDataCache: dependencyContainer.dataCache),
-                                                    geocoder: LocationGeoocoder()))
-               
-        }
-        
+  var body: some Scene {
+    WindowGroup {
+      WeatherView(
+        viewModel: WeatherViewModel(
+          repository:
+            WeatherRepository(
+              weatherAPIService: dependencyContainer.apiService,
+              weatherDataCache: dependencyContainer.dataCache),
+          geocoder: LocationGeoocoder()))
+
     }
+
+  }
 }
-    

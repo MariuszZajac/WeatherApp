@@ -6,14 +6,13 @@
 //
 
 import Foundation
+
 protocol Forecast {
-    var dt: TimeInterval { get }
-    var pressure: Int { get }
-    var humidity: Int { get }
-    var dewPoint: Double { get }
-    var windSpeed: Double { get }
-    var windDeg: Int { get }
-    var weather: [WeatherInfo] { get }
+  var dt: TimeInterval { get }
+  var pressure: Int { get }
+  var humidity: Int { get }
+  var dewPoint: Double { get }
+  var windSpeed: Double { get }
+  var windDeg: Int { get }
+  var weather: [WeatherInfo] { get }
 }
-
-

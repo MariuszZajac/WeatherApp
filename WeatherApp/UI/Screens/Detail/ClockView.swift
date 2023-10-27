@@ -8,27 +8,27 @@
 import SwiftUI
 
 struct ClockView: View {
-    @State private var currentTime = Date()
+  @State private var currentTime = Date()
 
-    var body: some View {
-        Text(" \(formattedTime)")
-            .fontWeight(.bold)
-            .fontDesign(.monospaced)
-            .foregroundColor(.white)
-            .onAppear {
-                startClock()
-            }
-    }
+  var body: some View {
+    Text(" \(formattedTime)")
+      .fontWeight(.bold)
+      .fontDesign(.monospaced)
+      .foregroundColor(.white)
+      .onAppear {
+        startClock()
+      }
+  }
 
-    private var formattedTime: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: currentTime)
-    }
+  private var formattedTime: String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "HH:mm"
+    return dateFormatter.string(from: currentTime)
+  }
 
-    private func startClock() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            currentTime = Date()
-        }
+  private func startClock() {
+    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+      currentTime = Date()
     }
+  }
 }

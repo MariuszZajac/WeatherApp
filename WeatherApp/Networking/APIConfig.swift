@@ -6,26 +6,28 @@
 //
 
 import Foundation
-struct APIConfig {
-    static var baseURL: String {
-        return value(for: "BaseURLNew")
-    }
 
-    static var apiKey: String {
-        return value(for: "APIKey")
+struct APIConfig {
+  static var baseURL: String {
+    return value(for: "BaseURLNew")
+  }
+
+  static var apiKey: String {
+    return value(for: "APIKey")
+  }
+
+  private static func value(for key: String) -> String {
+    guard let path = Bundle.main.path(forResource: "APIConfig", ofType: "plist"),
+      let xml = FileManager.default.contents(atPath: path),
+      let configs = try? PropertyListDecoder().decode([String: String].self, from: xml),
+      let value = configs[key]
+    else {
+      return APIConfigError.missingConfig.rawValue
     }
-    
-    private static func value(for key: String) -> String {
-        guard let path = Bundle.main.path(forResource: "APIConfig", ofType: "plist"),
-              let xml = FileManager.default.contents(atPath: path),
-              let configs = try? PropertyListDecoder().decode([String: String].self, from: xml),
-              let value = configs[key] else {
-            return APIConfigError.missingConfig.rawValue
-        }
-        return value
-    }
-    enum APIConfigError: String, Error {
-        case missingConfig = "MissingConfig"
-    }
+    return value
+  }
+  enum APIConfigError: String, Error {
+    case missingConfig = "MissingConfig"
+  }
 
 }

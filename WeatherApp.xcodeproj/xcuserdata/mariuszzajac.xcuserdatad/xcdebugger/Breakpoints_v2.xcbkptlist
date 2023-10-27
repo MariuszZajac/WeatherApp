@@ -673,8 +673,8 @@
             filePath = "WeatherAppTests/WeatherDataCasheTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "testSaveData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -689,8 +689,8 @@
             filePath = "WeatherAppTests/WeatherDataCasheTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "testSaveData()"
             landmarkType = "7">
          </BreakpointContent>

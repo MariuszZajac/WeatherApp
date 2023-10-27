@@ -6,26 +6,31 @@
 //
 
 import SwiftUI
-//TODO:  this is to error view implement 
+
+//TODO:  this is to error view implement
 public struct PrimaryButton<Label>: View where Label: View {
     private let buttonWidth: CGFloat = 240
-
+    
     var isDisabled: Bool = false
     let label: () -> Label
     var action: (() -> Void)?
-
-    public init(isDisabled: Bool = false,
-                label: @escaping () -> Label,
-                action: (() -> Void)? = nil) {
+    
+    public init(
+        isDisabled: Bool = false,
+        label: @escaping () -> Label,
+        action: (() -> Void)? = nil
+    ) {
         self.isDisabled = isDisabled
         self.label = label
         self.action = action
     }
-
+    
     public var body: some View {
-        Button(action: {
-            action?()
-        }, label: label)
+        Button(
+            action: {
+                action?()
+            }, label: label
+        )
         .buttonStyle(PrimaryButtonStyle())
         .id("button")
         .disabled(isDisabled)
@@ -42,5 +47,3 @@ struct PrimaryButtonStyle: ButtonStyle {
             .clipShape(Capsule())
     }
 }
-
-
