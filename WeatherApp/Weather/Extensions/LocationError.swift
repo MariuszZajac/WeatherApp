@@ -11,4 +11,6 @@ enum LocationError: Error {
   case locationServicesNotEnabled
   case locationDataNotAvailable
   case geocodingError(Error)
+    case continuationAlreadySet
+    case observationAlreadyStarted
 }

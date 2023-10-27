@@ -15,16 +15,21 @@ class LocationGeoocoder: LocationGeoocoderProtocol {
   private var location: CLLocationCoordinate2D?
   private let locationManager: LocationManager
   private let geocoder = CLGeocoder()
+  private var isObservingLocation = false
   init(locationManager: LocationManager = LocationManager()) {
     self.locationManager = locationManager
   }
 
   func reverseGeocodeUserLocation() async throws -> City {
+      guard !isObservingLocation else {
+              throw LocationError.observationAlreadyStarted
+          }
     let userLocation = try await locationManager.startObservingLocationChanges()
 
     let location = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
     let placemarks = try await geocoder.reverseGeocodeLocation(location)
-
+      isObservingLocation = false
+      
     guard let placemark = placemarks.first, let city = placemark.locality,
       let country = placemark.country
     else { throw LocationError.locationServicesNotEnabled }

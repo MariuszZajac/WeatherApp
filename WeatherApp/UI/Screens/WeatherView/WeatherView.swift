@@ -37,8 +37,7 @@ struct WeatherView: View {
       }
 
     }.refreshable {
-      //
-      viewModel.refreshData()
+       viewModel.refreshData()
     }
     .task {
       await viewModel.fetchData()

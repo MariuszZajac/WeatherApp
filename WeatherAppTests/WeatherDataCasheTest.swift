@@ -25,6 +25,18 @@ class WeatherDataCasheTest: XCTestCase {
     XCTAssertTrue(fileManager.fileExists(atPath: path!.path))
   }
 
+  func testfetchWeatherData() {
+    //Arrange
+      let sut = WeatherDataCache(fileManager: fileManager)
+    let fileName = "dataSafeTest.json"
+
+    //act
+   let cachedData = sut.fetchWeatherData(fileName: fileName)
+      //assert
+      XCTAssertNotNil(cachedData)
+
+  }
+
   private func getFileUrlForName(name: String) -> URL? {
     if let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
       return documents.appendingPathComponent(name)

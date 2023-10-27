@@ -12,9 +12,13 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
   private var locationContinuation: CheckedContinuation<CLLocationCoordinate2D, Error>?
 
   func startObservingLocationChanges() async throws -> CLLocationCoordinate2D {
+
     return try await withCheckedThrowingContinuation { continuation in
       locationContinuation = continuation
       locationManager.startUpdatingLocation()
+      
+//TODO: check error here
+        
     }
   }
 
@@ -28,6 +32,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     guard let currentLocation = locations.first?.coordinate else {
       return
     }
+      
+     
     locationManager.stopUpdatingLocation()
     locationContinuation?.resume(returning: currentLocation)
 
