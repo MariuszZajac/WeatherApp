@@ -14,6 +14,7 @@ protocol DependencyContainerProtocol {
 class DependencyContainer: DependencyContainerProtocol {
     lazy var locationManager = LocationManager()
     lazy var apiService: WeatherAPIServiceProtocol = WeatherAPIService()
-    lazy var dataCache = WeatherDataCache(fileName: "weatherCache.json")
+    lazy var dataCache = WeatherDataCache()
     
 }
+// "weatherCache.json"

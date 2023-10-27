@@ -5,7 +5,7 @@
 //  Created by Mariusz Zając on 29/08/2023.
 //
 import Foundation
-
+//TODO: implement this
 final class ErrorLogger {
     static let shared = ErrorLogger()
     private init() {}

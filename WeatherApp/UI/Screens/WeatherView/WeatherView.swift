@@ -23,7 +23,7 @@ struct WeatherView: View {
             case .error(let error):
     
                 ErrorView(title: error) {
-               // TODO: // add appropriate func
+               // TODO:
                 }
             case .loaded:
                 ScrollView(.vertical) {
@@ -38,6 +38,7 @@ struct WeatherView: View {
             }
             
         }.refreshable {
+            //
             viewModel.refreshData()
         }
         .task {

@@ -12,7 +12,7 @@ protocol WeatherRepositoryProtocol {
 }
 
 final class WeatherRepository: WeatherRepositoryProtocol {
-
+    private let cashFileName =  "weatherCache.json"
     private let weatherAPIService: WeatherAPIServiceProtocol
     private let weatherDataCache: WeatherDataCache
 
@@ -24,11 +24,11 @@ final class WeatherRepository: WeatherRepositoryProtocol {
 
     func fetchWeatherData(latitude: Double, longitude: Double) async throws -> WeatherData {
         do {
-            if weatherDataCache.isCacheFresh(), let data = weatherDataCache.fetchWeatherData()  {
+            if weatherDataCache.isCacheFresh(name: cashFileName), let data = weatherDataCache.fetchWeatherData(fileName:cashFileName)  {
                 return data
             } else {
                 let response = try await weatherAPIService.downloadWeatherData(latitude: latitude, longitude: longitude)
-                weatherDataCache.saveWeatherData(response)
+                weatherDataCache.saveWeatherData(response, fileName: cashFileName)
                 return response
             }
         } catch {

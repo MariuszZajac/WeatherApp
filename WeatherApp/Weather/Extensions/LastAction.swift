@@ -5,9 +5,9 @@
 //  Created by Mariusz Zając on 19/10/2023.
 //
 
-//TODO:
-/// to error handling
+
 import Foundation
+//TODO: to error handling, not done yet!
 class LastAction {
     var lastAction: () -> Void = {}
     

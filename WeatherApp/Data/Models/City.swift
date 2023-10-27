@@ -5,7 +5,7 @@
 //  Created by Mariusz Zając on 04/09/2023.
 //
 
-import Foundation
+
 import CoreLocation
 
 class City: Codable, Identifiable, ObservableObject{

@@ -46,6 +46,10 @@
 		87A0C7C12AE17420008B23C4 /* OneHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0C7C02AE17420008B23C4 /* OneHourView.swift */; };
 		87E052BB2AE7DF97005CA1C9 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E052BA2AE7DF97005CA1C9 /* LocationError.swift */; };
 		87E052BD2AE7E25F005CA1C9 /* LocationGeoocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E052BC2AE7E25F005CA1C9 /* LocationGeoocoder.swift */; };
+		87E052C22AEBB951005CA1C9 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 87E052C12AEBB951005CA1C9 /* SnapshotTesting */; };
+		87E052C52AEBB9C2005CA1C9 /* OneDayShortViewSnapshotsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E052C42AEBB9C2005CA1C9 /* OneDayShortViewSnapshotsTest.swift */; };
+		87E052C72AEBBC29005CA1C9 /* WeatherViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E052C62AEBBC29005CA1C9 /* WeatherViewSnapshotTest.swift */; };
+		87E052C92AEBC594005CA1C9 /* WeatherDataCasheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E052C82AEBC594005CA1C9 /* WeatherDataCasheTest.swift */; };
 		87EC39412ADFCAB400BB1238 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC39402ADFCAB400BB1238 /* LocationManager.swift */; };
 		87F4277D2AD15DBA00427B9B /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4277C2AD15DBA00427B9B /* ForecastService.swift */; };
 		87F4277F2AD91DBE00427B9B /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4277E2AD91DBE00427B9B /* ForecastView.swift */; };
@@ -135,6 +139,9 @@
 		87E052BA2AE7DF97005CA1C9 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		87E052BC2AE7E25F005CA1C9 /* LocationGeoocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGeoocoder.swift; sourceTree = "<group>"; };
 		87E052BF2AEBAD29005CA1C9 /* WeatherApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WeatherApp.xctestplan; sourceTree = "<group>"; };
+		87E052C42AEBB9C2005CA1C9 /* OneDayShortViewSnapshotsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayShortViewSnapshotsTest.swift; sourceTree = "<group>"; };
+		87E052C62AEBBC29005CA1C9 /* WeatherViewSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewSnapshotTest.swift; sourceTree = "<group>"; };
+		87E052C82AEBC594005CA1C9 /* WeatherDataCasheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataCasheTest.swift; sourceTree = "<group>"; };
 		87EC39402ADFCAB400BB1238 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		87F4277C2AD15DBA00427B9B /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		87F4277E2AD91DBE00427B9B /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
@@ -166,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87E052C22AEBB951005CA1C9 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,13 +354,24 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
+		87E052C32AEBB95E005CA1C9 /* SnapShotTest */ = {
+			isa = PBXGroup;
+			children = (
+				87E052C42AEBB9C2005CA1C9 /* OneDayShortViewSnapshotsTest.swift */,
+				87E052C62AEBBC29005CA1C9 /* WeatherViewSnapshotTest.swift */,
+			);
+			path = SnapShotTest;
+			sourceTree = "<group>";
+		};
 		87F4278B2AD940A000427B9B /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				87E052C32AEBB95E005CA1C9 /* SnapShotTest */,
 				87F427952AD941FE00427B9B /* Builders */,
 				87F4278C2AD940A000427B9B /* WeatherAppTests.swift */,
 				87F427932AD940FC00427B9B /* OneDayShortViewModel.test.swift */,
 				878DC4062ADFE4C900147F77 /* WeatherViewModelTest.swift */,
+				87E052C82AEBC594005CA1C9 /* WeatherDataCasheTest.swift */,
 			);
 			path = WeatherAppTests;
 			sourceTree = "<group>";
@@ -468,6 +487,9 @@
 				87F4278F2AD940A000427B9B /* PBXTargetDependency */,
 			);
 			name = WeatherAppTests;
+			packageProductDependencies = (
+				87E052C12AEBB951005CA1C9 /* SnapshotTesting */,
+			);
 			productName = WeatherAppTests;
 			productReference = 87F4278A2AD940A000427B9B /* WeatherAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -522,6 +544,9 @@
 				Base,
 			);
 			mainGroup = 87FFAF492A9C7ED6002A25DA;
+			packageReferences = (
+				87E052C02AEBB951005CA1C9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 87FFAF532A9C7ED6002A25DA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -579,9 +604,12 @@
 			files = (
 				87F427942AD940FC00427B9B /* OneDayShortViewModel.test.swift in Sources */,
 				878DC4072ADFE4C900147F77 /* WeatherViewModelTest.swift in Sources */,
+				87E052C72AEBBC29005CA1C9 /* WeatherViewSnapshotTest.swift in Sources */,
+				87E052C92AEBC594005CA1C9 /* WeatherDataCasheTest.swift in Sources */,
 				87F4278D2AD940A000427B9B /* WeatherAppTests.swift in Sources */,
 				87F427972AD9421100427B9B /* DailyWeatherBuilder.swift in Sources */,
 				878DC4092ADFEB8A00147F77 /* WeatherDataBuilder.swift in Sources */,
+				87E052C52AEBB9C2005CA1C9 /* OneDayShortViewSnapshotsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,6 +1000,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		87E052C02AEBB951005CA1C9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.14.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		87E052C12AEBB951005CA1C9 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87E052C02AEBB951005CA1C9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 87FFAF4A2A9C7ED6002A25DA /* Project object */;
 }

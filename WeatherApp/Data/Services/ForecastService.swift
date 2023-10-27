@@ -16,8 +16,4 @@ protocol Forecast {
     var weather: [WeatherInfo] { get }
 }
 
-//protocol ForecastService {
-//    func fetchDailyForecast(completion: @escaping ([DailyWeather]?) -> Void)
-//    func fetchHourlyForecast(completion: @escaping ([HourlyWeather]?) -> Void)
-//    func fetchCurrentForecast(completion: @escaping (CurrentWeather?) -> Void)
-//}
+

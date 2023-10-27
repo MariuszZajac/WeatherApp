@@ -6,44 +6,56 @@
 //
 
 import Foundation
-class WeatherDataCache {
-    private let fileURL: URL
-
-    init(fileName: String) {
-        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        self.fileURL = documents.appendingPathComponent(fileName)
+protocol WeatherDataCacheProtocol {
+    func saveWeatherData(_ data: WeatherData, fileName: String)
+    func fetchWeatherData(fileName: String)-> WeatherData?
+    func isCacheFresh(name: String) -> Bool
+}
+class WeatherDataCache: WeatherDataCacheProtocol {
+    private let fileManager: FileManager
+    
+    init(fileManager: FileManager = .default) {
+        self.fileManager = fileManager
     }
-
-    func saveWeatherData(_ data: WeatherData) {
+    
+    func saveWeatherData(_ data: WeatherData, fileName: String) {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
-
-        if let encodedData = try? encoder.encode(data) {
-            try? encodedData.write(to: fileURL)
+        
+        if let encodedData = try? encoder.encode(data), let url = getFileUrlForName(name: fileName) {
+            try? encodedData.write(to: url)
         }
     }
-    func fetchWeatherData() -> WeatherData? {
-        if let data = try? Data(contentsOf: fileURL) {
+    
+    func fetchWeatherData(fileName: String) -> WeatherData? {
+        if let url = getFileUrlForName(name: fileName), let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             return try? decoder.decode(WeatherData.self, from: data)
         }
         return nil
     }
-    func lastModifiedCacheDate() -> Date? {
-        if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: fileURL.path) as NSDictionary {
+    private func getFileUrlForName(name:String)-> URL? {
+        if let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+            return documents.appendingPathComponent(name) } else {
+                return nil
+            }
+    }
+    private func lastModifiedCacheDate(name: String) -> Date? {
+        
+        if let url = getFileUrlForName(name: name), let fileAttributes = try? fileManager.attributesOfItem(atPath: url.path) as NSDictionary  {
             return fileAttributes.fileModificationDate()
         }
-            return nil
-        }
-    func timeSinceLastCacheModification() -> TimeInterval? {
-        if let lastModifiedDate = lastModifiedCacheDate() {
+        return nil
+    }
+    private func timeSinceLastCacheModification(name: String) -> TimeInterval? {
+        if let lastModifiedDate = lastModifiedCacheDate(name: name) {
             return Date().timeIntervalSince(lastModifiedDate)
         }
         return nil
     }
-    func isCacheFresh() -> Bool {
-        if let timeInterval = timeSinceLastCacheModification() {
+    func isCacheFresh(name: String) -> Bool {
+        if let timeInterval = timeSinceLastCacheModification(name: name) {
             return timeInterval <= 10
         }
         return false

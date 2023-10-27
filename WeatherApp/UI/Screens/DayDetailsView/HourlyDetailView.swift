@@ -25,8 +25,7 @@ struct HourlyDetailView: View {
                     .foregroundColor(.secondary)
             }
             .frame(width: 50, height: 50)
-            
-            
+           
             Image(systemName: viewModel.weatherIcon.systemImageName)
                 .renderingMode(.original)
                 .resizable()
@@ -43,14 +42,11 @@ struct HourlyDetailView: View {
             VStack{
                 Text("\( viewModel.temp)°")
                     .foregroundColor(.secondary)
-
-                
-                
             }
             .font(.title3)
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-
+        
         
     }
 }

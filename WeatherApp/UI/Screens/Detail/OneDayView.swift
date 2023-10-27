@@ -10,7 +10,7 @@ import SwiftUI
 
 struct OneDayView: View {
     @Binding var selectedDayItem: DailyWeather?
-    // this is a temp view just to check display data.
+   //TODO:  this is a temp view just to check display data.
     var body: some View {
         ZStack {
             BackgroundView(topColor: .blue, bottomColor: Color("LightBlue"))
