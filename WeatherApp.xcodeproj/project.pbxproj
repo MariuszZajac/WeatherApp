@@ -134,6 +134,7 @@
 		87A774EF2ACE95BB0084E463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		87E052BA2AE7DF97005CA1C9 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		87E052BC2AE7E25F005CA1C9 /* LocationGeoocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGeoocoder.swift; sourceTree = "<group>"; };
+		87E052BF2AEBAD29005CA1C9 /* WeatherApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WeatherApp.xctestplan; sourceTree = "<group>"; };
 		87EC39402ADFCAB400BB1238 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		87F4277C2AD15DBA00427B9B /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		87F4277E2AD91DBE00427B9B /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
@@ -368,6 +369,7 @@
 		87FFAF492A9C7ED6002A25DA = {
 			isa = PBXGroup;
 			children = (
+				87E052BF2AEBAD29005CA1C9 /* WeatherApp.xctestplan */,
 				87861D032AE7C4C1001108CF /* WidgetWeatherApp */,
 				87861CFE2AE7C4C1001108CF /* Frameworks */,
 				87FFAF532A9C7ED6002A25DA /* Products */,

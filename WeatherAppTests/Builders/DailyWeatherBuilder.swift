@@ -66,3 +66,11 @@ extension Temperature {
         return Temperature(day: day, min: min, max: max, night: night, eve: eve, morn: morn)
     }
 }
+extension Rain {
+    static func make(oneHour: Double?) -> Self? {
+        guard let oneHourValue = oneHour else {
+            return nil
+        }
+        return Rain(oneHour: oneHourValue)
+    }
+}

@@ -77,9 +77,9 @@ struct ForecastView: View {
             if viewModel.selectedForecastType == .hour  {
                 TemperatureChart(hourlyWeatherData: viewModel.hourlyForecast)
                // TODO:
-                if let currentWeather = viewModel.currentForecast {
-                    RainChart(currentWeatherData: currentWeather )
-                }
+//                if let currentWeather = viewModel.currentForecast {
+//                    RainChart(currentWeatherData: currentWeather )
+//                }
             }
             
         }

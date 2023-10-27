@@ -23,7 +23,7 @@ struct WeatherView: View {
             case .error(let error):
     
                 ErrorView(title: error) {
-                   // add appropriate func
+               // TODO: // add appropriate func
                 }
             case .loaded:
                 ScrollView(.vertical) {

@@ -30,30 +30,6 @@ class WeatherDataCache {
         }
         return nil
     }
-    
-    func saveLocationData(_ location: City) {
-        let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-
-        if let encodedData = try? encoder.encode(location) {
-           
-            if let locationCacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("location.json") {
-                try? encodedData.write(to: locationCacheURL)
-            }
-        }
-    }
-    func fetchLocationData() -> City? {
-        if let data = try? Data(contentsOf: fileURL) {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try? decoder.decode(City.self, from: data)
-        }
-        return nil
-    }
-
-
-   
-
     func lastModifiedCacheDate() -> Date? {
         if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: fileURL.path) as NSDictionary {
             return fileAttributes.fileModificationDate()
@@ -68,7 +44,7 @@ class WeatherDataCache {
     }
     func isCacheFresh() -> Bool {
         if let timeInterval = timeSinceLastCacheModification() {
-            return timeInterval <= 1
+            return timeInterval <= 10
         }
         return false
     }

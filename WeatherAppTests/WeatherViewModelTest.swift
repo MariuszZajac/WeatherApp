@@ -13,7 +13,9 @@ class WeatherViewModelTest: XCTestCase {
     func testInitialState() {
         //Arrange
         let mock = MockWeatherRepository()
-        let sut = WeatherViewModel(repository: mock)
+        let geocoder = LocationGeoocoder()
+        let sut = WeatherViewModel(repository: mock, geocoder: geocoder)
+       
         //act
         
         //assert
@@ -26,9 +28,10 @@ class WeatherViewModelTest: XCTestCase {
         
         let mock = MockWeatherRepository()
         mock.weatherData = .make()
-        let sut = WeatherViewModel(repository: mock)
+        let geocoder = LocationGeoocoder()
+        let sut = WeatherViewModel(repository: mock, geocoder: geocoder)
         //act
-        await sut.fetchData(latitude: mock.weatherData?.lat ?? 0.1, longitude: mock.weatherData?.lon ?? 0.1)
+        await sut.fetchData()
         //assert
         
         XCTAssertEqual(sut.state , .loaded)

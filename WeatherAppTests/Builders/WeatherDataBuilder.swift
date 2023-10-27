@@ -45,7 +45,8 @@ extension CurrentWeather {
                      clouds: Int = 22,
                      pop: Double = 3.4,
                      uvi: Double = 2,
-                     visibility: Int = 222) -> Self {
+                     visibility: Int = 222,
+                     rain: Rain? = nil) -> Self {
         return CurrentWeather( dt: dt,
                             sunrise: sunrise,
                             sunset: sunset,
@@ -59,7 +60,8 @@ extension CurrentWeather {
                             visibility: visibility,
                             windSpeed: windSpeed,
                             windDeg: windDeg,
-                            weather: [weather])
+                               weather: [weather],
+                               rain: rain)
             
     }
 }

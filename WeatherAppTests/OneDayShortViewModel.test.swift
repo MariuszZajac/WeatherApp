@@ -19,7 +19,7 @@ class OneDayShortViewModelTest: XCTestCase {
         XCTAssertEqual(sut.dayOfWeek, "Oct 05")
         XCTAssertEqual(sut.tempMax, 22.0)
         XCTAssertEqual(sut.tempMin, 12.0)
-        XCTAssertEqual(sut.weatherIcon, .clearDay)
+        XCTAssertEqual(sut.weatherIcon, .brokenClouds)
        
         
     }
