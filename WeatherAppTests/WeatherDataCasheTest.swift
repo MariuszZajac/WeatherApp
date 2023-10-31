@@ -27,13 +27,23 @@ class WeatherDataCasheTest: XCTestCase {
 
   func testfetchWeatherData() {
     //Arrange
-      let sut = WeatherDataCache(fileManager: fileManager)
+    let sut = WeatherDataCache(fileManager: fileManager)
     let fileName = "dataSafeTest.json"
 
     //act
-   let cachedData = sut.fetchWeatherData(fileName: fileName)
-      //assert
-      XCTAssertNotNil(cachedData)
+    let cachedData = sut.fetchWeatherData(fileName: fileName)
+    //assert
+    XCTAssertNotNil(cachedData)
+
+  }
+  func testDataIsFresh() {
+    let sut = WeatherDataCache(fileManager: fileManager)
+    let fileName = "dataSafeTest.json"
+
+    //act
+    let freshData = sut.isCacheFresh(name: fileName)
+    //assert
+    XCTAssertTrue(freshData)
 
   }
 

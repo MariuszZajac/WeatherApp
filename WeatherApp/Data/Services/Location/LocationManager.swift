@@ -12,13 +12,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
   private var locationContinuation: CheckedContinuation<CLLocationCoordinate2D, Error>?
 
   func startObservingLocationChanges() async throws -> CLLocationCoordinate2D {
-
-    return try await withCheckedThrowingContinuation { continuation in
+      return try await withCheckedThrowingContinuation { continuation in
       locationContinuation = continuation
       locationManager.startUpdatingLocation()
-      
-//TODO: check error here
-        
     }
   }
 
@@ -28,16 +24,19 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     locationManager.requestWhenInUseAuthorization()
     locationManager.delegate = self
   }
+    
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     guard let currentLocation = locations.first?.coordinate else {
       return
     }
-      
-     
-    locationManager.stopUpdatingLocation()
-    locationContinuation?.resume(returning: currentLocation)
-
+    //TODO: check error is still here??
+    if let continuation = locationContinuation {
+      locationContinuation = nil
+      locationManager.stopUpdatingLocation()
+      continuation.resume(returning: currentLocation)
+    }
   }
+    
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     locationContinuation?.resume(throwing: error)
     print("Błąd podczas pobierania lokalizacji", error)

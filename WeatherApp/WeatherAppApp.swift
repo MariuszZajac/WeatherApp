@@ -19,7 +19,7 @@ struct WeatherAppApp: App {
             WeatherRepository(
               weatherAPIService: dependencyContainer.apiService,
               weatherDataCache: dependencyContainer.dataCache),
-          geocoder: LocationGeoocoder()))
+          geocoder: LocationGeocoder()))
 
     }
 

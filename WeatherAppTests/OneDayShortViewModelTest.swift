@@ -1,5 +1,5 @@
 //
-//  OneDayShortViewModel.test.swift
+//  OneDayShortViewModelTest.swift
 //  WeatherAppTests
 //
 //  Created by Mariusz Zając on 13/10/2023.

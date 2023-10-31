@@ -17,7 +17,7 @@ class WeatherViewSnapshotTest: XCTestCase {
     //arrangeM
     let mock = MockWeatherRepository()
     mock.weatherData = .make()
-    let geocoder = LocationGeoocoder()
+    let geocoder = LocationGeocoder()
     let viewModel = WeatherViewModel(repository: mock, geocoder: geocoder)
     let sut = WeatherView(viewModel: viewModel)
     //assert
@@ -31,7 +31,7 @@ class WeatherViewSnapshotTest: XCTestCase {
     //arrangeM
     let mock = MockWeatherRepository()
     mock.weatherData = .make()
-    let geocoder = LocationGeoocoder()
+    let geocoder = LocationGeocoder()
     let viewModel = WeatherViewModel(repository: mock, geocoder: geocoder)
     viewModel.currentForecast = .make()
     viewModel.hourlyForecast = .make()

@@ -14,7 +14,7 @@ class WeatherViewModelTest: XCTestCase {
   func testInitialState() {
     //Arrange
     let mock = MockWeatherRepository()
-    let geocoder = LocationGeoocoder()
+    let geocoder = LocationGeocoder()
     let sut = WeatherViewModel(repository: mock, geocoder: geocoder)
 
     //act
@@ -29,8 +29,10 @@ class WeatherViewModelTest: XCTestCase {
 
     let mock = MockWeatherRepository()
     mock.weatherData = .make()
-    let geocoder = LocationGeoocoder()
-    let sut = WeatherViewModel(repository: mock, geocoder: geocoder)
+      let geocoder = LocationGeocoder()
+    //  var cityData = try? await geocoder.reverseGeocodeUserLocation()
+      
+      let sut = WeatherViewModel(repository: mock, geocoder: geocoder)
     //act
     await sut.fetchData()
     //assert
@@ -38,7 +40,7 @@ class WeatherViewModelTest: XCTestCase {
     XCTAssertEqual(sut.state, .loaded)
     XCTAssertNotNil(sut.currentForecast)
     XCTAssertNotNil(sut.$selectedForecastType)
-    //XCTAssertNotNil(sut.error )
+    XCTAssertNotNil(sut.error )
     XCTAssertTrue(sut.temp > 0)
   }
 }
@@ -57,6 +59,7 @@ class MockWeatherRepository: WeatherRepositoryProtocol {
   }
 
 }
+
 extension WeatherViewModel.State: Equatable {
   public static func == (lhs: WeatherViewModel.State, rhs: WeatherViewModel.State) -> Bool {
     switch (lhs, rhs) {
@@ -76,4 +79,12 @@ extension WeatherViewModel.State: Equatable {
     }
   }
 
+}
+class MockLocationGeocoder: LocationGeocoderProtocol {
+  
+    func reverseGeocodeUserLocation() async throws -> WeatherApp.City {
+        
+        let cityData = City.make()
+        return cityData
+    }
 }
