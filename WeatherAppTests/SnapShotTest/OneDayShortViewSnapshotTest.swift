@@ -11,7 +11,7 @@ import XCTest
 
 @testable import WeatherApp
 
-class OneDayShortViewSnapshotsTest: XCTestCase {
+class OneDayShortViewSnapshotTest: XCTestCase {
 
   func testView() {
     //arrangeM

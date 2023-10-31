@@ -7,11 +7,11 @@
 
 import CoreLocation
 
-protocol LocationGeoocoderProtocol {
+protocol LocationGeocoderProtocol {
   func reverseGeocodeUserLocation() async throws -> City
 }
 
-class LocationGeoocoder: LocationGeoocoderProtocol {
+class LocationGeocoder: LocationGeocoderProtocol {
   private var location: CLLocationCoordinate2D?
   private let locationManager: LocationManager
   private let geocoder = CLGeocoder()
