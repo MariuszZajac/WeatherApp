@@ -14,7 +14,7 @@ struct MainWeatherStatusView: View {
     VStack {
       HStack {
         Text("\(String(format: "%.0f", viewModel.temp))°")
-          .font(.system(size: 80))
+          .font(.system(size: 80, weight: .medium, design: .default))
           .bold()
           .foregroundColor(.white)
 

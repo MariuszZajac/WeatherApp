@@ -20,6 +20,7 @@
 		8739A55D2A9DDD8D00777967 /* WeatherDataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739A55C2A9DDD8D00777967 /* WeatherDataCache.swift */; };
 		876ADD3D2AA61FC300048ECC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876ADD3C2AA61FC300048ECC /* City.swift */; };
 		877035592AE7B4F800930EEB /* OneDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877035582AE7B4F800930EEB /* OneDayView.swift */; };
+		877531A62AF8D8D90007C4F4 /* LocationGeocoderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877531A52AF8D8D90007C4F4 /* LocationGeocoderTest.swift */; };
 		87815CC62AEF96BC006F7001 /* HourlyDetailViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87815CC52AEF96BC006F7001 /* HourlyDetailViewSnapshotTest.swift */; };
 		87815CC82AEF989C006F7001 /* HourlyWeatherBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87815CC72AEF989C006F7001 /* HourlyWeatherBuilder.swift */; };
 		87815CCA2AF104AE006F7001 /* CityBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87815CC92AF104AE006F7001 /* CityBuilder.swift */; };
@@ -112,6 +113,7 @@
 		8739A55C2A9DDD8D00777967 /* WeatherDataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataCache.swift; sourceTree = "<group>"; };
 		876ADD3C2AA61FC300048ECC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		877035582AE7B4F800930EEB /* OneDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayView.swift; sourceTree = "<group>"; };
+		877531A52AF8D8D90007C4F4 /* LocationGeocoderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGeocoderTest.swift; sourceTree = "<group>"; };
 		87815CC52AEF96BC006F7001 /* HourlyDetailViewSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyDetailViewSnapshotTest.swift; sourceTree = "<group>"; };
 		87815CC72AEF989C006F7001 /* HourlyWeatherBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherBuilder.swift; sourceTree = "<group>"; };
 		87815CC92AF104AE006F7001 /* CityBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityBuilder.swift; sourceTree = "<group>"; };
@@ -274,14 +276,6 @@
 			path = DayDetailsView;
 			sourceTree = "<group>";
 		};
-		8739A5512A9CF30700777967 /* City */ = {
-			isa = PBXGroup;
-			children = (
-				87A09EB72ACBE8FE005D06FE /* CityTextView.swift */,
-			);
-			path = City;
-			sourceTree = "<group>";
-		};
 		87861CF62AE7BA35001108CF /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +336,7 @@
 				87F427982AD9A01A00427B9B /* ClockView.swift */,
 				87F4279A2ADD15D900427B9B /* ErrorView.swift */,
 				87F4277E2AD91DBE00427B9B /* ForecastView.swift */,
+				87A09EB72ACBE8FE005D06FE /* CityTextView.swift */,
 				877035582AE7B4F800930EEB /* OneDayView.swift */,
 				87A0C7C02AE17420008B23C4 /* OneHourView.swift */,
 				87F4279C2ADD379D00427B9B /* PrimaryButton.swift */,
@@ -376,6 +371,7 @@
 				87F4278C2AD940A000427B9B /* WeatherAppTests.swift */,
 				87F427932AD940FC00427B9B /* OneDayShortViewModelTest.swift */,
 				878DC4062ADFE4C900147F77 /* WeatherViewModelTest.swift */,
+				877531A52AF8D8D90007C4F4 /* LocationGeocoderTest.swift */,
 				87E052C82AEBC594005CA1C9 /* WeatherDataCasheTest.swift */,
 			);
 			path = WeatherAppTests;
@@ -454,7 +450,6 @@
 			children = (
 				87A0705C2A9F4264007491BB /* Extensions */,
 				8739A55C2A9DDD8D00777967 /* WeatherDataCache.swift */,
-				8739A5512A9CF30700777967 /* City */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -614,6 +609,7 @@
 				87E052C72AEBBC29005CA1C9 /* WeatherViewSnapshotTest.swift in Sources */,
 				87815CC82AEF989C006F7001 /* HourlyWeatherBuilder.swift in Sources */,
 				87815CC62AEF96BC006F7001 /* HourlyDetailViewSnapshotTest.swift in Sources */,
+				877531A62AF8D8D90007C4F4 /* LocationGeocoderTest.swift in Sources */,
 				87E052C92AEBC594005CA1C9 /* WeatherDataCasheTest.swift in Sources */,
 				87F4278D2AD940A000427B9B /* WeatherAppTests.swift in Sources */,
 				87F427972AD9421100427B9B /* DailyWeatherBuilder.swift in Sources */,

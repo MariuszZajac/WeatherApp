@@ -22,6 +22,7 @@ struct CityTextView: View {
     HStack {
       Text("\(Date().formatted(.dateTime.month().day()))")
         .fontWeight(.bold)
+        .font(.system(size: 16, weight: .medium, design: .default))
         .foregroundColor(.white)
       ClockView()
     }

@@ -5,6 +5,7 @@
 //  Created by Mariusz Zając on 18/10/2023.
 //
 
+import CoreLocation
 import Foundation
 import XCTest
 
@@ -29,20 +30,26 @@ class WeatherViewModelTest: XCTestCase {
 
     let mock = MockWeatherRepository()
     mock.weatherData = .make()
-      let geocoder = LocationGeocoder()
-    //  var cityData = try? await geocoder.reverseGeocodeUserLocation()
-      
-      let sut = WeatherViewModel(repository: mock, geocoder: geocoder)
+    let mockLocationManager = MockLocationManager()
+    mockLocationManager.mockLocation = CLLocationCoordinate2D(latitude: 25.2344, longitude: 15.2444)
+
+    let geocoder = LocationGeocoder(locationManager: mockLocationManager)
+
+    let sut = WeatherViewModel(repository: mock, geocoder: geocoder)
     //act
     await sut.fetchData()
+
     //assert
 
     XCTAssertEqual(sut.state, .loaded)
     XCTAssertNotNil(sut.currentForecast)
     XCTAssertNotNil(sut.$selectedForecastType)
-    XCTAssertNotNil(sut.error )
+    XCTAssertNotNil(sut.error)
     XCTAssertTrue(sut.temp > 0)
   }
+
+  
+
 }
 class MockWeatherRepository: WeatherRepositoryProtocol {
   var error: Error?
@@ -79,12 +86,4 @@ extension WeatherViewModel.State: Equatable {
     }
   }
 
-}
-class MockLocationGeocoder: LocationGeocoderProtocol {
-  
-    func reverseGeocodeUserLocation() async throws -> WeatherApp.City {
-        
-        let cityData = City.make()
-        return cityData
-    }
 }

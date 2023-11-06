@@ -7,55 +7,117 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B0A91A82-6A6C-492B-BEAE-E19914AA9369"
-            shouldBeEnabled = "No"
+            uuid = "027FA0C4-87B8-436D-9822-1052F47C8530"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherAppTests/WeatherViewModelTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "testSuccesState()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "027FA0C4-87B8-436D-9822-1052F47C8530 - 63a4555a2ce4cf1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
+                  moduleName = "WeatherAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherAppTests/WeatherViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "027FA0C4-87B8-436D-9822-1052F47C8530 - 1e03b4516b51e6a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
+                  moduleName = "WeatherAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherAppTests/WeatherViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "027FA0C4-87B8-436D-9822-1052F47C8530 - 63a4555a2ce4cf1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
+                  moduleName = "WeatherAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherAppTests/WeatherViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "027FA0C4-87B8-436D-9822-1052F47C8530 - 1e03b4516b51e6a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
+                  moduleName = "WeatherAppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherAppTests/WeatherViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DEDA7913-01BC-460A-AB51-3A17D0ABC00A"
-            shouldBeEnabled = "No"
+            uuid = "AD2628E9-2A74-4234-A812-17E8811FEC11"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherAppTests/WeatherViewModelTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "testSuccesState()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "DEDA7913-01BC-460A-AB51-3A17D0ABC00A - d24a03c566bb2417"
+                  uuid = "AD2628E9-2A74-4234-A812-17E8811FEC11 - 1e03b4516b51e1b8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
+                  symbolName = "(1) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
                   moduleName = "WeatherAppTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherAppTests/WeatherViewModelTest.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "192">
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "468">
                </Location>
                <Location
-                  uuid = "DEDA7913-01BC-460A-AB51-3A17D0ABC00A - d24a03c566bb25d5"
+                  uuid = "AD2628E9-2A74-4234-A812-17E8811FEC11 - 1e03b4516b51e1d7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
+                  symbolName = "(1) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
                   moduleName = "WeatherAppTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherAppTests/WeatherViewModelTest.swift"
@@ -63,14 +125,14 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
                   endingLineNumber = "38"
-                  offsetFromSymbolStart = "356">
+                  offsetFromSymbolStart = "640">
                </Location>
                <Location
-                  uuid = "DEDA7913-01BC-460A-AB51-3A17D0ABC00A - fa57a4a55f3328f5"
+                  uuid = "AD2628E9-2A74-4234-A812-17E8811FEC11 - 1e03b4516b51e1d7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(4) await resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
+                  symbolName = "(1) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
                   moduleName = "WeatherAppTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherAppTests/WeatherViewModelTest.swift"
@@ -78,37 +140,55 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
                   endingLineNumber = "38"
-                  offsetFromSymbolStart = "40">
+                  offsetFromSymbolStart = "520">
                </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AC5941E-9D36-4129-88C6-37D64950FFFB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppTests/WeatherViewModelTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "testSuccesState()"
+            landmarkType = "7">
+            <Locations>
                <Location
-                  uuid = "DEDA7913-01BC-460A-AB51-3A17D0ABC00A - a68c99495d8269cb"
+                  uuid = "2AC5941E-9D36-4129-88C6-37D64950FFFB - 1e03b4516b51e17a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
+                  symbolName = "(1) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
                   moduleName = "WeatherAppTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherAppTests/WeatherViewModelTest.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "100">
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "360">
                </Location>
                <Location
-                  uuid = "DEDA7913-01BC-460A-AB51-3A17D0ABC00A - dc905c77561ecfc8"
+                  uuid = "2AC5941E-9D36-4129-88C6-37D64950FFFB - 1e03b4516b51e17a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(6) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
+                  symbolName = "(1) suspend resume partial function for WeatherAppTests.WeatherViewModelTest.testSuccesState() async -&gt; ()"
                   moduleName = "WeatherAppTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mariuszzajac/Projekty%20swift/WeatherApp/WeatherAppTests/WeatherViewModelTest.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "364">
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "372">
                </Location>
             </Locations>
          </BreakpointContent>
