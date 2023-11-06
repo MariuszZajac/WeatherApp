@@ -24,7 +24,7 @@ class WeatherViewModelTest: XCTestCase {
 
     XCTAssertEqual(sut.state, .loading)
   }
-
+    
   func testSuccesState() async {
     //Arrange
 
