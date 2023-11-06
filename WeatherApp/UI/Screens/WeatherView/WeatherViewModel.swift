@@ -28,9 +28,9 @@ final class WeatherViewModel: ObservableObject {
 
   private let repository: WeatherRepositoryProtocol
   private var forecast: WeatherData?
-  private let geocoder: LocationGeocoder
+  private let geocoder: LocationGeocoderProtocol
 
-  init(repository: WeatherRepositoryProtocol, geocoder: LocationGeocoder) {
+  init(repository: WeatherRepositoryProtocol, geocoder: LocationGeocoderProtocol) {
     self.repository = repository
     self.geocoder = geocoder
   }

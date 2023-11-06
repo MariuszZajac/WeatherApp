@@ -46,17 +46,4 @@ class MockLocationManager: LocationManager {
     return mockLocation
   }
 }
-class MockLocationGeocoder: LocationGeocoderProtocol {
-  var mockCity: City?
-  var mockError: Error?
 
-  func reverseGeocodeUserLocation() async throws -> City {
-    if let mockError = mockError {
-      throw mockError
-    }
-    guard let mockCity = mockCity else {
-      fatalError("Mock city data not set for testing.")
-    }
-    return mockCity
-  }
-}

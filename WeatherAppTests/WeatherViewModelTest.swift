@@ -30,10 +30,8 @@ class WeatherViewModelTest: XCTestCase {
 
     let mock = MockWeatherRepository()
     mock.weatherData = .make()
-    let mockLocationManager = MockLocationManager()
-    mockLocationManager.mockLocation = CLLocationCoordinate2D(latitude: 25.2344, longitude: 15.2444)
 
-    let geocoder = LocationGeocoder(locationManager: mockLocationManager)
+    let geocoder = MockLocationGeocoder()
 
     let sut = WeatherViewModel(repository: mock, geocoder: geocoder)
     //act
@@ -42,13 +40,13 @@ class WeatherViewModelTest: XCTestCase {
     //assert
 
     XCTAssertEqual(sut.state, .loaded)
+    XCTAssertNotNil(sut.dayForecast)
+    XCTAssertNotNil(sut.hourlyForecast)
     XCTAssertNotNil(sut.currentForecast)
     XCTAssertNotNil(sut.$selectedForecastType)
-    XCTAssertNotNil(sut.error)
+    XCTAssertNil(sut.error)
     XCTAssertTrue(sut.temp > 0)
   }
-
-  
 
 }
 class MockWeatherRepository: WeatherRepositoryProtocol {
@@ -83,6 +81,18 @@ extension WeatherViewModel.State: Equatable {
 
     default: return true
 
+    }
+  }
+
+}
+class MockLocationGeocoder: LocationGeocoderProtocol {
+  var error: Error?
+  func reverseGeocodeUserLocation() async throws -> WeatherApp.City {
+    if let error = error {
+      throw error
+
+    } else {
+      return City.make()
     }
   }
 

@@ -16,6 +16,7 @@ class LocationGeocoder: LocationGeocoderProtocol {
   private let locationManager: LocationManager
   private let geocoder = CLGeocoder()
   private var isObservingLocation = false
+    
   init(locationManager: LocationManager = LocationManager()) {
     self.locationManager = locationManager
   }
