@@ -13,7 +13,8 @@ jobs:
 
     steps:
     -name: xcbeautify
-      run: set -o pipefail && xcodebuild [flags] | xcbeautify --renderer github-actions
+      run: |
+       set -o pipefail && xcodebuild [flags] | xcbeautify --renderer github-actions
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set Default Scheme
