@@ -55,9 +55,13 @@ struct WidgetWeatherApp: Widget {
     let kind: String = "WidgetWeatherApp"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            WidgetWeatherAppEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+        if #available(iOSApplicationExtension 17.0, *) {
+            AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
+                WidgetWeatherAppEntryView(entry: entry)
+                    .containerBackground(.fill.tertiary, for: .widget)
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
 }
