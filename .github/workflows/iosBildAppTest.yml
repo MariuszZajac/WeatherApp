@@ -3,18 +3,13 @@ name: iOS starter workflow
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+ 
 jobs:
   build:
     name: Build and Test default scheme
     runs-on: macos-latest
-
+    set -o pipefail && xcodebuild [flags] | xcbeautify --renderer github-actions
     steps:
-    -name: xcbeautify
-      run: |
-       set -o pipefail && xcodebuild [flags] | xcbeautify --renderer github-actions
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set Default Scheme
