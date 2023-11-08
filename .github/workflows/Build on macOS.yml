@@ -1,19 +1,20 @@
-name: Swift
+name: Swift-demo
 
-on: [push]
+on:
+ push:
+ branches: [master]
 
 jobs:
   build:
-    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-        swift: ["5.2", "5.3"]
-    runs-on: ${{ matrix.os }}
+        runs-on: macos-latest
     steps:
+      - name: Set up Xcode
+        uses: actions/setup-xcode@v2
+        with:
+          xcode-version: 15.0.1
       - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
         with:
-          swift-version: ${{ matrix.swift }}
+          swift-version: "5.3"
       - uses: actions/checkout@v4
       - name: Build
         run: swift build
