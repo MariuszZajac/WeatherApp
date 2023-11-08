@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     name: Build and Test default scheme
-    runs-on: macos-latest
+    runs-on: ios-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
