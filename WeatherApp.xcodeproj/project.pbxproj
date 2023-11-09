@@ -117,6 +117,7 @@
 		87A09EB72ACBE8FE005D06FE /* CityTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTextView.swift; sourceTree = "<group>"; };
 		87A0C7C02AE17420008B23C4 /* OneHourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneHourView.swift; sourceTree = "<group>"; };
 		87A774EF2ACE95BB0084E463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		87DB0C2B2AFCE67600C536C3 /* WeatherApp-buildscheme.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "WeatherApp-buildscheme.xctestplan"; sourceTree = "<group>"; };
 		87E052BA2AE7DF97005CA1C9 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		87E052BC2AE7E25F005CA1C9 /* LocationGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGeocoder.swift; sourceTree = "<group>"; };
 		87E052BF2AEBAD29005CA1C9 /* WeatherApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WeatherApp.xctestplan; sourceTree = "<group>"; };
@@ -335,6 +336,7 @@
 		87FFAF492A9C7ED6002A25DA = {
 			isa = PBXGroup;
 			children = (
+				87DB0C2B2AFCE67600C536C3 /* WeatherApp-buildscheme.xctestplan */,
 				87E052BF2AEBAD29005CA1C9 /* WeatherApp.xctestplan */,
 				87FFAF532A9C7ED6002A25DA /* Products */,
 				87FFAF542A9C7ED6002A25DA /* WeatherApp */,
