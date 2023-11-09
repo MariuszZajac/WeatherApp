@@ -61,6 +61,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		87DB0C2C2AFD018500C536C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87FFAF4A2A9C7ED6002A25DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87F427892AD940A000427B9B;
+			remoteInfo = WeatherAppTests;
+		};
 		87F4278E2AD940A000427B9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87FFAF4A2A9C7ED6002A25DA /* Project object */;
@@ -433,6 +440,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				87DB0C2F2AFD019200C536C3 /* PBXTargetDependency */,
+				87DB0C2D2AFD018500C536C3 /* PBXTargetDependency */,
 			);
 			name = WeatherApp;
 			productName = WeatherApp;
@@ -565,6 +574,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		87DB0C2D2AFD018500C536C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 87F427892AD940A000427B9B /* WeatherAppTests */;
+			targetProxy = 87DB0C2C2AFD018500C536C3 /* PBXContainerItemProxy */;
+		};
+		87DB0C2F2AFD019200C536C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 87DB0C2E2AFD019200C536C3 /* SnapshotTesting */;
+		};
 		87F4278F2AD940A000427B9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 87FFAF512A9C7ED6002A25DA /* WeatherApp */;
@@ -786,6 +804,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherApp/Preview Content\"";
@@ -808,6 +827,8 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Angrale.WeatherApp;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = WeatherAngrale;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = WeatherAngrale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -862,6 +883,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		87DB0C2E2AFD019200C536C3 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87E052C02AEBB951005CA1C9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
 		87E052C12AEBB951005CA1C9 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87E052C02AEBB951005CA1C9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
