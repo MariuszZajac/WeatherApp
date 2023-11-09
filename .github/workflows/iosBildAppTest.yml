@@ -1,4 +1,5 @@
-name: iOS starter workflow
+name: iOS starter workflow -test
+  author:'Mariusz Zajac'
 
 on:
   push:
@@ -7,7 +8,7 @@ on:
 jobs:
   build:
     name: Build and Test default scheme
-    runs-on: macos-latest
+    runs-on: macos-13.x
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -17,10 +18,10 @@ jobs:
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo $default | cat >default
           echo Using default scheme: $default
+          destination="platform=iOS Simulator,OS=16.0,name=iPhone 13"
+          echo "::set-env name=IOS_SIMULATOR::$destination"
+
           
-      - name: iOS Build Action
-        uses: yukiarrr/ios-build-action@v1.11.0
-            
       - name: Test
         env:
           scheme: ${{ 'default' }}
