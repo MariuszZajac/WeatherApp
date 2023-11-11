@@ -10,8 +10,11 @@ Technologie
 Aplikacja została zbudowana przy użyciu technologii:
 
 SwiftUI
+
 Wzorzec projektowy MVVM
+
 Combine (do obsługi asynchronicznych operacji)
+
 Testowanie jednostkowe
 
 Instalacja
