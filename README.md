@@ -1,12 +1,12 @@
-Aplikacja Pogodowa WeatherApp
+# Aplikacja Pogodowa WeatherApp
 
-Opis Projektu
+##Opis Projektu
 
 WeatherApp to projekt stworzony w języku SwiftUI. Pozwala ona na sprawdzanie bieżącej prognozy pogody na 24 h  oraz prognozy na kolejne dni, zapewniając użytkownikom szybki dostęp do istotnych informacji dotyczących warunków atmosferycznych.
 Lokalizacja użytkownika jest automatycznie pobierana na tej podstawie wysyłane jest zapytanie do serwera. 
 Aplikacja korzysta z publicznego API pogodowego openweathermap,  zawiera zestaw testów jednostkowych i testów Snapshot. 
 
-Technologie
+##Technologie
 Aplikacja została zbudowana przy użyciu technologii:
 
 SwiftUI
@@ -17,24 +17,24 @@ Combine (do obsługi asynchronicznych operacji)
 
 Testowanie jednostkowe
 
-Instalacja
+##Instalacja
 
 Wymagania systemowe
 iOS 14.0 lub nowszy
 Xcode 12.0 lub nowszy
 
-Klonowanie repozytorium
+##Klonowanie repozytorium
 
 Skorzystaj z poniższego polecenia w terminalu:
 
 git clone https://github.com/MariuszZajac/WeatherApp.git
 
 
-Licencja
+##Licencja
 
 Ten projekt jest dostępny na licencji MIT 
 
-Kontakt: 
+##Kontakt: 
 
 W razie pytań, sugestii lub problemów, skontaktuj się ze mną pod adresem: zajac.mariusz@icloud.com
 
