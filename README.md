@@ -46,6 +46,12 @@ Bądź na bieżąco z pogodą dzięki WeatherApp! 🌦️📱
 
 <img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/1c59d437-4229-4e25-9465-967d1a33e58c" width="48%" alt="Screenshot 1">
 
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/01b13ae4-3503-4fc6-a07c-a2e437dfdc67" width="48%" alt="Screenshot 8">
+
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/2ff4aac1-4eaf-4731-ad74-deeb5f66f41d" width="48%" alt="Screenshot 9">
+
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/cad3b6b0-9ceb-4d65-aad9-64ae7ea67c84" width="48%" alt="Screenshot 10">
+
 <img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/99681541-ad36-4791-94fe-ce7e63544e5d" width="48%" alt="Screenshot 2">
 
 <img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/6772c5db-6215-4687-8599-33f1aa5401b6" width="48%" alt="Screenshot 3">
@@ -61,3 +67,7 @@ Bądź na bieżąco z pogodą dzięki WeatherApp! 🌦️📱
 <!-- Dodaj kolejne zdjęcia w podobny sposób -->
 
 </div>
+
+
+
+
