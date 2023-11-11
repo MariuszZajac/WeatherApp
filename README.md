@@ -60,12 +60,6 @@ Bądź na bieżąco z pogodą dzięki WeatherApp! 🌦️📱
 
 <img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/cb8ea838-8025-410c-8072-ad3bb559387a" width="48%" alt="Screenshot 5">
 
-<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/6278feaa-e02b-42e7-96fb-d37c69204218" width="48%" alt="Screenshot 6">
-
-<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/eee8b089-0646-452f-b3ee-bc39e363e1dd" width="48%" alt="Screenshot 7">
-
-<!-- Dodaj kolejne zdjęcia w podobny sposób -->
-
 </div>
 
 
