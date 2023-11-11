@@ -2,7 +2,7 @@ Aplikacja Pogodowa WeatherApp
 
 Opis Projektu
 
-WeatherApp to projekt stworzony w języku SwiftUI. Pozwala ona na sprawdzanie bieżącej prognozy pogody oraz prognozy na kolejne dni, zapewniając użytkownikom szybki dostęp do istotnych informacji dotyczących warunków atmosferycznych.
+WeatherApp to projekt stworzony w języku SwiftUI. Pozwala ona na sprawdzanie bieżącej prognozy pogody na 24 h  oraz prognozy na kolejne dni, zapewniając użytkownikom szybki dostęp do istotnych informacji dotyczących warunków atmosferycznych.
 Lokalizacja użytkownika jest automatycznie pobierana na tej podstawie wysyłane jest zapytanie do serwera. 
 Aplikacja korzysta z publicznego API pogodowego openweathermap,  zawiera zestaw testów jednostkowych i testów Snapshot. 
 
