@@ -23,6 +23,14 @@ Wymagania systemowe
 iOS 14.0 lub nowszy
 Xcode 12.0 lub nowszy
 
+Klonowanie repozytorium
+Skorzystaj z poniższego polecenia w terminalu:
+
+bash
+Copy code
+git clone https://github.com/MariuszZajac/WeatherApp.git
+
+
 Licencja
 
 Ten projekt jest dostępny na licencji MIT 
@@ -30,6 +38,8 @@ Ten projekt jest dostępny na licencji MIT
 Kontakt: 
 
 W razie pytań, sugestii lub problemów, skontaktuj się ze mną pod adresem: zajac.mariusz@icloud.com
+
+Bądź na bieżąco z pogodą dzięki WeatherApp! 🌦️📱
 
 ![Simulator Screenshot - iPhone 15 Pro - 2023-11-11 at 11 12 48](https://github.com/MariuszZajac/WeatherApp/assets/93003863/1c59d437-4229-4e25-9465-967d1a33e58c)
 ![Simulator Screenshot - iPhone 15 Pro - 2023-11-11 at 11 12 31](https://github.com/MariuszZajac/WeatherApp/assets/93003863/99681541-ad36-4791-94fe-ce7e63544e5d)
