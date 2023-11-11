@@ -40,10 +40,24 @@ W razie pytań, sugestii lub problemów, skontaktuj się ze mną pod adresem: za
 
 Bądź na bieżąco z pogodą dzięki WeatherApp! 🌦️📱
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-11-11 at 11 12 48](https://github.com/MariuszZajac/WeatherApp/assets/93003863/1c59d437-4229-4e25-9465-967d1a33e58c)
-![Simulator Screenshot - iPhone 15 Pro - 2023-11-11 at 11 12 31](https://github.com/MariuszZajac/WeatherApp/assets/93003863/99681541-ad36-4791-94fe-ce7e63544e5d)
-![Simulator Screenshot - iPhone 15 Pro - 2023-11-11 at 11 12 21](https://github.com/MariuszZajac/WeatherApp/assets/93003863/6772c5db-6215-4687-8599-33f1aa5401b6)
-![Simulator Screenshot - iPhone 15 Pro - 2023-11-11 at 11 12 14](https://github.com/MariuszZajac/WeatherApp/assets/93003863/d60b905e-4d78-4ea1-a5d3-83480a734775)
-![Simulator Screenshot - iPhone 15 Pro - 2023-11-11 at 11 11 59](https://github.com/MariuszZajac/WeatherApp/assets/93003863/cb8ea838-8025-410c-8072-ad3bb559387a)
-![Simulator Screenshot - iPhone 15 Pro - 2023-10-13 at 19 22 30](https://github.com/MariuszZajac/WeatherApp/assets/93003863/6278feaa-e02b-42e7-96fb-d37c69204218)
-![Simulator Screenshot - iPhone 15 Pro - 2023-10-13 at 18 50 25](https://github.com/MariuszZajac/WeatherApp/assets/93003863/eee8b089-0646-452f-b3ee-bc39e363e1dd)
+## Zrzuty ekranu
+
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/1c59d437-4229-4e25-9465-967d1a33e58c" width="48%" alt="Screenshot 1">
+
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/99681541-ad36-4791-94fe-ce7e63544e5d" width="48%" alt="Screenshot 2">
+
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/6772c5db-6215-4687-8599-33f1aa5401b6" width="48%" alt="Screenshot 3">
+
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/d60b905e-4d78-4ea1-a5d3-83480a734775" width="48%" alt="Screenshot 4">
+
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/cb8ea838-8025-410c-8072-ad3bb559387a" width="48%" alt="Screenshot 5">
+
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/6278feaa-e02b-42e7-96fb-d37c69204218" width="48%" alt="Screenshot 6">
+
+<img src="https://github.com/MariuszZajac/WeatherApp/assets/93003863/eee8b089-0646-452f-b3ee-bc39e363e1dd" width="48%" alt="Screenshot 7">
+
+<!-- Dodaj kolejne zdjęcia w podobny sposób -->
+
+</div>
