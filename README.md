@@ -24,10 +24,9 @@ iOS 14.0 lub nowszy
 Xcode 12.0 lub nowszy
 
 Klonowanie repozytorium
+
 Skorzystaj z poniższego polecenia w terminalu:
 
-bash
-Copy code
 git clone https://github.com/MariuszZajac/WeatherApp.git
 
 
