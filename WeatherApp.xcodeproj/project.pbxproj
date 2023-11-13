@@ -61,13 +61,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		87DB0C2C2AFD018500C536C3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 87FFAF4A2A9C7ED6002A25DA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 87F427892AD940A000427B9B;
-			remoteInfo = WeatherAppTests;
-		};
 		87F4278E2AD940A000427B9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87FFAF4A2A9C7ED6002A25DA /* Project object */;
@@ -440,8 +433,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				87DB0C2F2AFD019200C536C3 /* PBXTargetDependency */,
-				87DB0C2D2AFD018500C536C3 /* PBXTargetDependency */,
 			);
 			name = WeatherApp;
 			productName = WeatherApp;
@@ -574,15 +565,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		87DB0C2D2AFD018500C536C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 87F427892AD940A000427B9B /* WeatherAppTests */;
-			targetProxy = 87DB0C2C2AFD018500C536C3 /* PBXContainerItemProxy */;
-		};
-		87DB0C2F2AFD019200C536C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 87DB0C2E2AFD019200C536C3 /* SnapshotTesting */;
-		};
 		87F4278F2AD940A000427B9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 87FFAF512A9C7ED6002A25DA /* WeatherApp */;
@@ -883,11 +865,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		87DB0C2E2AFD019200C536C3 /* SnapshotTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 87E052C02AEBB951005CA1C9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
-			productName = SnapshotTesting;
-		};
 		87E052C12AEBB951005CA1C9 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87E052C02AEBB951005CA1C9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
