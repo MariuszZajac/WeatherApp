@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UiLibrary
 
 struct CityTextView: View {
   var city: City

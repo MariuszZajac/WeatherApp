@@ -7,6 +7,7 @@ import Combine
 //
 import Foundation
 import SwiftUI
+import UiLibrary
 
 struct WeatherView: View {
   @StateObject var viewModel: WeatherViewModel

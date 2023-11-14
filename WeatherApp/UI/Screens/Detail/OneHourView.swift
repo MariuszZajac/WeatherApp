@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UiLibrary
 
 struct OneHourView: View {
   @Binding var selectedHourlyItem: HourlyWeather?

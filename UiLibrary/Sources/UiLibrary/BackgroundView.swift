@@ -7,13 +7,18 @@
 
 import SwiftUI
 
-struct BackgroundView: View {
+public struct BackgroundView: View {
   @Environment(\.colorScheme) var colorScheme
 
   var topColor: Color
   var bottomColor: Color
 
-  var body: some View {
+    public init(topColor: Color, bottomColor: Color) {
+          self.topColor = topColor
+          self.bottomColor = bottomColor
+      }
+    
+    public var body: some View {
 
     LinearGradient(
       gradient: Gradient(colors: [topColor, bottomColor]),

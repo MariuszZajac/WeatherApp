@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UiLibrary
 
 struct OneDayView: View {
   @Binding var selectedDayItem: DailyWeather?
