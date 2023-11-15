@@ -22,7 +22,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "UiLibrary",
-            sources: ["ErrorView.swift", "BackgroundView.swift", "ClockView.swift"]),
+            sources: ["ErrorView.swift", "BackgroundView.swift", "ClockView.swift", "PrimaryButton.swift"]),
         .testTarget(
             name: "UiLibraryTests",
             dependencies: ["UiLibrary"]),

@@ -32,12 +32,13 @@ public struct ErrorView: View {
           .multilineTextAlignment(.center)
           .id("error_title")
       }
-      PrimaryButton(
+        PrimaryButton(
         label: {
           Text(buttonLabel)
             .padding(.all, 8)
             .frame(maxWidth: .infinity, alignment: .center)
         }, action: action)
+        
     }
     .padding(.horizontal, 48)
     .id("error_view")
